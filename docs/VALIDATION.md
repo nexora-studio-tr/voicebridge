@@ -1,4 +1,16 @@
-# Validation — 2026-10-25
+# Validation
+
+## English recognition repair — 2026-10-26
+
+The updated local implementation passed 59 TypeScript tests, 9 Python safety/profile tests, 10 browser checks, strict typecheck/build and pinned-model verification. The authenticated loopback worker also passed the three-speaker synthetic caption/translated-audio pipeline without cloud calls. Five new receive-buffer tests cover pause boundaries, long English speech, hard bounds, ordered sample preservation, interruption clearing and the unchanged Turkish profile.
+
+The [synthetic English comparison](reports/english-recognition.json) reuses identical audio hashes for six Piper/LJSpeech sentences in clean and deterministic soft/noisy/faster variants. With standalone cardinal words/numerals treated equivalently, word errors changed from **3/126 to 0/126** on these twelve samples; raw case/punctuation-only scoring changed from 9/126 to 6/126. The English-only base-model candidate had two normalized errors and was not selected. This is a small one-voice synthetic regression, not evidence of error-free human accents or real Discord microphone conditions.
+
+The selected settings need no new model download. Run `python scripts/benchmark_recognition.py --generate` once to create a new synthetic corpus, then reuse it for comparisons without `--generate`. `--engine-file` can evaluate a trusted local baseline engine; `--rescore --output report.json` records both number-normalized and raw errors without rerunning inference. Results remain in ignored artifacts; no human speech is recorded by this harness.
+
+The updated receive/recognition path has not yet been rechecked with the reporting user's live English speech. The earlier live checks below describe the initial alpha.
+
+## Initial alpha — 2026-10-25
 
 Discord credentials were entered privately by the operator for a dedicated live test. No billable API calls were made. This is alpha software with a bounded one-user live check, not a certified interpreter.
 

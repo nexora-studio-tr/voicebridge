@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-26",
+  "synthetic": true,
+  "liveDiscordRetested": false,
+  "paidApi": false,
+  "baselineSourceCommit": "a838caa44b7b74e467af1c8cfdfd907aab41ce33",
+  "model": "existing pinned multilingual faster-whisper-base; no new model required",
+  "selectedChange": "English beam_size=5, temperature=0, VAD silence 700ms; Turkish profile preserved",
+  "captureChange": "English stream end after 900ms silence; quiet boundary after six seconds, hard cap twelve seconds; Turkish remains 450ms/six seconds",
+  "scope": "Six Piper/LJSpeech sentences in clean and deterministic soft/noisy/faster variants. One synthetic voice. No human-accent, real-microphone, Discord-loss or general-accuracy claim.",
+  "normalization": "case, punctuation, and equivalent standalone cardinal words/numerals (zero to nineteen and tens); no semantic matching",
+  "before": {
+    "normalizedWordErrors": 3,
+    "rawWordErrors": 9,
+    "referenceWords": 126
+  },
+  "after": {
+    "normalizedWordErrors": 0,
+    "rawWordErrors": 6,
+    "referenceWords": 126
+  },
+  "notSelected": {
+    "model": "faster-whisper-base.en, beam size five",
+    "normalizedWordErrors": 2,
+    "reason": "Two word errors on the same corpus; existing multilingual beam-five model had none"
+  },
+  "samples": [
+    {
+      "reference": "The meeting starts at three. Please open the document.",
+      "condition": "synthetic clean",
+      "audioSha256": "e08e4de51dc5f736dcbaf8b6e61721f28c4ce1b55c85d867ebf70cda7df0ac1a",
+      "before": "The meeting starts at 3. Please open the document.",
+      "after": "The meeting starts at 3, please open the document.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "The meeting starts at three. Please open the document.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "489b0292c1f7af94a88ed640518b8d5ace9288a7a592a98ce92b12073939a371",
+      "before": "The meeting starts at 3. Please open the document.",
+      "after": "The meeting starts at 3. Please open the document.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We can continue tomorrow. Thank you for your help.",
+      "condition": "synthetic clean",
+      "audioSha256": "2489ccdd482c9231dedf2bb92c9483e2fab7d94d495ef70f0b2d8f69f9d7856e",
+      "before": "We can continue tomorrow. Thank you for your help.",
+      "after": "We can continue tomorrow. Thank you for your help.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We can continue tomorrow. Thank you for your help.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "7ff1979c8c71276bb78d4c70b6a218bb8ac86599003a01013443f04bdd695ea7",
+      "before": "We can continue tomorrow. Thank you for your help.",
+      "after": "We can continue tomorrow, thank you for your help.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "I didn't say delete the backup. I said keep it until Friday.",
+      "condition": "synthetic clean",
+      "audioSha256": "0475d9976d7a127c081ec2f572ea28e44480f1274aeb1bf3ffb7dd70bdadaeda",
+      "before": "I didn't say to leave the backup. I said keep that until Friday.",
+      "after": "I didn't say delete the backup, I said keep it until Friday.",
+      "beforeWordErrors": 3,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "I didn't say delete the backup. I said keep it until Friday.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "de269143198838d939d8f8a93536afbd70bf5c2e3732cbcd33e578a6964aa575",
+      "before": "I didn't say delete the backup, I said keep it until Friday.",
+      "after": "I didn't say delete the backup, I said keep it until Friday.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We need fifteen minutes, not fifty. Please check the microphone.",
+      "condition": "synthetic clean",
+      "audioSha256": "b9111494516db0d246b6b8cc89febf89b601144516cca6b29675b0be32594b1e",
+      "before": "We need 15 minutes. Not 50, please check the microphone.",
+      "after": "We need 15 minutes, not 50. Please check the microphone.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We need fifteen minutes, not fifty. Please check the microphone.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "614693c9570402a3003968bed40879d1c3f3522b6fecb54e337ba8b348374328",
+      "before": "We need 15 minutes, not 50 please check the microphone.",
+      "after": "We need 15 minutes, not 50. Please check the microphone.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "I have already sent the invitation, but they haven't replied yet.",
+      "condition": "synthetic clean",
+      "audioSha256": "15617f861b0335d8697ea312a65ba6cdcc63ed3019a12590a8b9d97e7b8c8570",
+      "before": "I have already sent the invitation, but they haven't replied yet.",
+      "after": "I have already sent the invitation, but they haven't replied yet.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "I have already sent the invitation, but they haven't replied yet.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "b26a00e9ec178921801cb582f3593838d84dbf5062ff811fc06e65289748ceba",
+      "before": "I have already sent the invitation, but they haven't replied yet.",
+      "after": "I have already sent the invitation, but they haven't replied yet.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We don't need to restart the server. Please keep the current settings.",
+      "condition": "synthetic clean",
+      "audioSha256": "6d1ae1f2e15657f2042fbc8754d25dcd7d111e5b9abd848c78f74d046c0234e3",
+      "before": "We don't need to restart the server. Please keep the current settings.",
+      "after": "We don't need to restart the server, please keep the current settings.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    },
+    {
+      "reference": "We don't need to restart the server. Please keep the current settings.",
+      "condition": "synthetic soft/noisy/faster",
+      "audioSha256": "f88e4fe46660de4a45fce019c076fb70c2acca45b769cae851ae9199339f86a4",
+      "before": "We don't need to restart the server, please keep the current settings.",
+      "after": "We don't need to restart the server. Please keep the current settings.",
+      "beforeWordErrors": 0,
+      "afterWordErrors": 0
+    }
+  ]
+}

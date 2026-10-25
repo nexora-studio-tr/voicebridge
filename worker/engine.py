@@ -31,6 +31,7 @@ class Engine:
                     'tts/en/en_US-ljspeech-medium.onnx', 'tts/en/en_US-ljspeech-medium.onnx.json']
         missing = [p for p in required if not (self.root / p).is_file()]
         return {'ready': not missing, 'missing': missing, 'device': 'cpu', 'languages': ['tr', 'en'],
+                'recognitionProfiles': {'en': {'model': 'base', 'beamSize': 5}, 'tr': {'model': 'base', 'beamSize': 1}},
                 'loaded': {'recognition': self.recognizer is not None,
                            'translation': list(self.translators), 'speech': list(self.voices)}}
 
@@ -72,9 +73,11 @@ class Engine:
                 from faster_whisper import WhisperModel
                 self.recognizer = WhisperModel(str(self.root/'asr'), device='cpu', compute_type='int8',
                                                cpu_threads=2, num_workers=1, local_files_only=True)
-            segments, _ = self.recognizer.transcribe(samples, language=language, beam_size=1,
-                best_of=1, condition_on_previous_text=False, vad_filter=True,
-                vad_parameters={'min_silence_duration_ms': 350}, no_speech_threshold=0.6)
+            segments, _ = self.recognizer.transcribe(samples, language=language, task='transcribe',
+                beam_size=5 if language == 'en' else 1,
+                condition_on_previous_text=False, vad_filter=True,
+                vad_parameters={'min_silence_duration_ms': 700 if language == 'en' else 350}, no_speech_threshold=0.6,
+                **({'temperature': 0.0} if language == 'en' else {}))
             accepted = [s.text.strip() for s in segments if s.no_speech_prob < 0.8 and s.avg_logprob > -1.2 and s.compression_ratio < 2.8]
             return ' '.join(accepted)[:1200]
 

@@ -24,6 +24,7 @@ Operatör veya **Sunucuyu Yönet** yetkili üye bulut anahtarını kaydeder, fiy
 
 - Model: `npm run models`; doğrulama: `npm run models -- --verify-only`.
 - Altyazı yok: panel bağlantısı, konuşmacı onayı/dili ve model durumunu kontrol et. Sessiz, çok kısa, kuyruk sınırını aşan veya kesintili parçalar atlanır.
+- İngilizce yanlış algılanıyor: **Konuştuğun dil → English** seç; dinlemek istediğin dil ayrı bir ayardır. Güncel kaynakla `npm run build` çalıştırıp uygulamayı yeniden başlat; Python işçisi de uygulamayla yeniden açılır. Yeni İngilizce çözümleme ve duraklama ayarları mevcut ücretsiz yerel modeli kullanır, ek model/API gerekmez. İngilizce cümle sonu gecikmesi biraz artabilir. Orijinal metindeki hata çeviriye de taşınır; mikrofon ve aksan için canlı sonuçları ayrıca kontrol et.
 - Ses yok: Sesli dinlemeyi aç düğmesine bas; tarayıcı sesini kontrol et. Eski kuyruk parçaları atlanabilir.
 - Bot giremiyor: kanal Görüntüle/Bağlan ve komutu verenin Sunucuyu Yönet izinlerini kontrol et. Stage desteklenmez.
 - Yavaş: ilk yüklemeyi bekle, eşzamanlı konuşmayı ve hedef dilleri azalt. CPU profili kapasite garantisi değildir.

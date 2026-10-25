@@ -43,6 +43,10 @@ Audio is routed by the Discord speaker stream identity; a voice-cloning/biometri
 
 An utterance has stable room/speaker/sequence identity. The initial implementation commits bounded utterances, without partial word streaming. Captions are delivered before synthesis; an audio update replaces the same caption ID.
 
+The English receive profile waits 900 ms before ending a stream. At six seconds it can commit at a quiet PCM boundary; twelve seconds is the hard memory/context cap. The Turkish profile retains its six-second cap and 450 ms stream timeout. Interruption clears pending PCM. These bounds improve context at the cost of additional English end-of-utterance latency; continuous speech can still meet the hard cap.
+
+Local English uses the existing pinned multilingual base model with five-beam, temperature-zero decoding and 700 ms VAD silence. Turkish retains greedy decoding and 350 ms VAD silence. Previous-text conditioning stays off for both languages, preventing recognition prompts from carrying another speaker's text forward. No extra model, API key or automatic cloud fallback is required.
+
 Recognition is shared per room, speaker and actual engine profile. Listeners can choose local/cloud independently; at most the requested authorized profiles run. Translation and synthesis are shared within a room only when language, engine, voice, source revision and owner credential profile match. There is no cross-room cache of private conversation data.
 
 Cancellation, mode/language switching and reconnects carry generation numbers. Late results from obsolete generations are discarded. A bounded browser audio queue supports stop/skip; old audio is not replayed after reauthorization. The initial delivery design uses authenticated text events and expiring same-origin audio segments; delivery uses cookie-authenticated SSE and short-lived WAV URLs.

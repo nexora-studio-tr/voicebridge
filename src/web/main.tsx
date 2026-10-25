@@ -707,6 +707,12 @@ function App() {
                     { value: 'en', label: 'English' },
                   ]}
                 />
+                <p className="small muted">
+                  {t(
+                    'Bu ayar kendi sesinin tanınmasını belirler; dinleme dilinden bağımsızdır.',
+                    'This controls recognition of your own speech, independently of your listening language.',
+                  )}
+                </p>
                 <Toggle
                   id="consent-local"
                   checked={self.local}

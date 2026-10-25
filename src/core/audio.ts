@@ -1,4 +1,45 @@
-import { Fault } from './contracts.js';
+import { Fault, type Language } from './contracts.js';
+
+// Bounded mono PCM at 16 kHz. Keep English pauses/context without changing the Turkish profile.
+export class UtteranceBuffer {
+  readonly silenceMs: number;
+  private chunks: Buffer[] = [];
+  private bytes = 0;
+  private quietMs = 0;
+  private readonly limit: number;
+  constructor(private language: Language) {
+    this.silenceMs = language === 'en' ? 900 : 450;
+    this.limit = 32000 * (language === 'en' ? 12 : 6);
+  }
+  get length() {
+    return this.bytes;
+  }
+  push(chunk: Buffer): Buffer | null {
+    if (!chunk.length) return null;
+    if (chunk.length % 2 || chunk.length > this.limit) throw new Fault('INVALID_AUDIO');
+    let completed = this.bytes + chunk.length > this.limit ? this.finish() : null;
+    this.chunks.push(chunk);
+    this.bytes += chunk.length;
+    if (this.language === 'en') {
+      let squares = 0;
+      for (let i = 0; i < chunk.length; i += 2) squares += (chunk.readInt16LE(i) / 32768) ** 2;
+      const rms = Math.sqrt(squares / (chunk.length / 2));
+      this.quietMs = rms < 0.002 ? this.quietMs + chunk.length / 32 : 0;
+      if (!completed && this.bytes >= 6 * 32000 && this.quietMs >= 150) completed = this.finish();
+    }
+    return completed;
+  }
+  finish(): Buffer | null {
+    const result = this.bytes ? Buffer.concat(this.chunks, this.bytes) : null;
+    this.clear();
+    return result;
+  }
+  clear() {
+    this.chunks = [];
+    this.bytes = 0;
+    this.quietMs = 0;
+  }
+}
 
 export function wav(pcm: Buffer, rate = 16000) {
   const h = Buffer.alloc(44);

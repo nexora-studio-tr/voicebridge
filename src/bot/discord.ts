@@ -21,7 +21,7 @@ import prism from 'prism-media';
 import { type DiscordConfig, type Member, Fault, check } from '../core/contracts.js';
 import { Rooms, type Room } from '../core/rooms.js';
 import { Store } from '../core/store.js';
-import { wav } from '../core/audio.js';
+import { wav, UtteranceBuffer } from '../core/audio.js';
 
 export interface Gateway {
   ready(): boolean;
@@ -382,29 +382,26 @@ export class DiscordBridge implements Gateway {
       key = room.guildId + ':' + id;
     if (!speaker?.consent.local || !this.allowed(room, id) || this.captureStops.has(key)) return;
     const epoch = speaker.epoch;
+    const buffer = new UtteranceBuffer(speaker.consent.language);
     const stream = connection.receiver.subscribe(id, {
-      end: { behavior: EndBehaviorType.AfterSilence, duration: 450 },
+      end: { behavior: EndBehaviorType.AfterSilence, duration: buffer.silenceMs },
     });
     const decoder = new prism.opus.Decoder({ rate: 16000, channels: 1, frameSize: 320 });
-    let chunks: Buffer[] = [],
-      size = 0,
-      first = Date.now(),
+    let first = Date.now(),
       last = first,
       invalid = false,
       closed = false;
-    const flush = () => {
-      if (size && speaker.epoch === epoch && speaker.consent.local && this.allowed(room, id)) {
+    const flush = (pcm = buffer.finish()) => {
+      if (
+        pcm?.length &&
+        speaker.epoch === epoch &&
+        speaker.consent.local &&
+        this.allowed(room, id)
+      ) {
         const span = Math.max(0.02, (last - first) / 1000),
-          seconds = size / 32000;
-        this.rooms?.ingest(
-          room,
-          id,
-          wav(Buffer.concat(chunks)),
-          invalid || (span > 1 && seconds < span * 0.65),
-        );
+          seconds = pcm.length / 32000;
+        this.rooms?.ingest(room, id, wav(pcm), invalid || (span > 1 && seconds < span * 0.65));
       }
-      chunks = [];
-      size = 0;
       first = Date.now();
       invalid = false;
     };
@@ -413,8 +410,7 @@ export class DiscordBridge implements Gateway {
       closed = true;
       stream.destroy();
       decoder.destroy();
-      chunks = [];
-      size = 0;
+      buffer.clear();
       this.captureStops.delete(key);
       speaker.speaking = false;
     };
@@ -431,11 +427,16 @@ export class DiscordBridge implements Gateway {
         stop();
         return;
       }
-      if (size + chunk.length > 16000 * 2 * 6) flush();
-      if (!size) first = Date.now();
+      if (!buffer.length) first = Date.now();
       last = Date.now();
-      chunks.push(chunk);
-      size += chunk.length;
+      try {
+        const completed = buffer.push(chunk);
+        if (completed) flush(completed);
+      } catch {
+        invalid = true;
+        flush();
+        stop();
+      }
     });
     decoder.on('error', () => {
       invalid = true;

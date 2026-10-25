@@ -30,6 +30,8 @@ Changing/removing a key invalidates listener generations. Removing disables clou
 
 ## Maintenance
 
+For incorrect English captions, set **Your spoken language → English** independently of the listening/translation language. Build the updated source with `npm run build` and restart the application; its Python worker is restarted with it. Improved English decoding/pauses use the existing free local model, with potentially longer end-of-utterance latency. Incorrect original recognition propagates into translation. Human accents and microphones still require a live check; see the synthetic regression's scope in [validation](VALIDATION.md).
+
 - Missing models: `npm run models`. Integrity: `npm run models -- --verify-only`. Retain pinned archives for offline reconstruction.
 - Ports: app 4347, demo 4348, worker 4351. Set PORT, PUBLIC_URL and worker port consistently if changed. Demo uses its own `.env.demo` and data directory.
 - No captions: check panel connection, speaker consent, spoken language and model status. Silent/short, overfull or detected incomplete segments are skipped.
