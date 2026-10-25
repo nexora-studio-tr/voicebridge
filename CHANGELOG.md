@@ -12,6 +12,7 @@ Initial public alpha.
 - Encrypted local configuration, private one-use operator setup and pinned model verification.
 - Synthetic recorded demo, setup scripts, architecture, model notices and reproducible validation reports.
 - Backend, Python and browser checks; one-user live Discord translation/playback confirmed in both directions.
+- Fresh source/demo CI passed on Ubuntu and Windows; full model installation and live provider checks remain separate.
 
 Known limits: alpha quality; clock-time translation errors; no multi-user capacity or real billable-provider validation. Model weights are downloaded separately. See [validation](docs/VALIDATION.md) and the [roadmap](ROADMAP.md).
 

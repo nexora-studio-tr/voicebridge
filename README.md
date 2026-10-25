@@ -92,7 +92,7 @@ npm run test:local
 npm run test:worker
 ```
 
-Python safety tests: project-venv `python -m unittest discover -s worker/tests -v`. Reports/screenshots go to ignored `artifacts/`. [Validation](docs/VALIDATION.md) distinguishes local evidence from open live/quality gates. CI is supplied; unexecuted CI is not claimed passed.
+Python safety tests: project-venv `python -m unittest discover -s worker/tests -v`. Reports/screenshots go to ignored `artifacts/`. The [initial GitHub Actions run](https://github.com/shadow2028-blip/voicebridge/actions/runs/40196645739) passed on Ubuntu and Windows. [Validation](docs/VALIDATION.md) distinguishes these source/demo checks from model installation, live use and quality gates.
 
 ## Contribute
 

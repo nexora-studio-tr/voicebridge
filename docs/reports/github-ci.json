@@ -1,0 +1,25 @@
+{
+  "dateLocal": "2026-10-25",
+  "timezone": "Europe/Istanbul",
+  "repository": "shadow2028-blip/voicebridge",
+  "sourceCommit": "dda59495a3ec04860f361d03bd6b7369ce218cb9",
+  "runId": 40196645739,
+  "url": "https://github.com/shadow2028-blip/voicebridge/actions/runs/40196645739",
+  "conclusion": "success",
+  "runners": ["ubuntu-latest", "windows-latest"],
+  "perRunner": {
+    "freshNpmInstall": "passed",
+    "typecheck": "passed",
+    "backendTests": 54,
+    "build": "passed",
+    "format": "passed",
+    "pythonSafetyTests": 8,
+    "browserChecks": 10,
+    "sourcePackaging": "passed"
+  },
+  "excluded": [
+    "Full Python inference installation and model download",
+    "Discord or billable API connections",
+    "Multi-user load or translation-quality certification"
+  ]
+}

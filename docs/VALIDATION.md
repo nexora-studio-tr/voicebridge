@@ -2,7 +2,9 @@
 
 Discord credentials were entered privately by the operator for a dedicated live test. No billable API calls were made. This is alpha software with a bounded one-user live check, not a certified interpreter.
 
-Observed on Windows: **54 backend tests, 8 Python safety tests and 10 browser checks passed**; strict typecheck/build/format passed and all 15 pinned model files were verified. A clean Node/source/demo installation was also exercised from an earlier alpha archive in a fresh directory using the npm cache. No second fresh Python/model installation or Linux result is claimed.
+Observed on the local Windows host: **54 backend tests, 8 Python safety tests and 10 browser checks passed**; strict typecheck/build/format passed and all 15 pinned model files were verified. A clean Node/source/demo installation was also exercised from an earlier alpha archive in a fresh directory using the npm cache.
+
+The published source then passed [GitHub Actions on Ubuntu and Windows](https://github.com/shadow2028-blip/voicebridge/actions/runs/40196645739): fresh npm installation, typecheck, 54 backend tests, build, formatting, 8 Python safety tests, 10 browser checks and source packaging on each runner. See the [machine-readable CI report](reports/github-ci.json) for the tested source commit. These CI jobs do not install the full inference stack/model weights or connect to Discord/paid providers. No second fresh Python/model installation or Linux live-inference result is claimed.
 
 | Area | Evidence |
 |---|---|
@@ -16,7 +18,7 @@ Observed on Windows: **54 backend tests, 8 Python safety tests and 10 browser ch
 | Discord Gateway / commands | Live connection and test-guild registration passed; [sanitized report](reports/live-connection.json) |
 | Human OAuth / DAVE / voice | One-user live check passed; [evidence and tester confirmations](reports/live-local.json) |
 | Billable cloud | **Not run; separate small spend approval required** |
-| Linux/fresh machine | CI supplied; **not claimed passed until executed** |
+| Ubuntu / Windows CI | Fresh source/demo checks passed on both hosted runners; full model installation and Linux live inference remain unverified |
 
 Host: Intel Core i3-9100T, four logical CPUs, 7.4 GiB RAM, no CUDA. Inference uses CPU/int8 where applicable and two threads. Warmup, per-utterance inference and queue-inclusive delivery are different measures. Four synthetic samples do not establish p95 or a live capacity SLA. The original three-speaker/two-target profile is still a test target.
 
