@@ -4,11 +4,13 @@
 
 The updated local implementation passed 59 TypeScript tests, 9 Python safety/profile tests, 10 browser checks, strict typecheck/build and pinned-model verification. The authenticated loopback worker also passed the three-speaker synthetic caption/translated-audio pipeline without cloud calls. Five new receive-buffer tests cover pause boundaries, long English speech, hard bounds, ordered sample preservation, interruption clearing and the unchanged Turkish profile.
 
+The repair code also passed [GitHub Actions on Ubuntu and Windows](https://github.com/nexora-studio-tr/voicebridge/actions/runs/40243519472) at commit `7e46b364e81263c54ee729898d549513e32959a8`. Subsequent documentation records the user's live result without changing the tested code.
+
 The [synthetic English comparison](reports/english-recognition.json) reuses identical audio hashes for six Piper/LJSpeech sentences in clean and deterministic soft/noisy/faster variants. With standalone cardinal words/numerals treated equivalently, word errors changed from **3/126 to 0/126** on these twelve samples; raw case/punctuation-only scoring changed from 9/126 to 6/126. The English-only base-model candidate had two normalized errors and was not selected. This is a small one-voice synthetic regression, not evidence of error-free human accents or real Discord microphone conditions.
 
 The selected settings need no new model download. Run `python scripts/benchmark_recognition.py --generate` once to create a new synthetic corpus, then reuse it for comparisons without `--generate`. `--engine-file` can evaluate a trusted local baseline engine; `--rescore --output report.json` records both number-normalized and raw errors without rerunning inference. Results remain in ignored artifacts; no human speech is recorded by this harness.
 
-The updated receive/recognition path has not yet been rechecked with the reporting user's live English speech. The earlier live checks below describe the initial alpha.
+The reporting user subsequently confirmed correct original English text and Turkish translation for the requested one-sentence live Discord check. This is a human self-report from one speaker, not recorded audio or a broad accent/microphone benchmark. Translated audio playback was not separately confirmed in this repair's live check. The earlier live checks below describe the initial alpha.
 
 ## Initial alpha — 2026-10-25
 

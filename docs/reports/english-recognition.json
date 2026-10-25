@@ -1,7 +1,7 @@
 {
   "date": "2026-10-26",
   "synthetic": true,
-  "liveDiscordRetested": false,
+  "liveDiscordRetested": true,
   "paidApi": false,
   "baselineSourceCommit": "a838caa44b7b74e467af1c8cfdfd907aab41ce33",
   "model": "existing pinned multilingual faster-whisper-base; no new model required",
@@ -133,5 +133,14 @@
       "beforeWordErrors": 0,
       "afterWordErrors": 0
     }
-  ]
+  ],
+  "userReportedLiveCheck": {
+    "scope": "One speaker, one requested English sentence; original English text and Turkish captions reported correct",
+    "evidence": "User confirmation in the repair conversation",
+    "recordedAudio": false,
+    "translatedAudioPlayback": "not separately confirmed for this repair",
+    "generalAccentCoverage": false
+  },
+  "validatedCodeCommit": "7e46b364e81263c54ee729898d549513e32959a8",
+  "ciRun": "https://github.com/nexora-studio-tr/voicebridge/actions/runs/40243519472"
 }
