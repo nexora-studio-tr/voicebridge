@@ -7,11 +7,11 @@
   "description": "Personal translated captions and speech for Discord voice rooms",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadow2028-blip/voicebridge.git"
+    "url": "https://github.com/nexora-studio-tr/voicebridge.git"
   },
-  "homepage": "https://github.com/shadow2028-blip/voicebridge#readme",
+  "homepage": "https://github.com/nexora-studio-tr/voicebridge#readme",
   "bugs": {
-    "url": "https://github.com/shadow2028-blip/voicebridge/issues"
+    "url": "https://github.com/nexora-studio-tr/voicebridge/issues"
   },
   "engines": {
     "node": ">=24.17.0 <25"

@@ -4,7 +4,7 @@ Discord credentials were entered privately by the operator for a dedicated live 
 
 Observed on the local Windows host: **54 backend tests, 8 Python safety tests and 10 browser checks passed**; strict typecheck/build/format passed and all 15 pinned model files were verified. A clean Node/source/demo installation was also exercised from an earlier alpha archive in a fresh directory using the npm cache.
 
-The published source then passed [GitHub Actions on Ubuntu and Windows](https://github.com/shadow2028-blip/voicebridge/actions/runs/40196645739): fresh npm installation, typecheck, 54 backend tests, build, formatting, 8 Python safety tests, 10 browser checks and source packaging on each runner. See the [machine-readable CI report](reports/github-ci.json) for the tested source commit. These CI jobs do not install the full inference stack/model weights or connect to Discord/paid providers. No second fresh Python/model installation or Linux live-inference result is claimed.
+The published source then passed [GitHub Actions on Ubuntu and Windows](https://github.com/nexora-studio-tr/voicebridge/actions/runs/40196645739): fresh npm installation, typecheck, 54 backend tests, build, formatting, 8 Python safety tests, 10 browser checks and source packaging on each runner. See the [machine-readable CI report](reports/github-ci.json) for the tested source commit. These CI jobs do not install the full inference stack/model weights or connect to Discord/paid providers. No second fresh Python/model installation or Linux live-inference result is claimed.
 
 | Area | Evidence |
 |---|---|

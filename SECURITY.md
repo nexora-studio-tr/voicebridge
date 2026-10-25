@@ -11,7 +11,7 @@ Use a dedicated bot/application and private test guild for the alpha. A bounded 
 - No active web subscriber means no new inference. Backlog and output limits bound CPU/memory use. Automatic paid fallback and blind provider retries are disabled.
 - Budget reservations are conservative estimates, not provider-side absolute caps. Timeouts/restarts retain uncertain charges. Monitor provider-side limits and revoke leaked keys there.
 
-Do not publish secrets, raw conversations, runtime databases/master keys or operator links in an issue. Private vulnerability reporting is enabled: use **Report a vulnerability** from the repository's [Security advisories](https://github.com/shadow2028-blip/voicebridge/security/advisories) page. Do not open a public report containing exploit details or user data.
+Do not publish secrets, raw conversations, runtime databases/master keys or operator links in an issue. Private vulnerability reporting is enabled: use **Report a vulnerability** from the repository's [Security advisories](https://github.com/nexora-studio-tr/voicebridge/security/advisories) page. Do not open a public report containing exploit details or user data.
 
 Türkçe: Anahtarları ve çalışma verisini özel tut. Ham konuşma kaydı tutulmaz; 90 saniyelik akış kalıcı arşiv değildir. İzin iptali önceden iletilmiş veriyi geri alamaz. Tek kullanıcılı yerel Discord testi yapıldı; çok kullanıcılı ve ücretli API doğrulaması tamamlanmadı. Güvenlik bildirimlerinde anahtar veya kullanıcı konuşması paylaşma.
 

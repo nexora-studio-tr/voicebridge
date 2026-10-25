@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security / Güvenlik
-    url: https://github.com/shadow2028-blip/voicebridge/security/policy
+    url: https://github.com/nexora-studio-tr/voicebridge/security/policy
     about: Read the private reporting instructions; do not disclose secrets in an issue.

@@ -2,9 +2,9 @@
 
 **Discord ses odaları için kişiye özel altyazı ve sesli çeviri. Kendi bilgisayarında veya sunucunda çalışır.**
 
-[![CI](https://github.com/shadow2028-blip/voicebridge/actions/workflows/ci.yml/badge.svg)](https://github.com/shadow2028-blip/voicebridge/actions/workflows/ci.yml)
+[![CI](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml/badge.svg)](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml)
 [![Lisans: GPL v3+](https://img.shields.io/badge/lisans-GPL--3.0--or--later-245a4c)](LICENSE)
-[![Durum: alfa](https://img.shields.io/badge/durum-alfa-d2b679)](https://github.com/shadow2028-blip/voicebridge/releases)
+[![Durum: alfa](https://img.shields.io/badge/durum-alfa-d2b679)](https://github.com/nexora-studio-tr/voicebridge/releases)
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
@@ -26,7 +26,7 @@
 Node.js **24.17+ / 24.x LTS** gerekir; bot hesabı, Python ve API anahtarı gerekmez.
 
 ```sh
-git clone https://github.com/shadow2028-blip/voicebridge.git
+git clone https://github.com/nexora-studio-tr/voicebridge.git
 cd voicebridge
 npm ci --ignore-scripts
 npm run build

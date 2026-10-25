@@ -4,9 +4,9 @@
 
 Personal captions and translated speech for Discord voice rooms. Run local models on your own hardware, or bring an owner-funded cloud key. Every speaker controls their own consent; every listener chooses what they hear.
 
-[![CI](https://github.com/shadow2028-blip/voicebridge/actions/workflows/ci.yml/badge.svg)](https://github.com/shadow2028-blip/voicebridge/actions/workflows/ci.yml)
+[![CI](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml/badge.svg)](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml)
 [![License: GPL v3+](https://img.shields.io/badge/license-GPL--3.0--or--later-245a4c)](LICENSE)
-[![Status: alpha](https://img.shields.io/badge/status-alpha-d2b679)](https://github.com/shadow2028-blip/voicebridge/releases)
+[![Status: alpha](https://img.shields.io/badge/status-alpha-d2b679)](https://github.com/nexora-studio-tr/voicebridge/releases)
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
@@ -28,7 +28,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 Requires **Node.js 24.17+ (24.x LTS)**. No Python, bot token or API key is needed.
 
 ```sh
-git clone https://github.com/shadow2028-blip/voicebridge.git
+git clone https://github.com/nexora-studio-tr/voicebridge.git
 cd voicebridge
 npm ci --ignore-scripts
 npm run build
@@ -92,7 +92,7 @@ npm run test:local
 npm run test:worker
 ```
 
-Python safety tests: project-venv `python -m unittest discover -s worker/tests -v`. Reports/screenshots go to ignored `artifacts/`. The [initial GitHub Actions run](https://github.com/shadow2028-blip/voicebridge/actions/runs/40196645739) passed on Ubuntu and Windows. [Validation](docs/VALIDATION.md) distinguishes these source/demo checks from model installation, live use and quality gates.
+Python safety tests: project-venv `python -m unittest discover -s worker/tests -v`. Reports/screenshots go to ignored `artifacts/`. The [initial GitHub Actions run](https://github.com/nexora-studio-tr/voicebridge/actions/runs/40196645739) passed on Ubuntu and Windows. [Validation](docs/VALIDATION.md) distinguishes these source/demo checks from model installation, live use and quality gates.
 
 ## Contribute
 
