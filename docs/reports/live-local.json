@@ -1,0 +1,55 @@
+{
+  "testedAtLocal": "2026-10-25 Europe/Istanbul",
+  "scope": "one human, one test guild, one active voice channel; local CPU models only",
+  "paidProviderCalls": false,
+  "rawHumanAudioRecorded": false,
+  "checks": [
+    {
+      "name": "Discord Gateway login and guild slash-command registration",
+      "status": "passed",
+      "evidence": "actual dedicated-bot connection via application route"
+    },
+    {
+      "name": "Normal Discord OAuth identity sign-in",
+      "status": "passed",
+      "evidence": "browser returned to authenticated non-operator panel after correcting callback and client credential"
+    },
+    {
+      "name": "DAVE voice-room join and actual receive/decode",
+      "status": "passed",
+      "evidence": "bot joined via slash command; live speech produced captions in the authenticated panel"
+    },
+    {
+      "name": "Turkish to English captions",
+      "status": "passed",
+      "evidence": "agent observed live captions"
+    },
+    {
+      "name": "Turkish to English synthesized playback",
+      "status": "tester-confirmed",
+      "evidence": "tester explicitly confirmed hearing English output"
+    },
+    {
+      "name": "English to Turkish captions and synthesized playback",
+      "status": "tester-confirmed",
+      "evidence": "tester explicitly confirmed Turkish captions and audio; preferences were subsequently changed, so that output was not independently retained"
+    },
+    {
+      "name": "Revoke local consent",
+      "status": "passed",
+      "evidence": "agent observed consent off and previous captions cleared; tester confirmed no new output when speaking"
+    },
+    {
+      "name": "Leave voice room",
+      "status": "passed",
+      "evidence": "tester left; agent observed no accessible room, no participants and disabled room controls"
+    }
+  ],
+  "notTested": [
+    "real billable cloud providers",
+    "multiple human participants or simultaneous target languages",
+    "live role-removal and cross-guild denial with another real account",
+    "general translation quality, stress tests or p95 latency"
+  ],
+  "privacy": "No credentials, human utterance text, raw human audio or identifying guild/user IDs are included in this report."
+}

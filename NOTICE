@@ -1,0 +1,11 @@
+VoiceBridge
+Copyright (C) 2026 VoiceBridge contributors
+
+This program is free software: you can redistribute it and/or modify it under
+the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+This program is distributed without any warranty. See LICENSE.
+
+Separately licensed third-party source and assets retain their original notices.
+See THIRD_PARTY_NOTICES.md. In particular the Okur frontend and adapted ONNX
+host loop retain Apache-2.0 notices; model weights are separately downloaded.

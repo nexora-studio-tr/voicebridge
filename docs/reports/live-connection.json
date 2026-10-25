@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-10-25T12:49:02.714Z",
+  "paidCalls": false,
+  "checks": [
+    "Discord gateway login and guild slash-command registration completed"
+  ],
+  "configuration": {
+    "applicationIdSet": true,
+    "tokenSaved": true,
+    "secretSaved": true,
+    "guildCount": 1
+  },
+  "models": {
+    "ready": true,
+    "device": "cpu",
+    "missing": 0
+  },
+  "discord": {
+    "connected": true,
+    "configured": true,
+    "error": null
+  },
+  "status": "connection-passed"
+}

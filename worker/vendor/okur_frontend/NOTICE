@@ -1,0 +1,32 @@
+okur
+Copyright 2026 Ahmet Hakan Beşel
+
+Code is licensed under the Apache License, Version 2.0 (LICENSE). Model weights are released under CC BY 4.0
+(see MODEL_CARD.md), because they are trained on data that requires attribution.
+
+Training data
+- Mozilla Common Voice 27.0, Turkish (CC0 1.0). The released voice is an anonymous Common Voice contributor.
+- ISSAI Turkish Speech Corpus (MIT), Institute of Smart Systems and Artificial Intelligence, Nazarbayev University.
+  Mussakhojayeva et al., "Multilingual Speech Recognition for Turkic Languages", Information 14(2):74, 2023.
+- MediaSpeech, Turkish (CC BY 4.0). Kolobov et al., "MediaSpeech: Multilanguage ASR Benchmark and Dataset", 2021.
+- Google FLEURS, Turkish (CC BY 4.0). Conneau et al., "FLEURS: Few-shot Learning Evaluation of Universal
+  Representations of Speech", 2022.
+
+Models used during training only (not redistributed)
+- ACE-Step 1.5 VAE (MIT): audio → 64-dim latents for training targets.
+- mpoyraz/wav2vec2-xls-r-300m-cv7-turkish (CC BY 4.0): forced alignment of letter durations.
+
+Software used at run time
+- normalizer-tr (Apache-2.0), Erdem Tuna: Turkish text normalization (Python package and Rust crate).
+- ONNX Runtime and ONNX Runtime Web (MIT), Microsoft.
+- lamejs (@breezystack/lamejs, LGPL-3.0), a JavaScript port of LAME: MP3 export on the demo page, loaded unmodified
+  as a separate file only when MP3 is chosen.
+- Courier Prime and Archivo typefaces (SIL Open Font License 1.1) on the demo page.
+
+Evaluation
+- Freya-TR-Eval (freyavoice/freya-tr-eval, CC BY 4.0): evaluation sentences, never used for training.
+- Whisper-large-v3 (Apache-2.0), OpenAI; UTMOS22 (MIT), SaruLab.
+
+Architecture
+- The pipeline follows the public description of EMA Lightning (canberkkkkkk/ema-lightning, Apache-2.0); this is an
+  independent implementation trained from scratch. No EMA Lightning weights are included.

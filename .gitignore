@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.venv/
+.voicebridge*/
+artifacts/
+.env*
+!.env.example
+__pycache__/
+*.pyc
+*.db*
+.DS_Store

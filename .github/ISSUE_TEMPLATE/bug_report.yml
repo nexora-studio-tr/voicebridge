@@ -1,0 +1,32 @@
+name: Bug report / Hata bildirimi
+description: Report a reproducible problem using synthetic, non-sensitive examples.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Never include tokens, operator links, databases, private server/user IDs or real conversations. Security issues: see SECURITY.md. Türkçe yazabilirsin."
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / Ortam
+      description: VoiceBridge version, OS, Node/Python versions, browser, local/cloud mode and relevant hardware.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / Tekrarlama adımları
+      description: Include a short synthetic example and your language/consent settings.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result / Beklenen ve görülen sonuç
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence / Hassas veriler çıkarılmış kanıt
+      description: Optional error code, minimal logs or a screenshot with private data removed.

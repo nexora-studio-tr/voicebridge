@@ -1,0 +1,69 @@
+{
+  "status": "completed",
+  "synthetic": true,
+  "device": "CPU",
+  "samples": [
+    {
+      "id": 0,
+      "sourceLanguage": "en",
+      "language": "tr",
+      "reference": "The meeting starts at three. Please open the document.",
+      "source": "The meeting starts at three. Please open the document.",
+      "text": "Toplantı üç başlar. Lütfen belgeyi açın.",
+      "sourceSeconds": 3.18,
+      "sourceTtsMs": 6188,
+      "asrMs": 3047,
+      "translationMs": 844,
+      "speechMs": 1141,
+      "pipelineMs": 5032,
+      "audio": "translated-0.wav"
+    },
+    {
+      "id": 1,
+      "sourceLanguage": "tr",
+      "language": "en",
+      "reference": "Toplantı saat üçte başlıyor. Lütfen belgeyi açın.",
+      "source": "Toplantı saat üçte başlıyor lütfen belgeyi açın.",
+      "text": "Please open the document at three hours of the meeting.",
+      "sourceSeconds": 3.76,
+      "sourceTtsMs": 531,
+      "asrMs": 1609,
+      "translationMs": 813,
+      "speechMs": 390,
+      "pipelineMs": 2812,
+      "audio": "translated-1.wav"
+    },
+    {
+      "id": 2,
+      "sourceLanguage": "en",
+      "language": "tr",
+      "reference": "We can continue tomorrow. Thank you for your help.",
+      "source": "We can continue tomorrow. Thank you for your help.",
+      "text": "Yarına devam edebiliriz. Yardımınız için teşekkür ederiz.",
+      "sourceSeconds": 2.82,
+      "sourceTtsMs": 328,
+      "asrMs": 2297,
+      "translationMs": 313,
+      "speechMs": 687,
+      "pipelineMs": 3297,
+      "audio": "translated-2.wav"
+    },
+    {
+      "id": 3,
+      "sourceLanguage": "tr",
+      "language": "en",
+      "reference": "Yarın devam edebiliriz. Yardımınız için teşekkür ederim.",
+      "source": "Yarın devam edebiliriz. Yardımınız için teşekkür ederim.",
+      "text": "We can continue tomorrow. Thank you for your help.",
+      "sourceSeconds": 3.48,
+      "sourceTtsMs": 657,
+      "asrMs": 2546,
+      "translationMs": 125,
+      "speechMs": 516,
+      "pipelineMs": 3187,
+      "audio": "translated-3.wav"
+    }
+  ],
+  "turkishVoice": "Okur v1.0 ONNX",
+  "englishVoice": "Piper en_US-ljspeech-medium"
+}

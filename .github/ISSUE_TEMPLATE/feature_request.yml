@@ -1,0 +1,18 @@
+name: Feature request / Özellik önerisi
+description: Describe a real use case and how we could validate an improvement.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and users / Sorun ve kullanıcılar
+      description: Who needs this and where does the current experience fall short?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior / Önerilen davranış
+      description: Include alternatives, consent/cost implications and a concrete success check. Türkçe yazabilirsin.
+    validations:
+      required: true

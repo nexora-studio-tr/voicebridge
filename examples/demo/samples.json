@@ -1,0 +1,42 @@
+[
+  {
+    "sourceLanguage": "en",
+    "language": "tr",
+    "reference": "The meeting starts at three. Please open the document.",
+    "source": "The meeting starts at three. Please open the document.",
+    "text": "Toplantı üç başlar. Lütfen belgeyi açın.",
+    "sourceAudio": "source-0.wav",
+    "audio": "translated-0.wav",
+    "pipelineMs": 5032
+  },
+  {
+    "sourceLanguage": "tr",
+    "language": "en",
+    "reference": "Toplantı saat üçte başlıyor. Lütfen belgeyi açın.",
+    "source": "Toplantı saat üçte başlıyor lütfen belgeyi açın.",
+    "text": "Please open the document at three hours of the meeting.",
+    "sourceAudio": "source-1.wav",
+    "audio": "translated-1.wav",
+    "pipelineMs": 2812
+  },
+  {
+    "sourceLanguage": "en",
+    "language": "tr",
+    "reference": "We can continue tomorrow. Thank you for your help.",
+    "source": "We can continue tomorrow. Thank you for your help.",
+    "text": "Yarına devam edebiliriz. Yardımınız için teşekkür ederiz.",
+    "sourceAudio": "source-2.wav",
+    "audio": "translated-2.wav",
+    "pipelineMs": 3297
+  },
+  {
+    "sourceLanguage": "tr",
+    "language": "en",
+    "reference": "Yarın devam edebiliriz. Yardımınız için teşekkür ederim.",
+    "source": "Yarın devam edebiliriz. Yardımınız için teşekkür ederim.",
+    "text": "We can continue tomorrow. Thank you for your help.",
+    "sourceAudio": "source-3.wav",
+    "audio": "translated-3.wav",
+    "pipelineMs": 3187
+  }
+]

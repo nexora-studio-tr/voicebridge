@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "tts/en/en_US-ljspeech-medium.onnx",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5512791644e2148e4be301d4c7fc2a4bf51a5057/en/en_US/ljspeech/medium/en_US-ljspeech-medium.onnx",
+      "bytes": 63531379,
+      "sha256": "6f52a751e2349abe7a76735eb09dc1875298c77ea2342ffd2fef79ff81b87f22"
+    },
+    {
+      "path": "tts/en/en_US-ljspeech-medium.onnx.json",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5512791644e2148e4be301d4c7fc2a4bf51a5057/en/en_US/ljspeech/medium/en_US-ljspeech-medium.onnx.json",
+      "bytes": 4972,
+      "sha256": "141d612cc0a95ed7efc1ca936b845c2364967f2e9217c5dbfcf69fc4d6c65860"
+    },
+    {
+      "path": "tts/en/MODEL_CARD",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5512791644e2148e4be301d4c7fc2a4bf51a5057/en/en_US/ljspeech/medium/MODEL_CARD",
+      "bytes": 517,
+      "sha256": "fbee1529c89d36b3fe76d7e9f3f832dce17f44900a52d76a9bda735654766b4d"
+    },
+    {
+      "path": "downloads/en_tr.argosmodel",
+      "url": "https://data.argosopentech.com/argospm/v1/translate-en_tr-1_5.argosmodel",
+      "bytes": 124742526,
+      "sha256": "2d553a00880a0c21dea5b1c375535659e6bf18c9bf2ce9847c2a2fd2ff50316a"
+    },
+    {
+      "path": "downloads/tr_en.argosmodel",
+      "url": "https://data.argosopentech.com/argospm/v1/translate-tr_en-1_5.argosmodel",
+      "bytes": 120561223,
+      "sha256": "15217905586561fac843efb5730aabff9a1534d5a9aa3f6ebcc0f9641394ac2d"
+    },
+    {
+      "path": "asr/config.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-base/resolve/ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66/config.json",
+      "bytes": 2309,
+      "sha256": "56a6d8110d311f19c8f0471e562832c7527f146b567275bfca59fcf7c184da9a"
+    },
+    {
+      "path": "asr/model.bin",
+      "url": "https://huggingface.co/Systran/faster-whisper-base/resolve/ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66/model.bin",
+      "bytes": 145217532,
+      "sha256": "d01c3014881c9c6f3133c182f3d2887eb6ca1c789a7538c5c007196857a0a6a9"
+    },
+    {
+      "path": "asr/tokenizer.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-base/resolve/ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66/tokenizer.json",
+      "bytes": 2203239,
+      "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+    },
+    {
+      "path": "asr/vocabulary.txt",
+      "url": "https://huggingface.co/Systran/faster-whisper-base/resolve/ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66/vocabulary.txt",
+      "bytes": 459861,
+      "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+    },
+    {
+      "path": "tts/tr/okur/NOTICE",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/NOTICE",
+      "bytes": 1882,
+      "sha256": "98892e78692055ffff295ffdf7f32079ee25fdac9cce5c87e6f87817901a5531"
+    },
+    {
+      "path": "tts/tr/okur/README.md",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/README.md",
+      "bytes": 5496,
+      "sha256": "475e7cd53bcffa70c06863563681e721d9a5dd3c296bf03243ce38fea1e6ee2c"
+    },
+    {
+      "path": "tts/tr/okur/config.json",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/onnx/config.json",
+      "bytes": 742,
+      "sha256": "7b62f4383f4d0ed0fd5f0087bdb078e9cfb9516e36a4e3e61530bf037b663860"
+    },
+    {
+      "path": "tts/tr/okur/decoder.8f42fa31155e.onnx",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/onnx/decoder.8f42fa31155e.onnx",
+      "bytes": 7102508,
+      "sha256": "8f42fa31155e459e62f3cb2830d53c7c014e5c614b583b17440120d7fa7120c4"
+    },
+    {
+      "path": "tts/tr/okur/sample.3c2a91ee5faa.onnx",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/onnx/sample.3c2a91ee5faa.onnx",
+      "bytes": 10987695,
+      "sha256": "3c2a91ee5faa5601ae53193c203fa558a28f7e031b82103af28ee3cf366a6c63"
+    },
+    {
+      "path": "tts/tr/okur/text.6a21984ac693.onnx",
+      "url": "https://huggingface.co/ahakan/okur-tts/resolve/0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70/onnx/text.6a21984ac693.onnx",
+      "bytes": 5114579,
+      "sha256": "6a21984ac693d07ec0096fcfbc0bffebe23255891523090eaf24f232782a94c2"
+    }
+  ],
+  "asr_revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+  "okur_revision": "0c1ae1a9c5e7bcaa46bdff732bc7182c9ae7bd70"
+}
