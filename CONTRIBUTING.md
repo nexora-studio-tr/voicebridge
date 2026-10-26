@@ -1,5 +1,7 @@
 # Contributing
 
+To test without contributing code, use the [beta guide](docs/BETA.md) / [Türkçe beta rehberi](docs/BETA.tr.md) and the beta feedback issue form. We are seeking 5–10 volunteers; report only tests you actually performed.
+
 Use Node 24.17+ / 24.x and Python 3.12. Install with `npm ci --ignore-scripts`. Run `npm run check`, `npm run format:check`, Python safety tests and `npm run test:browser` before submitting a change. Heavy local-model tests are separate; never put a live token or paid API key in CI.
 
 Preserve consent cancellation, guild/voice isolation, budget reservation-before-dispatch and no automatic paid fallback. Add behavior tests for changes in those areas. Use the existing Radix controls and both UI languages. Keep model provenance and lock files reviewed; model upgrades need fresh synthetic benchmarks and license notices.

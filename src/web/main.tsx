@@ -310,7 +310,7 @@ function App() {
             {t('Nasıl çalışır?', 'How does it work?')}
           </button>
           <div className="rail-meta">
-            <span>v{session?.version ?? '0.1.0-alpha.1'}</span>
+            <span>v{session?.version ?? '0.1.0-alpha.2'}</span>
             <span>SELF-HOSTED</span>
           </div>
         </div>

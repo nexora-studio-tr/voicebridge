@@ -1,5 +1,9 @@
 name: Local safety and demo
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -30,5 +34,12 @@ jobs:
       - run: python -m pip install numpy==2.5.4 normalizer-tr==0.4.0
       - run: python -m unittest discover -s worker/tests -v
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:browser
       - run: python scripts/package_source.py
+      - run: npm run test:package
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: voicebridge-source-${{ matrix.os }}
+          path: |
+            artifacts/release/*
+            artifacts/clean-install/report.json
+          retention-days: 14

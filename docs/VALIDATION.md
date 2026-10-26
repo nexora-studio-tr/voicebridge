@@ -1,5 +1,15 @@
 # Validation
 
+## Alpha.2 source release — 2026-10-26
+
+Local checks passed for version `0.1.0-alpha.2`: 59 TypeScript tests, 9 Python tests, typecheck/build/format, source packaging and ten browser checks against a freshly extracted source ZIP with newly installed Node dependencies.
+
+A separate [full-setup report](reports/alpha2-full-setup.json) records a new Python environment created by `npm run setup` inside that extracted copy. Registry caches and fifteen SHA-256-verified public model-download files were reused; translation models were extracted again and verified. The new environment passed Python tests and the three-speaker **synthetic** caption/translated-audio pipeline. No credentials, runtime database or operator session was copied. This was an automated fresh environment on the same Windows host, not an independent person or second device.
+
+The full-setup report hashes the runtime/dependency file manifest of its preparation archive. Final release evidence separately records the published ZIP hash and checks that this runtime manifest still matches. Documentation-only changes do not imply another fresh Python installation was performed. The release CI verifies and installs its exact source archive on Ubuntu and Windows; the attached `CLEAN-INSTALL.json` and `RELEASE-VALIDATION.json` contain the final run and artifact identity.
+
+The second human was unavailable and the user explicitly chose to publish a [beta invitation](BETA.md) instead. Independent human setup, two-person live testing, and recruitment/feedback from 5–10 volunteers are **pending**, not completed. No video is part of this release. See the one-user live recognition observation below for the narrower executed scope.
+
 ## English recognition repair — 2026-10-26
 
 The updated local implementation passed 59 TypeScript tests, 9 Python safety/profile tests, 10 browser checks, strict typecheck/build and pinned-model verification. The authenticated loopback worker also passed the three-speaker synthetic caption/translated-audio pipeline without cloud calls. Five new receive-buffer tests cover pause boundaries, long English speech, hard bounds, ordered sample preservation, interruption clearing and the unchanged Turkish profile.

@@ -1,6 +1,6 @@
 {
   "name": "voicebridge",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "private": true,
   "type": "module",
   "license": "GPL-3.0-or-later",
@@ -29,7 +29,8 @@
     "models": "node --env-file-if-exists=.env scripts/models.mjs",
     "test:browser": "node scripts/validate-browser.mjs",
     "test:local": "node --env-file-if-exists=.env scripts/validate-local.mjs",
-    "test:worker": "node --env-file-if-exists=.env scripts/validate-worker.mjs"
+    "test:worker": "node --env-file-if-exists=.env scripts/validate-worker.mjs",
+    "test:package": "node scripts/validate-package.mjs"
   },
   "dependencies": {
     "@discordjs/voice": "0.19.2",

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "version": "0.1.0-alpha.2",
+  "platform": "Windows x64",
+  "automated": true,
+  "scope": "Fresh extracted release and Python environment on the existing host; registry caches and verified public model-download cache were reused. Not a different-person/device test.",
+  "freshPythonVenv": true,
+  "setupCommand": "npm run setup",
+  "dependencies": "installed from worker/requirements.lock",
+  "models": {
+    "pinnedDownloads": 15,
+    "source": "read-only copied public download cache, each SHA-256 checked before copying",
+    "translationExtraction": "fresh",
+    "verification": "passed"
+  },
+  "sourceArchiveSha256": "9336f2733690cb277e6b2da77d6b714fc4b81685cbcdaf26e4a53152199e8043",
+  "runtimeFilesSha256": "8343ffbd69ba04379102dd42e766957bd05b9781429649d90d5b93d504bb5e7f",
+  "pythonSafetyTests": 9,
+  "localWorker": "passed: three synthetic queued speakers, captions and translated audio",
+  "credentialsCopied": false,
+  "originalRuntimeModified": false,
+  "liveDiscord": false,
+  "paidApi": false
+}

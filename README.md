@@ -10,6 +10,8 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
+**[Download alpha.2](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+
 ![VoiceBridge personal listening panel, recorded synthetic demo](docs/assets/demo-en.png)
 
 *Recorded synthetic demo; the screenshot contains no private conversation or live account data.*
@@ -21,7 +23,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 - **Local-first processing:** faster-whisper → Argos → Okur/Piper on CPU, without a translation API fee. A local failure never silently switches to paid processing.
 - **Bounded by design:** fair speaker queues, shared inference, ephemeral captions/audio and conservative budget reservations before cloud dispatch.
 
-**0.1.0-alpha.1:** a one-user live Discord check covered OAuth, voice receive, translation/playback in both directions, consent revocation and departure; see [validation](docs/VALIDATION.md). Billable cloud calls and multi-user capacity remain unverified. Local models can mistranslate clock times. See the [roadmap](ROADMAP.md) for the remaining release gates.
+**0.1.0-alpha.2** improves English recognition and utterance boundaries without replacing the local models. A user confirmed correct English text and Turkish captions after the repair. Two-person live acceptance and a 5–10-person cohort are pending; the [beta guide](docs/BETA.md) describes how to help. Billable cloud calls and multi-user capacity remain unverified. Local models can mistranslate clock times. [Validation](docs/VALIDATION.md) records the exact scope.
 
 ## Recorded demo
 

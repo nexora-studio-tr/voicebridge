@@ -8,6 +8,8 @@
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
+**[Alpha.2 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+
 ![VoiceBridge kişisel dinleme paneli, kaydedilmiş sentetik demo](docs/assets/demo-tr.png)
 
 *Görselde sentetik örnekler kullanılır; gerçek kullanıcı konuşması veya hesap bilgisi bulunmaz.*
@@ -19,7 +21,7 @@
 - Yerel modeller CPU üzerinde API ücreti olmadan çalışır. Yerel hata nedeniyle kendiliğinden ücretli moda geçilmez.
 - Konuşmacı sırası, paylaşılan çıkarım ve bulut isteği öncesi bütçe ayırma ile kaynak kullanımı sınırlandırılır.
 
-**0.1.0 alfa.** Yerel ses zinciri, kaydedilmiş demo, oda izinleri, bütçeler ve tarayıcı akışı uygulandı ve yerelde doğrulandı. Bot bağlantısı, OAuth girişi, tek kullanıcılı gerçek Discord sesi, iki yönde yerel altyazı/ses, izin iptali ve odadan ayrılma kontrol edildi. [Canlı rapor](docs/reports/live-local.json). Ücretli API ve çok kullanıcılı kapasite henüz doğrulanmadı. Yerel model saat ifadelerinde hata yapabiliyor. Tamamen doğrulanmış canlı tercüman sürümü olarak sunulmuyor.
+**0.1.0-alpha.2**, mevcut yerel modelleri değiştirmeden İngilizce algılamayı ve konuşma parçalarının sınırlarını iyileştirir. Düzeltme sonrası tek kullanıcılı denemede İngilizce metin ve Türkçe altyazı doğru çıktı. İki kişilik gerçek test ve 5–10 kişilik grup henüz tamamlanmadı; [beta rehberinde](docs/BETA.tr.md) katılım adımları var. Ücretli API ve çok kullanıcılı kapasite doğrulanmadı. Yerel model saat ifadelerinde hata yapabiliyor. [Test kapsamı](docs/VALIDATION.md).
 
 ## Demo
 

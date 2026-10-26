@@ -1,0 +1,61 @@
+name: Beta feedback / Beta geri bildirimi
+description: Report an alpha.2 installation or translation test. Türkçe yazabilirsin.
+title: '[Beta]: '
+body:
+  - type: markdown
+    attributes:
+      value: 'Use a short self-authored or synthetic example. Do not share recordings, credentials, operator links, databases, private IDs or personal conversations. Video gerekmiyor.'
+  - type: input
+    id: version
+    attributes:
+      label: Version / Sürüm
+      placeholder: 0.1.0-alpha.2
+    validations:
+      required: true
+  - type: dropdown
+    id: scenario
+    attributes:
+      label: Tests tried / Denenenler
+      multiple: true
+      options:
+        - Fresh installation / Temiz kurulum
+        - Turkish to English / Türkçe → İngilizce
+        - English to Turkish / İngilizce → Türkçe
+        - Personal audio / Kişisel sesli dinleme
+        - Consent or departure / İzin veya odadan ayrılma
+    validations:
+      required: true
+  - type: dropdown
+    id: participants
+    attributes:
+      label: Distinct humans / Farklı insan sayısı
+      options:
+        - One person / Tek kişi
+        - Two or more people / İki veya daha fazla kişi
+        - Synthetic only / Yalnızca sentetik
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Overall result / Genel sonuç
+      options:
+        - Worked / Çalıştı
+        - Worked with issues / Sorunlarla çalıştı
+        - Could not complete / Tamamlayamadım
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and setup / Ortam ve kurulum
+      description: OS/browser, Node/Python versions and unclear setup steps; optional broad CPU/RAM information. No personal paths or device identifiers.
+    validations:
+      required: true
+  - type: textarea
+    id: observations
+    attributes:
+      label: Recognition, translation and delay / Algılama, çeviri ve gecikme
+      description: Spoken/listening languages, original recognized text, intended meaning, approximate caption/audio delay and reproducible issues. Use non-sensitive examples only.
+    validations:
+      required: true

@@ -1,11 +1,12 @@
 # Changelog
 
-## Unreleased — 2026-10-26
+## 0.1.0-alpha.2 — 2026-10-26
 
 - Improve local English recognition with five-beam deterministic decoding and longer VAD pauses; retain the existing Turkish recognition profile and pinned models.
 - Keep English speech past the former six-second cut, prefer quiet boundaries after six seconds, cap segments at twelve seconds and allow 900 ms stream pauses. Turkish capture remains six seconds/450 ms.
 - Preserve consent interruption, bounded memory and discontinuity handling; add regression tests and a reproducible, explicitly synthetic English comparison.
 - Clarify that the speaker's input language is independent of the listener's translation language. The reporting user confirmed correct English recognition and Turkish captions in a one-sentence live Discord retest; broader accent/microphone coverage remains unverified.
+- Versioned source packaging, fresh-package installation checks, bilingual beta participation guides and a structured beta feedback form. Two-person live testing is deferred to volunteers; no beta cohort is claimed as completed.
 
 ## 0.1.0-alpha.1 — 2026-10-25
 

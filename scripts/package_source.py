@@ -14,6 +14,12 @@ SECRET_PATTERNS.extend([re.compile(r'gh[pousr]_[A-Za-z0-9]{30,}'),re.compile(r'g
 
 
 def build():
+    metadata=json.loads((ROOT/'package.json').read_text('utf8'))
+    version=metadata['version']
+    if not re.fullmatch(r'\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?',version):raise ValueError('Invalid release version')
+    lock=json.loads((ROOT/'package-lock.json').read_text('utf8'))
+    if lock['version']!=version or lock['packages']['']['version']!=version:raise ValueError('Package versions disagree')
+    if f"export const VERSION = '{version}';" not in (ROOT/'src/core/contracts.ts').read_text('utf8'):raise ValueError('Runtime version disagrees')
     selected=[]
     for name in ROOT_FILES:
         path=ROOT/name
@@ -34,21 +40,22 @@ def build():
         if path.is_symlink() or not path.resolve().is_relative_to(ROOT):raise ValueError('Source symlink/path escape')
         raw=path.read_bytes()
         if path.suffix not in ('.wav','.png'):
-            text=raw.decode('utf8')
+            text=raw.decode('utf8').replace('\r\n','\n')
             if any(pattern.search(text) for pattern in SECRET_PATTERNS):raise ValueError('Possible secret in source; inspect locally: '+str(path.relative_to(ROOT)))
+            raw=text.encode('utf8')
         files[path.relative_to(ROOT).as_posix()]=raw
     if sum(map(len,files.values()))>10*1024*1024:raise ValueError('Source size limit')
     required={'README.md','README.tr.md','LICENSE','NOTICE','worker/model-lock.json','examples/demo/samples.json','docs/reports/local-synthetic.json','docs/reports/worker-synthetic.json'}
     if not required.issubset(files):raise ValueError('Required deliverable is missing: '+str(required-files.keys()))
     out=ROOT/'artifacts/release';out.mkdir(parents=True,exist_ok=True)
-    archive=out/'voicebridge-0.1.0-alpha.1-source.zip'
+    archive=out/f'voicebridge-{version}-source.zip'
     manifest={name:hashlib.sha256(raw).hexdigest() for name,raw in files.items()}
     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as package:
         for name,raw in {**files,'SOURCE_MANIFEST.json':(json.dumps(manifest,indent=2)+'\n').encode()}.items():
             info=zipfile.ZipInfo('voicebridge/'+name,date_time=(2026,10,25,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;package.writestr(info,raw)
     sha=hashlib.sha256(archive.read_bytes()).hexdigest()
     (out/'SHA256SUMS.txt').write_text(sha+'  '+archive.name+'\n',encoding='ascii')
-    print(json.dumps({'status':'packaged','files':len(files),'bytes':archive.stat().st_size,'sha256':sha,'archive':str(archive)}))
+    print(json.dumps({'status':'packaged','version':version,'files':len(files),'bytes':archive.stat().st_size,'sha256':sha,'archive':str(archive)}))
 
 
 if __name__=='__main__':build()
