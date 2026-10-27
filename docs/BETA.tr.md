@@ -1,36 +1,47 @@
 # VoiceBridge alpha.4 beta
 
-[English](BETA.md) · [İndir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[English](BETA.md) · [Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Doğrulama kaydı](BETA-STATUS.md) · [Geri bildirim formu](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
-Türkçe/İngilizce Discord çevirisini denemek için **5–10 gönüllü kullanıcı arıyoruz**. Bu bir katılım çağrısıdır; beş-on kişinin testi tamamladığı anlamına gelmez. Video gerekmiyor.
+İlk hedef **sonuçları incelenmiş iki bağımsız temiz kurulum**. İkinci kişi katılmadan da yardımcı olabilirsin. İki kişilik gerçek ses kabul testi ayrı bir kapı; daha geniş çağrı 5–10 gönüllüye açık. Tamamlanmış grup testi iddia edilmiyor. Video veya ücretli API kullanımı istenmiyor.
 
-Gecikme varsa altyazının yanındaki [Gecikme ayrıntıları](CAPTION-TIMING.md) penceresini aç. Gerekirse adım sürelerini ve genel donanım bilgisini paylaş; tek örnek kapasite sonucu değildir.
+## Yolunu seç
 
-## Nasıl deneyebilirsin?
+| Durumun                                        | Başlangıç                                                                                                                                 |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Arayüzü görmek ve örnekleri dinlemek istiyorum | [Kayıtlı demo](../README.tr.md#demo): Node.js 24.17+ / 24.x yeterli; Python veya bot gerekmez. Tam kurulum veya insan ses testi sayılmaz. |
+| Botu ve yerel modelleri ben çalıştıracağım     | Kendi cihazında/sunucunda [temiz kurulum yap](#temiz-kurulum-yap).                                                                        |
+| Başkası kurdu, katılacağım                     | [Misafir olarak katıl](#misafir-olarak-katıl); model veya operatör anahtarı gerekmez.                                                     |
 
-Önce operatörün **Ayarlar → Kurulumu denetle** düğmesini kullan. [Kontrol rehberi](SETUP-CHECKS.md), otomatik ve elle yapılacak adımları ayırır. İstersen yalnızca izin verilen alanları içeren JSON destek raporunu indirip inceleyerek geri bildirime ekle. Rapor; konuşma, anahtar, özel ID veya dosya yolu içermez ve otomatik gönderilmez.
+## Temiz kurulum yap
 
-1. **Temiz kurulum:** Paketi yeni klasöre çıkarıp [kurulum rehberini](SETUP.tr.md) izle. Eski `.venv`, `node_modules`, veritabanı veya anahtar dosyalarını kopyalama. Anlaşılmayan adımları not et.
-2. **Tek kişi:** Konuştuğun dili ve duymak istediğin dili ayrı seç. Yerel modda iki çeviri yönünü, altyazıyı ve kişisel sesli dinlemeyi dene.
-3. **İki kişi:** İki ayrı insan, kendi panel oturumu ve kendi konuşma izniyle aynı odada olsun. İki yönü, sırayla konuşmayı ve kısa süreli çakışmayı dene. İki tarayıcı sekmesi veya sentetik sesler iki kişi sayılmaz.
-4. **Durdur/devam et:** Kendi iznini kapat, odadan ayrıl ve yeniden bağlan. İzin kapalıyken yeni çıktı gelmemeli; eski ses erişimi geçerli kalmamalı.
+1. [Alpha.4 sürümündeki](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) kaynak ZIP ve SHA-256 dosyasını indirip doğrula. Yeni klasöre çıkar. Eski `.venv`, `node_modules`, çalışma veritabanı veya anahtar dosyalarını kopyalama. Node.js **24.17+ / 24.x**, Python **3.12** ve yaklaşık **3 GB** boş disk hazır olsun.
+2. [Kurulum rehberini](SETUP.tr.md) izle: `npm ci --ignore-scripts`, `npm run setup`, `npm start`. Ayrı lisanslı yerel modeller indirilir; Discord yine internet kullanır. Aynı bilgisayarda tek kullanımlık `.voicebridge/operator-link` adresini açıp ayrı Discord botunu yapılandır. Anahtarları komut satırına veya hata kaydına yazma.
+3. **Ayarlar → Kurulumu denetle** düğmesini kullan. Takıldığın veya belirsiz adımı not et. [Kontrol rehberi](SETUP-CHECKS.md), otomatik kontrolleri elle yapılacak OAuth, model bütünlüğü ve gerçek kullanım testlerinden ayırır. Tamamlanamayan kurulum raporu da faydalıdır.
+4. Ses denemesi hazırsa botu ayrıca bağla. Normal ses odasında `/voicebridge start` kullanıp panelde Discord hesabınla giriş yap. Operatör oturumu yapılandırma içindir; dinlemek için çıkış yap veya ayrı tarayıcı profili kullan. Konuştuğun dili **English**, hedefi **Türkçe**, motoru yerel seç; kendi yerel iznini ve kişisel sesli dinlemeyi aç. Kısa örnekten sonra dil yönünü tersine çevir.
+5. Kendi iznini kapat, kısa konuş ve yeni çıktı gelmediğini kontrol et; odadan ayrılıp eski ses erişiminin kapanmasını dene. [Formda](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml) temiz kurulumu, tamamladığın ses testlerinden ayrı belirt.
 
-Modelleri çalıştıran kişi ayrı bot uygulamasını yapılandırır. Uzaktaki katılımcı, kurulum sahibinin erişilebilir HTTPS panel adresini kullanmalıdır; `127.0.0.1` herkesin kendi bilgisayarını gösterir. Ayrıntılar [uzak erişim rehberinde](SETUP.tr.md#uzak-erişim-ve-bulut). Proje ortak bir herkese açık çeviri sunucusu sağlamıyor.
+Kurulum hedefi için sürüm, işletim sistemi/tarayıcı, Node/Python sürümü, sonuç ve belirsiz adımları yaz. Tam sunucu kurulumu başarılıysa ve operatör paneli açılıyorsa, gerçek ses testi ertelense de inceleme sonrası kurulum hedefine sayılabilir; yalnızca kurulum kanıtıdır. İstersen izin verilen alanlardan oluşan destek raporunu indir, **eklemeden önce incele** ve herkese açık raporunun doğrulama kaydında bağlantılanmasına onay ver. Hiçbir veri kendiliğinden gönderilmez.
 
-## Kısa örnekler
+## Misafir olarak katıl
 
-- İngilizce: “I didn't say delete the backup. Please keep it until Friday.”
-- İngilizce: “We need fifteen minutes, not fifty.”
-- Türkçe: “Yarın birlikte çalışabiliriz. Yardımın için teşekkür ederim.”
+Kurulum sahibinden erişilebilir panel adresini alıp botun ses odasına gir. Kendi Discord hesabınla giriş yap, konuştuğun ve duymak istediğin dilleri seç, kendi **yerel** işleme iznini aç ve kişisel sesi başlat. Python, model, bot token'ı veya kurulum sahibinin operator-link dosyası gerekmez.
 
-Çeviriden önce **orijinal algılanan metni** kontrol et. Yaklaşık altyazı/ses gecikmesi ve yanlış anlaşılan basit bir örnek yeterli; ölçüm cihazı veya video gerekmiyor.
+Uzaktan katılan kişi kurulum sahibinin **HTTPS** panelini kullanır. `127.0.0.1`, adresi açan cihazın kendisini gösterir; paylaşılması diğer bilgisayarı bağlamaz. Kurulum sahibi [uzak erişim yönergelerini](SETUP.tr.md#uzak-erişim-ve-bulut) izler. VoiceBridge ortak bir herkese açık çeviri hizmeti sağlamaz.
 
-## Geri bildirim
+## Anlamı ve izni kontrol et
 
-[Beta formunu aç](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml). Sürüm, işletim sistemi/tarayıcı, denenen senaryo, farklı insan sayısı, kurulum sonucu ve sorunları yaz. Genel CPU/RAM bilgisi isteğe bağlıdır. Ses kaydı, token, operator-link, veritabanı, özel sunucu/kullanıcı ID'si veya kişisel konuşma paylaşma.
+Kendin oluşturduğun kısa, hassas olmayan cümleler kullan. Örnekler:
 
-Beta yerel modla yapılır: çeviri API ücreti yoktur; cihaz ve elektrik kurulum sahibine aittir. Bulut ayrı ve isteğe bağlıdır; bu beta için harcama istenmiyor.
+- “I didn't say delete the backup. Please keep it until Friday.”
+- “We need fifteen minutes, not fifty.”
+- “Yarın birlikte çalışabiliriz. Yardımın için teşekkür ederim.”
 
-## Durum
+Önce **orijinal algılanan metni**, sonra çevrilen anlamı incele; ikisini ayrı raporla. Gecikme için altyazının yanındaki [Gecikme ayrıntılarını](CAPTION-TIMING.md) aç; yaklaşık duyma gecikmesi de yararlıdır. Sunucu süreleri mikrofonu, Discord aktarımını veya tarayıcıda oynatmayı kapsamaz; tek örnek kapasiteyi kanıtlamaz.
 
-Otomatik kaynak/demo kontrolleri ve tek kullanıcılı canlı kontrol vardır; [test kapsamına bak](VALIDATION.md). İkinci kişi şu an bulunamadığı için kullanıcı beta çağrısıyla yayımlamayı seçti. **Başka bir insanın bağımsız kurulumu, iki kişilik gerçek test ve 5–10 kişilik geri bildirim grubu henüz tamamlanmadı.** Yalnızca gelen gerçek sonuçlar kaydedilecek. Sonraki düzeltmeler tekrarlanabilen kurulum hatalarına, yanlış anlama/çeviriye ve aşırı gecikmeye göre seçilecek.
+İki ayrı insanla denemede herkes kendi panel oturumunu ve kendi iznini kullanır. İki yönü, sırayla konuşmayı, kısa çakışmayı, kişisel sesi ve izin iptalini dene. İki sekme veya sentetik sesler iki insan sayılmaz.
+
+## Geri bildirim ve sınırlar
+
+Sonucu veya engeli [beta formunda](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml) paylaş; yalnızca kurulum raporunda konuşma alanı isteğe bağlıdır. Ses kaydı, özel konuşma, anahtar, operator-link, veritabanı, özel ID veya kişisel dosya yolu ekleme. Video gerekmiyor.
+
+Yerel modda çeviri API ücreti yok; donanım/elektrik kurulum sahibine ait. Bulut isteğe bağlı, sahibinin ödediği ve varsayılan kapalı bir seçenek; bu beta için harcama gerekmez. Otomatik kaynak/demo kontrolleri ve önceki tek kullanıcılı gözlemler [test kapsamında](VALIDATION.md) kayıtlı. Bağımsız kurulum, çok kullanıcılı kalite ve iki kişilik gerçek test [doğrulama kaydında](BETA-STATUS.md) ayrı tutulur. Raporlar ancak inceleme ve bağlantı paylaşma izni sonrasında sayılır.

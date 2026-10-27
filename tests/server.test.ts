@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import path from 'node:path';
+import { once } from 'node:events';
+import { get, type ServerResponse } from 'node:http';
 import { createServer } from '../src/server/app.js';
 import type { Gateway } from '../src/bot/discord.js';
 import type { Member } from '../src/core/contracts.js';
@@ -319,5 +321,43 @@ describe('HTTP authorization and isolated demo sessions', () => {
         })
       ).statusCode,
     ).toBe(403);
+  });
+  it('does not write room resets to an ended SSE response during shutdown', async () => {
+    service = await start(true);
+    let duringClose = () => {};
+    service.app.addHook('preClose', async () => duringClose());
+    const streams: ServerResponse[] = [];
+    service.app.server.on('request', (req, res) => {
+      if (req.url?.endsWith('/events')) streams.push(res);
+    });
+    const visitor = await service.app.inject({ url: '/api/session', headers: headers() });
+    const cookie = visitor.cookies[0]!.name + '=' + visitor.cookies[0]!.value;
+    const listed = await service.app.inject({ url: '/api/rooms', headers: headers(cookie) });
+    const room = service.rooms.rooms.get(listed.json()[0].id)!;
+    const address = await service.app.listen({ host: '127.0.0.1', port: 0 });
+    const request = get({
+      hostname: '127.0.0.1',
+      port: new URL(address).port,
+      path: `/api/rooms/${room.id}/events`,
+      headers: headers(cookie),
+    });
+    try {
+      const [response] = await once(request, 'response');
+      expect(response.statusCode).toBe(200);
+      const stream = streams[0]!;
+      const writes = vi.spyOn(stream, 'write');
+      const ended = once(response, 'end');
+      response.resume();
+      duringClose = () => {
+        expect(stream.writableEnded).toBe(true);
+        service.rooms.broadcast(room, { type: 'state', data: { reason: 'shutdown' } });
+      };
+      await service.app.close();
+      await ended;
+      expect(writes).not.toHaveBeenCalled();
+      expect(service.rooms.rooms.size).toBe(0);
+    } finally {
+      request.destroy();
+    }
   });
 });

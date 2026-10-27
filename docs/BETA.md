@@ -1,40 +1,47 @@
 # VoiceBridge alpha.4 beta
 
-[Türkçe](BETA.tr.md) · [Download](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[Türkçe](BETA.tr.md) · [Download alpha.4](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Evidence ledger](BETA-STATUS.md) · [Feedback form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
-We are looking for **5–10 volunteer testers** of a self-hosted Turkish/English Discord translator. This is an invitation, not a claim that a beta cohort has already completed testing. No video is required.
+The first milestone is **two independent fresh installations with reviewed reports**. You can help before a second person joins. Two-person live voice acceptance is a separate gate; the broader invitation remains open to 5–10 volunteers. No completed cohort is claimed. No video or paid API use is requested.
 
-For excessive delay, open [Latency details](CAPTION-TIMING.md) beside a caption. Share stage durations and broad hardware information only if helpful; a single sample is not a capacity result.
+## Choose a path
 
-## Pick a test
+| Your situation                               | Start here                                                                                                                                            |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| I want to see the interface and hear samples | [Recorded demo](../README.md#recorded-demo): Node.js 24.17+ / 24.x, no Python or bot. This does not count as a full installation or human voice test. |
+| I will run the bot and local models          | [Host a fresh installation](#host-a-fresh-installation) on your computer or server.                                                                   |
+| Someone else is hosting                      | [Join as a guest](#join-as-a-guest); no model installation or operator credentials.                                                                   |
 
-Start with the operator's **Settings → Run setup checks**. [The setup-check guide](SETUP-CHECKS.md) explains what is automated and what remains manual. You can explicitly download the allowlisted JSON support report, review it, and attach it to your feedback. It never includes speech, credentials, private IDs or file paths and is never uploaded automatically.
+## Host a fresh installation
 
-| Test | What to check |
-| --- | --- |
-| Fresh installer | Extract the release into a new folder. Follow [setup](SETUP.md) without copying an existing `.venv`, `node_modules`, runtime database or credentials. Note any unclear step. |
-| One speaker | Select your spoken language independently of the listening language. Test Turkish → English and English → Turkish with local processing and personal audio playback. |
-| Two people | Use two distinct humans, each with their own panel session and explicit speech consent. Try both directions, then alternate speakers and briefly overlap. Two browser tabs or synthetic voices do not count as two people. |
-| Stop and resume | Revoke your own consent, leave the room and reconnect. Check that no new speech is processed while consent is off, and that old audio is unavailable. |
+1. Download and verify the source ZIP and SHA-256 from the [alpha.4 release](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4). Extract into a new folder. Do not copy an existing `.venv`, `node_modules`, runtime database or credentials. Install Node.js **24.17+ / 24.x** and Python **3.12**; allow approximately **3 GB** disk space.
+2. Follow [setup](SETUP.md): `npm ci --ignore-scripts`, `npm run setup`, `npm start`. Setup downloads separately licensed local models; Discord still needs internet. Open the one-use `.voicebridge/operator-link` on that computer and configure a dedicated Discord bot. Do not put keys in a terminal command or issue.
+3. Run **Settings → Run setup checks**. Note any blocked or unclear step. [The check guide](SETUP-CHECKS.md) separates automatic checks from manual OAuth, model-integrity and live acceptance. A blocked installation report is useful too.
+4. When ready for voice, explicitly connect the bot. Join a normal voice channel, run `/voicebridge start`, then sign into the panel with Discord. The operator session configures the app; use another browser profile or sign out for Discord listening. Select spoken **English**, listening **Türkçe**, local processing and your own local consent. Enable personal audio. Test a short phrase, then reverse the languages.
+5. Turn your consent off, speak briefly and confirm no new output arrives; leave the room and check that old audio access is no longer valid. Submit the [feedback form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml), identifying fresh installation separately from any voice tests completed.
 
-Only the installer needs to host the models and configure a dedicated bot. A remote participant needs the installer's reachable HTTPS panel address; `127.0.0.1` refers to each participant's own computer. See [remote setup](SETUP.md#remote-listeners). This repository does not provide a shared public translation server.
+For the installation milestone, report the version, OS/browser, Node/Python versions, setup result and any unclear step. A successful full host setup and accessible operator panel may qualify after review even when live voice is deferred; this establishes installation evidence only. Optionally download the allowlisted support report, **review it before attaching**, and opt in if you want the public report linked in the ledger. Nothing is uploaded automatically.
 
-## Short phrases
+## Join as a guest
 
-Use self-authored, non-sensitive speech such as:
+Ask the host for the reachable panel address and join the bot's Discord voice room. Sign in with your own Discord account, choose your spoken and listening languages, enable your own **local** processing consent and click to enable personal audio. You do not need Python, models, a bot token or the host's operator link.
 
-- English: “I didn't say delete the backup. Please keep it until Friday.”
-- English: “We need fifteen minutes, not fifty.”
-- Turkish: “Yarın birlikte çalışabiliriz. Yardımın için teşekkür ederim.”
+A remote guest needs the host's **HTTPS** panel. `127.0.0.1` always refers to the device opening it; sharing that URL will not connect another computer. The host follows [remote setup](SETUP.md#remote-listeners). VoiceBridge does not provide a shared public translation service.
 
-Compare the **original recognized text** before judging the translation. Approximate subtitle delay, audio delay and rough error counts are useful; precise benchmark claims are not required. If a problem occurs, report the original text and expected meaning with a minimal, non-sensitive example.
+## Check meaning and consent
 
-## Send feedback
+Use a short, self-authored, non-sensitive phrase. Examples:
 
-Open the [beta feedback form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml). Include the version, operating system/browser, test type, number of distinct humans, setup result and important issues. Broad CPU/RAM information is optional. Do not upload recordings, operator links, tokens, database files, private server/user IDs or personal conversations.
+- “I didn't say delete the backup. Please keep it until Friday.”
+- “We need fifteen minutes, not fifty.”
+- “Yarın birlikte çalışabiliriz. Yardımın için teşekkür ederim.”
 
-The beta uses local mode by default: no translation API fee, with hardware/electricity costs on the host. Cloud is optional, disabled by default and separately funded by the owner. No cloud spending is requested for this beta.
+Compare the **original recognized text** first, then the translated meaning. Report those separately. For delay, inspect [Latency details](CAPTION-TIMING.md) beside a caption; rough listening delay is useful too. Server timings exclude capture, Discord transport and browser playback, and one sample does not establish capacity.
 
-## Current status
+With two distinct humans, use separate panel sessions and each person's own consent. Try both directions, alternating speech, brief overlap, private playback and consent cancellation. Two tabs or synthetic voices do not qualify as two people.
 
-Automated source/demo checks and earlier alpha's one-user live recognition observations exist; see [validation](VALIDATION.md). The user explicitly chose to publish the beta invitation while a second human is unavailable. **Independent human installation, two-person live acceptance and a 5–10-person feedback cohort are still pending.** Reports will be recorded only when received. The next improvements will be prioritized from reproducible setup failures, incorrect recognition/meaning and excessive delay.
+## Feedback and limits
+
+Use the [beta form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml) for a result or blocker; the speech field is optional for setup-only reports. Omit recordings, private conversations, credentials, operator links, databases, private IDs and personal paths. No video is necessary.
+
+Local mode has no translation API fee; the host provides hardware/electricity. Cloud is optional, owner-funded and disabled by default; no cloud spending is needed here. Automatic source/demo checks and earlier one-user observations are documented in [validation](VALIDATION.md). Independent installations, multi-user quality and the live two-person gate are tracked separately in the [ledger](BETA-STATUS.md). Reports count only after review, with the tester's permission to link them.
