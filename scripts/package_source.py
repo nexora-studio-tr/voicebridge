@@ -31,7 +31,7 @@ def build():
             if path.suffix=='.wav':
                 if not re.fullmatch(r'examples/demo/(?:source|translated)-[0-3]\.wav',path.relative_to(ROOT).as_posix()):raise ValueError('Unexpected audio asset')
             elif path.suffix=='.png':
-                if path.relative_to(ROOT).as_posix() not in ('docs/assets/demo-en.png','docs/assets/demo-tr.png'):raise ValueError('Unexpected screenshot asset')
+                if path.relative_to(ROOT).as_posix() not in ('docs/assets/demo-en.png','docs/assets/demo-tr.png','docs/assets/setup-checks-en.png','docs/assets/setup-checks-tr.png'):raise ValueError('Unexpected screenshot asset')
             elif path.suffix not in EXTENSIONS and path.name not in ('LICENSE','NOTICE'):raise ValueError('Unexpected source file type: '+path.name)
             selected.append(path)
     if len(selected)>500:raise ValueError('Source file-count limit')

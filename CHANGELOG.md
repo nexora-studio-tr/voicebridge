@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-alpha.3 — 2026-10-27
+
+- Add guided operator setup checks for Node, the local worker, model-file presence, saved Discord settings and the current Gateway connection, with actionable Turkish/English steps.
+- Keep full model integrity, remote access, OAuth and two-person voice acceptance explicitly separate from automated installation checks.
+- Add an opt-in JSON support report containing only versions, time, OS/architecture and fixed check results. Configuration changes invalidate the previous browser snapshot. No report is uploaded automatically.
+- Restrict reports to the instance operator, deny ordinary members and recorded demos, and share only concurrent local health probes. Checks do not connect Discord, download models, run inference or call paid providers.
+
 ## 0.1.0-alpha.2 — 2026-10-26
 
 - Improve local English recognition with five-beam deterministic decoding and longer VAD pauses; retain the existing Turkish recognition profile and pinned models.

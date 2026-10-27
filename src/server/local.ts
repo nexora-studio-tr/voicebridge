@@ -4,6 +4,25 @@ import { existsSync } from 'node:fs';
 import { randomBytes } from 'node:crypto';
 import { z } from 'zod';
 import { Fault, type Inference, type Language } from '../core/contracts.js';
+import type { LocalSetupProbe } from '../core/setup.js';
+
+export function workerSetupProbe(health: unknown): LocalSetupProbe {
+  if (
+    !health ||
+    typeof health !== 'object' ||
+    !('ready' in health) ||
+    typeof health.ready !== 'boolean' ||
+    !('missing' in health) ||
+    !Array.isArray(health.missing) ||
+    health.missing.length > 64 ||
+    'error' in health
+  )
+    return { kind: 'worker-unavailable' };
+  return {
+    kind: 'worker-responding',
+    modelFiles: health.ready && health.missing.length === 0 ? 'present' : 'missing',
+  };
+}
 
 export class LocalWorker implements Inference {
   private child: ChildProcess | null = null;
@@ -76,6 +95,19 @@ export class LocalWorker implements Inference {
     } catch {
       return { ready: false, missing: [], device: 'cpu', error: 'LOCAL_WORKER_UNAVAILABLE' };
     }
+  }
+  async setupProbe(): Promise<LocalSetupProbe> {
+    const python =
+      process.env.VOICEBRIDGE_PYTHON ??
+      path.join(
+        this.root,
+        '.venv',
+        process.platform === 'win32' ? 'Scripts/python.exe' : 'bin/python',
+      );
+    if (!existsSync(python)) return { kind: 'python-missing' };
+    if (!this.child || this.child.killed || this.child.exitCode !== null)
+      return { kind: 'worker-stopped' };
+    return workerSetupProbe(await this.status());
   }
   async recognize(wav: Buffer, language: Language, signal: AbortSignal) {
     return z

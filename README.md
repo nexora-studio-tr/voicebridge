@@ -10,7 +10,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
-**[Download alpha.2](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Download alpha.3](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ![VoiceBridge personal listening panel, recorded synthetic demo](docs/assets/demo-en.png)
 
@@ -40,6 +40,8 @@ npm run demo
 Open [127.0.0.1:4348](http://127.0.0.1:4348), enable audio, then start the sample. These are **recorded synthetic samples from the actual local pipeline**, not a live Discord connection or arbitrary-input translator. Switch Turkish/English to inspect personal delivery.
 
 ## Full installation
+
+Alpha.3 adds **[guided setup checks and a private support report](docs/SETUP-CHECKS.md)** in the operator's Settings panel. See missing setup steps, then explicitly download a report with no credentials, private IDs or speech. Manual integrity, sign-in and live-voice acceptance remain separate checks.
 
 Install Python **3.12**, allow approximately **3 GB** disk space, then:
 

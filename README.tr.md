@@ -1,5 +1,7 @@
 # VoiceBridge
 
+Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek raporu](docs/SETUP-CHECKS.md)** ekler. Eksik adımları görüp anahtar, özel ID veya konuşma içermeyen raporu kendin indirebilirsin. Bütünlük, giriş ve gerçek ses kabul testleri ayrıca yapılır.
+
 **Discord ses odaları için kişiye özel altyazı ve sesli çeviri. Kendi bilgisayarında veya sunucunda çalışır.**
 
 [![CI](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml/badge.svg)](https://github.com/nexora-studio-tr/voicebridge/actions/workflows/ci.yml)
@@ -8,7 +10,7 @@
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.2 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.3 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ![VoiceBridge kişisel dinleme paneli, kaydedilmiş sentetik demo](docs/assets/demo-tr.png)
 
