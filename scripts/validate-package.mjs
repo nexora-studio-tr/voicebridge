@@ -53,7 +53,7 @@ const browserOutput = await run(process.execPath, ['scripts/validate-browser.mjs
   VOICEBRIDGE_DATA: path.join(cleanRoot, '.voicebridge-clean'),
 });
 const browser = JSON.parse(browserOutput.trim().split(/\r?\n/).at(-1));
-if (browser.status !== 'passed' || browser.checks < 10)
+if (browser.status !== 'passed' || browser.checks < 16)
   throw Error('Clean browser checks did not pass');
 const report = {
   status: 'passed',
@@ -67,7 +67,7 @@ const report = {
   freshNodeModules: true,
   build: 'passed',
   browserChecks: browser.checks,
-  profiles: 'isolated fresh recorded-demo and operator profiles',
+  profiles: 'isolated fresh recorded-demo, operator and synthetic HTTP/SSE timing profiles',
   credentialsCopied: false,
   liveDiscord: false,
   paidApi: false,

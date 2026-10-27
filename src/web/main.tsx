@@ -33,6 +33,7 @@ import {
 import { Choice, Modal, Toggle } from './primitives.js';
 import { usePlayback } from './audio.js';
 import { Settings } from './Settings.js';
+import { CaptionTiming } from './CaptionTiming.js';
 import './style.css';
 
 setNonce(document.querySelector<HTMLMetaElement>('meta[property="csp-nonce"]')?.content ?? '');
@@ -536,7 +537,7 @@ function App() {
                           { hour: '2-digit', minute: '2-digit' },
                         )}
                       </time>
-                      {!demo && <span>{(c.latencyMs / 1000).toFixed(1)}s</span>}
+                      {!demo && <CaptionTiming caption={c} locale={locale} />}
                       {c.fallback && (
                         <span className="fallback">
                           {t('konuşmacının izniyle yerel', 'local · speaker consent')}

@@ -61,6 +61,7 @@ export class Rooms {
     public authorized: (room: Room, userId: string) => boolean,
     public cloudAllowed: (guild: string) => boolean,
     public now = () => Date.now(),
+    private measure = () => performance.now(),
   ) {}
   create(guildId: string, guildName: string, channelId: string, name: string, creator: string) {
     const existing = [...this.rooms.values()].find((r) => r.active && r.guildId === guildId);
@@ -260,10 +261,12 @@ export class Rooms {
     const info = inspectWav(audio);
     if (info.rms < 0.003 || info.seconds < 0.35) return;
     const epoch = s.epoch,
-      started = this.now(),
+      started = this.measure(),
       utterance = randomUUID();
     try {
       this.queue.push(speakerId, async () => {
+        const elapsed = (from: number) => Math.max(0, Math.floor(this.measure() - from));
+        const queueMs = elapsed(started);
         const signal = new AbortController();
         room.jobs.set(signal, speakerId);
         const baseValid = () =>
@@ -287,7 +290,7 @@ export class Rooms {
             g.listeners.push({ l, generation: l.generation });
             groups.set(key, g);
           }
-          const recognition = new Map<Mode, Promise<string>>();
+          const recognition = new Map<Mode, Promise<{ text: string; duration: number }>>();
           for (const g of groups.values()) {
             const valid = () =>
               baseValid() &&
@@ -312,24 +315,37 @@ export class Rooms {
               this.broadcast(room, { type: 'status', data: { code: 'PROCESSING', speakerId } });
               let text = recognition.get(g.mode);
               if (!text) {
-                text = engine.recognize(audio, s.consent.language, signal.signal);
+                const recognitionStarted = this.measure();
+                text = engine
+                  .recognize(audio, s.consent.language, signal.signal)
+                  .then((value) => ({ text: value, duration: elapsed(recognitionStarted) }));
                 recognition.set(g.mode, text);
               }
-              const source = await text;
+              const { text: source, duration: recognitionMs } = await text;
               if (!valid() || !source.trim()) continue;
+              const translationStarted = this.measure();
               const translated = await engine.translate(
                 source,
                 s.consent.language,
                 g.language,
                 signal.signal,
               );
+              const translationMs = elapsed(translationStarted);
               if (!valid() || !translated.trim()) continue;
               const listeners = g.listeners.filter(
                 ({ l, generation }) =>
                   l.events.size > 0 && l.generation === generation && this.authorized(room, l.id),
               );
               const createdAt = this.now();
-              const deliver = (mediaId?: string) => {
+              const captionMs = elapsed(started);
+              const timing = {
+                queueMs,
+                recognitionMs,
+                translationMs,
+                captionMs,
+                captionOverheadMs: Math.max(0, captionMs - queueMs - recognitionMs - translationMs),
+              };
+              const deliver = (mediaId?: string, synthesisMs?: number, audioMs?: number) => {
                 for (const { l, generation } of listeners) {
                   if (
                     !valid() ||
@@ -349,7 +365,20 @@ export class Rooms {
                     mode: g.mode,
                     fallback: l.preferences.mode !== g.mode,
                     createdAt,
-                    latencyMs: createdAt - started,
+                    latencyMs: captionMs,
+                    timing: {
+                      ...timing,
+                      ...(mediaId &&
+                      l.preferences.audio &&
+                      synthesisMs !== undefined &&
+                      audioMs !== undefined
+                        ? {
+                            synthesisMs,
+                            audioMs,
+                            audioOverheadMs: Math.max(0, audioMs - captionMs - synthesisMs),
+                          }
+                        : {}),
+                    },
                     ...(mediaId && l.preferences.audio
                       ? { audioUrl: `/api/rooms/${room.id}/audio/${mediaId}` }
                       : {}),
@@ -367,7 +396,9 @@ export class Rooms {
               deliver();
               let mediaId: string | undefined;
               if (listeners.some(({ l }) => l.preferences.audio)) {
+                const synthesisStarted = this.measure();
                 const bytes = await engine.speak(translated, g.language, signal.signal);
+                const synthesisMs = elapsed(synthesisStarted);
                 if (!valid()) continue;
                 inspectWav(bytes);
                 mediaId = randomUUID();
@@ -385,7 +416,7 @@ export class Rooms {
                       .map(({ l, generation }) => [l.id, generation]),
                   ),
                 });
-                deliver(mediaId);
+                deliver(mediaId, synthesisMs, elapsed(started));
               }
             } catch (e) {
               const code =

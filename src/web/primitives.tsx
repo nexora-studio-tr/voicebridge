@@ -90,6 +90,7 @@ export function Modal({
   description,
   children,
   closeLabel,
+  trigger,
 }: {
   open: boolean;
   onChange: (v: boolean) => void;
@@ -97,9 +98,11 @@ export function Modal({
   description: string;
   children: ReactNode;
   closeLabel: string;
+  trigger?: ReactNode;
 }) {
   return (
     <Dialog.Root open={open} onOpenChange={onChange}>
+      {trigger && <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>}
       <Dialog.Portal>
         <Dialog.Overlay className="modal-overlay" />
         <Dialog.Content className="modal">

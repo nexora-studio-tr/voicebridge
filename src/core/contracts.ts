@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const VERSION = '0.1.0-alpha.3';
+export const VERSION = '0.1.0-alpha.4';
 export const Language = z.enum(['tr', 'en']);
 export type Language = z.infer<typeof Language>;
 export const Mode = z.enum(['local', 'cloud']);
@@ -73,6 +73,16 @@ export interface Speaker {
   epoch: number;
   speaking: boolean;
 }
+export interface CaptionTiming {
+  queueMs: number;
+  recognitionMs: number;
+  translationMs: number;
+  captionOverheadMs: number;
+  captionMs: number;
+  synthesisMs?: number;
+  audioOverheadMs?: number;
+  audioMs?: number;
+}
 export interface Caption {
   id: string;
   speakerId: string;
@@ -85,6 +95,7 @@ export interface Caption {
   fallback: boolean;
   createdAt: number;
   latencyMs: number;
+  timing?: CaptionTiming;
   audioUrl?: string;
 }
 export type Event =
