@@ -22,6 +22,7 @@ import { CloudEngine } from './cloud.js';
 import { LocalWorker } from './local.js';
 import { RecordedDemo } from './demo.js';
 import { exchangeDiscordCode } from './oauth.js';
+import { setupReport, type LocalSetupProbe } from '../core/setup.js';
 
 export interface AppOptions {
   root: string;
@@ -305,6 +306,27 @@ export async function createServer(options: AppOptions) {
   app.get('/api/operator/models', async (req) => {
     operator(req);
     return worker ? worker.status() : { ready: !!options.local, device: 'injected' };
+  });
+  let setupProbe: Promise<LocalSetupProbe> | null = null;
+  app.get('/api/operator/setup-checks', async (req) => {
+    operator(req);
+    // Concurrent requests share only the bounded local health probe, not session/config data.
+    setupProbe ??= (
+      worker ? worker.setupProbe() : Promise.resolve<LocalSetupProbe>({ kind: 'custom' })
+    ).finally(() => {
+      setupProbe = null;
+    });
+    const local = await setupProbe;
+    const cfg = DiscordConfig.safeParse(store.get('discord'));
+    return setupReport({
+      node: process.versions.node,
+      platform: process.platform,
+      architecture: process.arch,
+      local,
+      configured: cfg.success,
+      connected: gateway.ready(),
+      https: origin.protocol === 'https:',
+    });
   });
   app.get('/api/guilds/:guild/budget', async (req) => {
     const guild = Snowflake.parse((req.params as { guild: string }).guild);

@@ -1,5 +1,5 @@
 name: Beta feedback / Beta geri bildirimi
-description: Report an alpha.2 installation or translation test. Türkçe yazabilirsin.
+description: Report an alpha.3 installation or translation test. Türkçe yazabilirsin.
 title: '[Beta]: '
 body:
   - type: markdown
@@ -9,7 +9,7 @@ body:
     id: version
     attributes:
       label: Version / Sürüm
-      placeholder: 0.1.0-alpha.2
+      placeholder: 0.1.0-alpha.3
     validations:
       required: true
   - type: dropdown

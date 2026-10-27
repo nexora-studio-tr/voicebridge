@@ -1,10 +1,12 @@
-# VoiceBridge alpha.2 beta
+# VoiceBridge alpha.3 beta
 
-[Türkçe](BETA.tr.md) · [Download](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[Türkçe](BETA.tr.md) · [Download](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 We are looking for **5–10 volunteer testers** of a self-hosted Turkish/English Discord translator. This is an invitation, not a claim that a beta cohort has already completed testing. No video is required.
 
 ## Pick a test
+
+Start with the operator's **Settings → Run setup checks**. [The setup-check guide](SETUP-CHECKS.md) explains what is automated and what remains manual. You can explicitly download the allowlisted JSON support report, review it, and attach it to your feedback. It never includes speech, credentials, private IDs or file paths and is never uploaded automatically.
 
 | Test | What to check |
 | --- | --- |
@@ -33,4 +35,4 @@ The beta uses local mode by default: no translation API fee, with hardware/elect
 
 ## Current status
 
-Automated source/demo checks and a one-user live recognition check exist; see [validation](VALIDATION.md). The user explicitly chose to publish the beta invitation while a second human is unavailable. **Independent human installation, two-person live acceptance and a 5–10-person feedback cohort are still pending.** Reports will be recorded only when received. The next improvements will be prioritized from reproducible setup failures, incorrect recognition/meaning and excessive delay.
+Automated source/demo checks and earlier alpha's one-user live recognition observations exist; see [validation](VALIDATION.md). The user explicitly chose to publish the beta invitation while a second human is unavailable. **Independent human installation, two-person live acceptance and a 5–10-person feedback cohort are still pending.** Reports will be recorded only when received. The next improvements will be prioritized from reproducible setup failures, incorrect recognition/meaning and excessive delay.

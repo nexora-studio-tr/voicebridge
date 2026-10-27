@@ -1,7 +1,8 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { ExternalLink, LoaderCircle, Plug, Unplug, ShieldCheck } from 'lucide-react';
-import { api, code, explain, ApiError, type Language, type Session } from './api.js';
+import { api, code, explain, type Language, type Session } from './api.js';
 import { Modal, Toggle } from './primitives.js';
+import { SetupChecks } from './SetupChecks.js';
 interface OperatorInfo {
   discord: { applicationId: string; guilds: string[]; hasToken: boolean; hasSecret: boolean };
   redirectUri: string;
@@ -179,6 +180,9 @@ export function Settings({
         </div>
       )}
       {session.identity?.operator && (
+        <SetupChecks locale={locale} revision={info} disabled={busy || !info} />
+      )}
+      {session.identity?.operator && (
         <section className="settings-section">
           <h3>
             <Plug size={18} />
@@ -298,24 +302,6 @@ export function Settings({
                   {info.status.connected
                     ? t('Bağlantıyı kes', 'Disconnect')
                     : t('Discord’a bağlan (canlı)', 'Connect to Discord (live)')}
-                </button>
-                <button
-                  className="button secondary"
-                  type="button"
-                  disabled={busy}
-                  onClick={() =>
-                    void run(
-                      async () => {
-                        const model = await api<{ ready: boolean; device?: string }>(
-                          '/api/operator/models',
-                        );
-                        if (!model.ready) throw new ApiError('LOCAL_WORKER_UNAVAILABLE', 503);
-                      },
-                      t('Yerel modeller hazır.', 'Local models are ready.'),
-                    )
-                  }
-                >
-                  {t('Modelleri kontrol et', 'Check local models')}
                 </button>
               </div>
               <p className="muted small">

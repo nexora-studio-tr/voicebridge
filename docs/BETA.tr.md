@@ -1,10 +1,12 @@
-# VoiceBridge alpha.2 beta
+# VoiceBridge alpha.3 beta
 
-[English](BETA.md) · [İndir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.2) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[English](BETA.md) · [İndir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 Türkçe/İngilizce Discord çevirisini denemek için **5–10 gönüllü kullanıcı arıyoruz**. Bu bir katılım çağrısıdır; beş-on kişinin testi tamamladığı anlamına gelmez. Video gerekmiyor.
 
 ## Nasıl deneyebilirsin?
+
+Önce operatörün **Ayarlar → Kurulumu denetle** düğmesini kullan. [Kontrol rehberi](SETUP-CHECKS.md), otomatik ve elle yapılacak adımları ayırır. İstersen yalnızca izin verilen alanları içeren JSON destek raporunu indirip inceleyerek geri bildirime ekle. Rapor; konuşma, anahtar, özel ID veya dosya yolu içermez ve otomatik gönderilmez.
 
 1. **Temiz kurulum:** Paketi yeni klasöre çıkarıp [kurulum rehberini](SETUP.tr.md) izle. Eski `.venv`, `node_modules`, veritabanı veya anahtar dosyalarını kopyalama. Anlaşılmayan adımları not et.
 2. **Tek kişi:** Konuştuğun dili ve duymak istediğin dili ayrı seç. Yerel modda iki çeviri yönünü, altyazıyı ve kişisel sesli dinlemeyi dene.

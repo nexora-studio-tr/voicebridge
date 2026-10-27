@@ -1,5 +1,13 @@
 # Validation
 
+## Alpha.3 setup and support — 2026-10-27
+
+The Windows source passed strict typecheck/build/format, **73 TypeScript tests** and **9 Python tests**. The Chromium gate passed **12 checks**, including both setup-panel languages, a 390px modal, automatic WCAG A/AA rules, an actual JSON download, credential/ID exclusion and rejection of a late report after settings change. Screenshots use an isolated profile with deliberately missing Python and synthetic configuration; no private operator profile or credentials were copied.
+
+The installation snapshot checks Node, existing worker health, file presence, saved configuration and the current Gateway-ready flag. Model integrity, actual loading/inference quality, OAuth completion, certificate/remote reachability and two-person acceptance remain separate. Custom inference adapters do not prove the standard Python/model installation. The read-only probe performs no Discord login, capture, model download or paid call. Reports are operator-only and use fixed fields; they are not uploaded automatically.
+
+These are local observations. Check the exact published commit's Actions run and release validation separately for fresh-package and cross-platform results. Alpha.3 introduces no new translation models or recognition settings. Earlier human observations below belong to earlier alpha versions; **no new two-person or billable-cloud validation is claimed**.
+
 ## Alpha.2 source release — 2026-10-26
 
 Local checks passed for version `0.1.0-alpha.2`: 59 TypeScript tests, 9 Python tests, typecheck/build/format, source packaging and ten browser checks against a freshly extracted source ZIP with newly installed Node dependencies.

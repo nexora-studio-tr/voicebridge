@@ -993,6 +993,53 @@ h1 em {
   gap: 10px;
   align-items: center;
 }
+.setup-summary {
+  color: #315a46;
+  margin-bottom: 12px;
+}
+.setup-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  border: 1px solid #dce4d8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.setup-check-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 12px;
+  padding: 13px;
+}
+.setup-check-list li + li {
+  border-top: 1px solid #dce4d8;
+}
+.setup-check-list strong {
+  font-size: 12px;
+  align-self: center;
+}
+.setup-check-list p {
+  grid-column: 1 / -1;
+  overflow-wrap: anywhere;
+}
+.setup-check-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  color: #415f4d;
+  background: #edf2e9;
+}
+.setup-check-state[data-state='pass'] {
+  color: #245744;
+  background: #e7f2e8;
+}
+.setup-check-state[data-state='blocked'] {
+  color: #7e421c;
+  background: #fff0df;
+}
 .settings-section label {
   font-size: 11px;
   color: #536b58;
