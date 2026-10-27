@@ -12,11 +12,20 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+
+## Nereden başlayacaksın?
+
+| Deneme                      | Gerekenler                                                         | Başlangıç                                                   |
+| --------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------- |
+| Kayıtlı demoyu gör ve dinle | Node.js 24.17+ / 24.x; Python, bot veya anahtar gerekmez           | [Demo](#demo)                                               |
+| Beta kurulumu yap           | Kendi cihazın, Python 3.12, model indirmeleri ve ayrı Discord botu | [Kurulum sahibi rehberi](docs/BETA.tr.md#temiz-kurulum-yap) |
+
+Başkasının gerçek odasına mı katılacaksın? Onun erişilebilir panel adresinde kendi Discord hesabınla giriş yap; model kurmaz, anahtar paylaşmazsın. [Katılımcı adımları](docs/BETA.tr.md#misafir-olarak-katıl).
 
 ![VoiceBridge kişisel dinleme paneli, kaydedilmiş sentetik demo](docs/assets/demo-tr.png)
 
-*Görselde sentetik örnekler kullanılır; gerçek kullanıcı konuşması veya hesap bilgisi bulunmaz.*
+_Görselde sentetik örnekler kullanılır; gerçek kullanıcı konuşması veya hesap bilgisi bulunmaz._
 
 ## Neden VoiceBridge?
 
@@ -25,7 +34,7 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 - Yerel modeller CPU üzerinde API ücreti olmadan çalışır. Yerel hata nedeniyle kendiliğinden ücretli moda geçilmez.
 - Konuşmacı sırası, paylaşılan çıkarım ve bulut isteği öncesi bütçe ayırma ile kaynak kullanımı sınırlandırılır.
 
-**0.1.0-alpha.2**, mevcut yerel modelleri değiştirmeden İngilizce algılamayı ve konuşma parçalarının sınırlarını iyileştirir. Düzeltme sonrası tek kullanıcılı denemede İngilizce metin ve Türkçe altyazı doğru çıktı. İki kişilik gerçek test ve 5–10 kişilik grup henüz tamamlanmadı; [beta rehberinde](docs/BETA.tr.md) katılım adımları var. Ücretli API ve çok kullanıcılı kapasite doğrulanmadı. Yerel model saat ifadelerinde hata yapabiliyor. [Test kapsamı](docs/VALIDATION.md).
+**0.1.0-alpha.2**, mevcut yerel modelleri değiştirmeden İngilizce algılamayı ve konuşma parçalarının sınırlarını iyileştirir. Düzeltme sonrası tek kullanıcılı denemede İngilizce metin ve Türkçe altyazı doğru çıktı. İlk beta hedefi sonuçları incelenmiş iki bağımsız temiz kurulum. İki kişilik gerçek test ve 5–10 kişilik grup ayrı hedefler ve henüz tamamlanmadı; [beta rehberinde](docs/BETA.tr.md) katılım adımları var. Ücretli API ve çok kullanıcılı kapasite doğrulanmadı. Yerel model saat ifadelerinde hata yapabiliyor. [Test kapsamı](docs/VALIDATION.md).
 
 ## Demo
 

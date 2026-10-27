@@ -1,5 +1,5 @@
 name: Beta feedback / Beta geri bildirimi
-description: Report an alpha.4 installation or translation test. Türkçe yazabilirsin.
+description: Report a fresh installation, a blocker or a translation test. Türkçe yazabilirsin.
 title: '[Beta]: '
 body:
   - type: markdown
@@ -13,12 +13,26 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: participation
+    attributes:
+      label: Your participation / Katılım türün
+      options:
+        - Fresh full host installation / Temiz tam sunucu kurulumu
+        - Existing host installation / Mevcut sunucu kurulumu
+        - Guest on someone else's host / Başkasının kurulumunda misafir
+        - Recorded demo only / Yalnızca kayıtlı demo
+        - Setup blocked / Kurulumda takıldım
+    validations:
+      required: true
+  - type: dropdown
     id: scenario
     attributes:
       label: Tests tried / Denenenler
       multiple: true
       options:
         - Fresh installation / Temiz kurulum
+        - Setup checks / Kurulum kontrolü
+        - Recorded demo / Kayıtlı demo
         - Turkish to English / Türkçe → İngilizce
         - English to Turkish / İngilizce → Türkçe
         - Personal audio / Kişisel sesli dinleme
@@ -33,6 +47,7 @@ body:
         - One person / Tek kişi
         - Two or more people / İki veya daha fazla kişi
         - Synthetic only / Yalnızca sentetik
+        - No live voice test / Canlı ses testi yapılmadı
     validations:
       required: true
   - type: dropdown
@@ -49,13 +64,18 @@ body:
     id: environment
     attributes:
       label: Environment and setup / Ortam ve kurulum
-      description: OS/browser, Node/Python versions and unclear setup steps; optional broad CPU/RAM information. No personal paths or device identifiers.
+      description: OS/browser and the setup result or blocked step. Hosts include Node/Python versions; guests need not. Broad CPU/RAM information is optional. No personal paths or device identifiers.
     validations:
       required: true
   - type: textarea
     id: observations
     attributes:
       label: Recognition, translation and delay / Algılama, çeviri ve gecikme
-      description: Spoken/listening languages, original recognized text, intended meaning, approximate caption/audio delay and reproducible issues. Use non-sensitive examples only.
-    validations:
-      required: true
+      description: Optional for setup-only reports. State spoken/listening languages; compare original recognized text and intended translation separately. Add approximate delay or reproducible issues using non-sensitive examples.
+  - type: checkboxes
+    id: ledger_permission
+    attributes:
+      label: Evidence ledger / Doğrulama kaydı
+      options:
+        - label: You may link this public report in the beta ledger after review. / İnceleme sonrası bu herkese açık raporu beta kaydında bağlantılayabilirsin.
+          required: false

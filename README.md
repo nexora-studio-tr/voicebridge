@@ -12,11 +12,20 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
-**[Download alpha.4](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Download alpha.4](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+
+## Choose your starting point
+
+| Try it                         | What you need                                                           | Start                                                     |
+| ------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------- |
+| See and hear the recorded demo | Node.js 24.17+ / 24.x; no Python, bot or key                            | [Recorded demo](#recorded-demo)                           |
+| Host a beta installation       | Your hardware, Python 3.12, model downloads and a dedicated Discord bot | [Installer guide](docs/BETA.md#host-a-fresh-installation) |
+
+Joining someone else's live room? Use their reachable panel address and your own Discord sign-in; you do not install models or share keys. [Guest instructions](docs/BETA.md#join-as-a-guest).
 
 ![VoiceBridge personal listening panel, recorded synthetic demo](docs/assets/demo-en.png)
 
-*Recorded synthetic demo; the screenshot contains no private conversation or live account data.*
+_Recorded synthetic demo; the screenshot contains no private conversation or live account data._
 
 ## Why VoiceBridge
 
@@ -25,7 +34,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 - **Local-first processing:** faster-whisper → Argos → Okur/Piper on CPU, without a translation API fee. A local failure never silently switches to paid processing.
 - **Bounded by design:** fair speaker queues, shared inference, ephemeral captions/audio and conservative budget reservations before cloud dispatch.
 
-**0.1.0-alpha.2** improves English recognition and utterance boundaries without replacing the local models. A user confirmed correct English text and Turkish captions after the repair. Two-person live acceptance and a 5–10-person cohort are pending; the [beta guide](docs/BETA.md) describes how to help. Billable cloud calls and multi-user capacity remain unverified. Local models can mistranslate clock times. [Validation](docs/VALIDATION.md) records the exact scope.
+**0.1.0-alpha.2** improves English recognition and utterance boundaries without replacing the local models. A user confirmed correct English text and Turkish captions after the repair. The current beta milestone is two reviewed independent fresh installations; two-person live acceptance and a 5–10-person cohort are separate, pending goals. The [beta guide](docs/BETA.md) describes how to help. Billable cloud calls and multi-user capacity remain unverified. Local models can mistranslate clock times. [Validation](docs/VALIDATION.md) records the exact scope.
 
 ## Recorded demo
 
@@ -69,11 +78,11 @@ The bot stays in the room, self-muted, receiving consenting speakers. Translatio
 
 ## Engines and budgets
 
-| Stage | Local, no API fee | Cloud, owner's key |
-|---|---|---|
-| Recognition | faster-whisper base / CPU int8 | gpt-transcribe |
-| Translation | Argos pair models / CTranslate2 int8 | gpt-realtime-2.1-mini text |
-| Speech | Okur ONNX (TR), Piper LJSpeech (EN) | gpt-realtime-2.1-mini synthetic audio |
+| Stage       | Local, no API fee                    | Cloud, owner's key                    |
+| ----------- | ------------------------------------ | ------------------------------------- |
+| Recognition | faster-whisper base / CPU int8       | gpt-transcribe                        |
+| Translation | Argos pair models / CTranslate2 int8 | gpt-realtime-2.1-mini text            |
+| Speech      | Okur ONNX (TR), Piper LJSpeech (EN)  | gpt-realtime-2.1-mini synthetic audio |
 
 Cloud defaults off with zero caps. It requires an owner key, reviewed prices, enabled budgets, an active listener choosing cloud and speaker cloud consent. A local-only speaker stays local, visibly labelled. Local failure never silently triggers paid processing.
 
