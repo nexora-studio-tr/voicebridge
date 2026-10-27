@@ -1,8 +1,10 @@
-# VoiceBridge alpha.3 beta
+# VoiceBridge alpha.4 beta
 
-[English](BETA.md) · [İndir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[English](BETA.md) · [İndir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 Türkçe/İngilizce Discord çevirisini denemek için **5–10 gönüllü kullanıcı arıyoruz**. Bu bir katılım çağrısıdır; beş-on kişinin testi tamamladığı anlamına gelmez. Video gerekmiyor.
+
+Gecikme varsa altyazının yanındaki [Gecikme ayrıntıları](CAPTION-TIMING.md) penceresini aç. Gerekirse adım sürelerini ve genel donanım bilgisini paylaş; tek örnek kapasite sonucu değildir.
 
 ## Nasıl deneyebilirsin?
 

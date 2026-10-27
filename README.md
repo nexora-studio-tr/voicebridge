@@ -1,5 +1,7 @@
 # VoiceBridge
 
+**Alpha.4** adds [per-caption server timing](docs/CAPTION-TIMING.md): inspect queue, recognition, translation and optional speech-generation times. [Operator setup checks](docs/SETUP-CHECKS.md) remain available.
+
 **One conversation. Your language.**
 
 Personal captions and translated speech for Discord voice rooms. Run local models on your own hardware, or bring an owner-funded cloud key. Every speaker controls their own consent; every listener chooses what they hear.
@@ -10,7 +12,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
-**[Download alpha.3](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Download alpha.4](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · **[Join the 5–10-tester beta](docs/BETA.md)** · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ![VoiceBridge personal listening panel, recorded synthetic demo](docs/assets/demo-en.png)
 

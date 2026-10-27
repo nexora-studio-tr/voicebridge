@@ -1,5 +1,7 @@
 # VoiceBridge
 
+**Alpha.4**, [altyazı başına işlem sürelerini](docs/CAPTION-TIMING.md) gösterir: kuyruk, ses tanıma, çeviri ve isteğe bağlı ses üretimini ayrı inceleyebilirsin; konuşma kaydı eklenmez.
+
 Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek raporu](docs/SETUP-CHECKS.md)** ekler. Eksik adımları görüp anahtar, özel ID veya konuşma içermeyen raporu kendin indirebilirsin. Bütünlük, giriş ve gerçek ses kabul testleri ayrıca yapılır.
 
 **Discord ses odaları için kişiye özel altyazı ve sesli çeviri. Kendi bilgisayarında veya sunucunda çalışır.**
@@ -10,7 +12,7 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.3 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · **[5–10 kişilik betaya katıl](docs/BETA.tr.md)** · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ![VoiceBridge kişisel dinleme paneli, kaydedilmiş sentetik demo](docs/assets/demo-tr.png)
 

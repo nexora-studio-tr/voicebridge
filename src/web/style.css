@@ -997,6 +997,41 @@ h1 em {
   color: #315a46;
   margin-bottom: 12px;
 }
+.caption-timing-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #315a46;
+  border: 1px solid #dce4d8;
+  border-radius: 4px;
+  background: #f5f8f1;
+  padding: 3px 6px;
+  font: inherit;
+  cursor: pointer;
+}
+.caption-timing-list {
+  margin: 0 0 18px;
+}
+.caption-timing-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #dce4d8;
+}
+.caption-timing-list dt {
+  font-size: 12px;
+}
+.caption-timing-list dd {
+  margin: 0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.caption-timing-list .timing-total {
+  color: #245744;
+  font-weight: 600;
+}
 .setup-check-list {
   list-style: none;
   padding: 0;

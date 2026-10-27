@@ -1,5 +1,11 @@
 # Validation
 
+## Alpha.4 caption timing — 2026-10-27
+
+Local Windows checks passed: strict typecheck/build/format, **76 TypeScript tests**, **9 Python tests** and **16 Chromium checks**. Deterministic timing tests cover queue wait, a backward wall clock, shared recognition, preceding language groups, early caption immutability and audio-only disclosure. The browser uses real HTTP/SSE with a synthetic gateway and inference; it checks TR/EN, keyboard focus, automatic accessibility rules, 390px layout, consent cleanup and no external requests.
+
+These checks do not measure live Discord performance. [Timing scope](CAPTION-TIMING.md) excludes capture, Discord transit and browser playback. Fresh-package and hosted Windows/Ubuntu results are recorded in the exact release attachments and Actions run. Full model installation, two-human acceptance and paid-provider validation remain separate, unchanged gates.
+
 ## Alpha.3 setup and support — 2026-10-27
 
 The Windows source passed strict typecheck/build/format, **73 TypeScript tests** and **9 Python tests**. The Chromium gate passed **12 checks**, including both setup-panel languages, a 390px modal, automatic WCAG A/AA rules, an actual JSON download, credential/ID exclusion and rejection of a late report after settings change. Screenshots use an isolated profile with deliberately missing Python and synthetic configuration; no private operator profile or credentials were copied.

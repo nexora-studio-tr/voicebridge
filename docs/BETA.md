@@ -1,8 +1,10 @@
-# VoiceBridge alpha.3 beta
+# VoiceBridge alpha.4 beta
 
-[Türkçe](BETA.tr.md) · [Download](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.3) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[Türkçe](BETA.tr.md) · [Download](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 We are looking for **5–10 volunteer testers** of a self-hosted Turkish/English Discord translator. This is an invitation, not a claim that a beta cohort has already completed testing. No video is required.
+
+For excessive delay, open [Latency details](CAPTION-TIMING.md) beside a caption. Share stage durations and broad hardware information only if helpful; a single sample is not a capacity result.
 
 ## Pick a test
 

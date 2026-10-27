@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { root } from './runtime.mjs';
+import { validateCaptionTiming } from './validate-caption-timing.mjs';
 const out = path.join(root, 'artifacts/browser');
 mkdirSync(out, { recursive: true });
 const demoOrigin = 'http://127.0.0.1:4388',
@@ -254,6 +255,7 @@ try {
   results.push(
     'Demo and application cookies remain independent on the same localhost across different ports',
   );
+  results.push(...(await validateCaptionTiming(browser, out)));
   writeFileSync(
     path.join(out, 'report.json'),
     JSON.stringify(

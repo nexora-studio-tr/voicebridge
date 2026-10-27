@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-alpha.4 — 2026-10-27
+
+- Add monotonic, queue-inclusive per-caption timings for recognition, translation, other work and optional synthesis. Caption and audio totals remain separate.
+- Add an accessible Turkish/English timing dialog with keyboard focus return and a mobile layout; hide timings in the recorded demo.
+- Preserve early captions, shared recognition, text-only delivery, ephemeral retention and consent cancellation. No models, paid calls or persistent speech reports are added.
+- Türkçe: Altyazı gecikmesinin hangi adımda oluştuğu görülebilir. Ölçüm sunucu kuyruğunda başlar; Discord aktarımı ve tarayıcıda çalma dahil değildir.
+
 ## 0.1.0-alpha.3 — 2026-10-27
 
 - Add guided operator setup checks for Node, the local worker, model-file presence, saved Discord settings and the current Gateway connection, with actionable Turkish/English steps.
