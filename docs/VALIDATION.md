@@ -1,5 +1,13 @@
 # Validation
 
+## Unreleased main maintenance — 2026-10-27
+
+The first CI attempt for [beta-path PR #4](https://github.com/nexora-studio-tr/voicebridge/pull/4) exposed an existing SSE shutdown race in the [Ubuntu clean-package check](https://github.com/nexora-studio-tr/voicebridge/actions/runs/40572322986): room reset delivery could write to a response already ended by `preClose`, causing `ERR_STREAM_WRITE_AFTER_END`. Event frames and heartbeats now share a guard against ended or destroyed responses. A real HTTP/SSE regression opens a stream, broadcasts after the shutdown hook ends it, and verifies no further writes and complete room cleanup. Local typecheck, build and **77 TypeScript tests** passed; use the PR's final-head CI for cross-platform package results.
+
+This is a later **main-branch fix**, not a replacement of the tagged alpha.4 source or uploaded release archive. The alpha.4 evidence below remains attached to its original source. No new live Discord, independent human installation or paid-provider test was performed.
+
+Türkçe: Beta belgelerinin ilk CI denemesi, kapanmış altyazı akışına yeniden yazma hatasını yakaladı. `main` dalındaki düzeltme ve gerçek HTTP/SSE regresyonu yerelde 77 test, tip kontrolü ve derlemeden geçti. İşletim sistemi/paket kanıtı için PR'ın son commit'inin CI sonucunu kullan. Etiketli alpha.4 paketi değiştirilmedi; yeni insan veya ücretli API testi yapılmadı.
+
 ## Alpha.4 caption timing — 2026-10-27
 
 Local Windows checks passed: strict typecheck/build/format, **76 TypeScript tests**, **9 Python tests** and **16 Chromium checks**. Deterministic timing tests cover queue wait, a backward wall clock, shared recognition, preceding language groups, early caption immutability and audio-only disclosure. The browser uses real HTTP/SSE with a synthetic gateway and inference; it checks TR/EN, keyboard focus, automatic accessibility rules, 390px layout, consent cleanup and no external requests.
@@ -44,19 +52,19 @@ Observed on the local Windows host: **54 backend tests, 8 Python safety tests an
 
 The published source then passed [GitHub Actions on Ubuntu and Windows](https://github.com/nexora-studio-tr/voicebridge/actions/runs/40196645739): fresh npm installation, typecheck, 54 backend tests, build, formatting, 8 Python safety tests, 10 browser checks and source packaging on each runner. See the [machine-readable CI report](reports/github-ci.json) for the tested source commit. These CI jobs do not install the full inference stack/model weights or connect to Discord/paid providers. No second fresh Python/model installation or Linux live-inference result is claimed.
 
-| Area | Evidence |
-|---|---|
-| TypeScript/build | Strict typecheck and production frontend/backend build |
-| Backend | Encryption, one-use login, Host/Origin/CSRF, guild/voice isolation, consent cancellation at every stage, stale audio, shared inference, bounded fair queue, no subscribers → no work, budgets, restart uncertainty, simulated provider protocol |
-| Python | Traversal/symlink rejection, notice retention, silence short-circuit, input bounds and bounded NumPy timeline |
-| Browser | Real cookie-authenticated SSE/WAV, playback gesture, language reset, TR/EN, keyboard dialog, 390px overflow, CSP/no external requests, automatic WCAG A/AA rules |
-| Models | 15 pinned files verified by size/SHA-256 plus extracted files |
-| Local inference | [Four synthetic samples](reports/local-synthetic.json), both directions |
-| Queue/worker | [Three synthetic utterances](reports/worker-synthetic.json), one listener/target through authenticated loopback worker |
-| Discord Gateway / commands | Live connection and test-guild registration passed; [sanitized report](reports/live-connection.json) |
-| Human OAuth / DAVE / voice | One-user live check passed; [evidence and tester confirmations](reports/live-local.json) |
-| Billable cloud | **Not run; separate small spend approval required** |
-| Ubuntu / Windows CI | Fresh source/demo checks passed on both hosted runners; full model installation and Linux live inference remain unverified |
+| Area                       | Evidence                                                                                                                                                                                                                                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TypeScript/build           | Strict typecheck and production frontend/backend build                                                                                                                                                                                          |
+| Backend                    | Encryption, one-use login, Host/Origin/CSRF, guild/voice isolation, consent cancellation at every stage, stale audio, shared inference, bounded fair queue, no subscribers → no work, budgets, restart uncertainty, simulated provider protocol |
+| Python                     | Traversal/symlink rejection, notice retention, silence short-circuit, input bounds and bounded NumPy timeline                                                                                                                                   |
+| Browser                    | Real cookie-authenticated SSE/WAV, playback gesture, language reset, TR/EN, keyboard dialog, 390px overflow, CSP/no external requests, automatic WCAG A/AA rules                                                                                |
+| Models                     | 15 pinned files verified by size/SHA-256 plus extracted files                                                                                                                                                                                   |
+| Local inference            | [Four synthetic samples](reports/local-synthetic.json), both directions                                                                                                                                                                         |
+| Queue/worker               | [Three synthetic utterances](reports/worker-synthetic.json), one listener/target through authenticated loopback worker                                                                                                                          |
+| Discord Gateway / commands | Live connection and test-guild registration passed; [sanitized report](reports/live-connection.json)                                                                                                                                            |
+| Human OAuth / DAVE / voice | One-user live check passed; [evidence and tester confirmations](reports/live-local.json)                                                                                                                                                        |
+| Billable cloud             | **Not run; separate small spend approval required**                                                                                                                                                                                             |
+| Ubuntu / Windows CI        | Fresh source/demo checks passed on both hosted runners; full model installation and Linux live inference remain unverified                                                                                                                      |
 
 Host: Intel Core i3-9100T, four logical CPUs, 7.4 GiB RAM, no CUDA. Inference uses CPU/int8 where applicable and two threads. Warmup, per-utterance inference and queue-inclusive delivery are different measures. Four synthetic samples do not establish p95 or a live capacity SLA. The original three-speaker/two-target profile is still a test target.
 

@@ -456,18 +456,20 @@ export async function createServer(options: AppOptions) {
       'x-content-type-options': 'nosniff',
       connection: 'keep-alive',
     });
-    const send = (event: unknown) => {
+    const write = (frame: string) => {
+      if (reply.raw.destroyed || reply.raw.writableEnded) return;
       if (reply.raw.writableLength > 128 * 1024) {
         reply.raw.end();
         return;
       }
-      reply.raw.write('data: ' + JSON.stringify(event) + '\n\n');
+      reply.raw.write(frame);
     };
-    reply.raw.write(': connected\n\n');
+    const send = (event: unknown) => write('data: ' + JSON.stringify(event) + '\n\n');
+    write(': connected\n\n');
     const heartbeat = setInterval(async () => {
       try {
         await access(req, room.id);
-        reply.raw.write(': heartbeat\n\n');
+        write(': heartbeat\n\n');
       } catch {
         reply.raw.end();
       }
