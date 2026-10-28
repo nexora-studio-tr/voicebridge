@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.5 — 2026-10-28
+
+- Add a portable Windows x64 launcher, bundled Node runtime and a private Python 3.12 environment. No system runtime installation or administrator rights are required.
+- Add a Turkish/English setup page with explicit download consent, per-file progress, pause/resume, verified model reuse and actionable errors. Discord credentials and connection remain explicit operator actions.
+- Verify immutable package files before execution; pin the Python archive by size/SHA-256, constrain redirects and extraction paths, and keep launcher access on authenticated loopback.
+- Preserve partial Python/model downloads across interruptions; reject corrupt results. Stop only owned application/worker processes, preserving other installations.
+- Preserve the configured HTTPS Host during loopback readiness checks, normalize trailing origin slashes, and add a real HTTP/IPC regression.
+- Add native ZIP, browser and synthetic interruption tests. Independent human fresh installations and two-person Discord acceptance remain separate open gates; see validation.
+- Türkçe: Çift tıklanan Windows başlatıcısı, özel çalışma ortamı, kesintiden devam etme ve iki dilli kurulum ekranı eklendi. Otomatik kurulum testi gerçek kullanıcı testi yerine geçmez.
+
 ## 0.1.0-alpha.4 — 2026-10-27
 
 - Add monotonic, queue-inclusive per-caption timings for recognition, translation, other work and optional synthesis. Caption and audio totals remain separate.

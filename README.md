@@ -1,6 +1,6 @@
 # VoiceBridge
 
-**Alpha.4** adds [per-caption server timing](docs/CAPTION-TIMING.md): inspect queue, recognition, translation and optional speech-generation times. [Operator setup checks](docs/SETUP-CHECKS.md) remain available.
+**Alpha.5** adds a [Windows launcher](docs/WINDOWS.md): extract the portable package, double-click, and prepare a private runtime with resumable model downloads. [Caption timing](docs/CAPTION-TIMING.md) and [operator setup checks](docs/SETUP-CHECKS.md) remain available.
 
 **One conversation. Your language.**
 
@@ -12,13 +12,14 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
-**[Download alpha.4](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Download alpha.5](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ## Choose your starting point
 
 | Try it                         | What you need                                                           | Start                                                     |
 | ------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------- |
 | See and hear the recorded demo | Node.js 24.17+ / 24.x; no Python, bot or key                            | [Recorded demo](#recorded-demo)                           |
+| Host on Windows x64 | Windows, 6 GB free for setup, internet and your own Discord bot | [Double-click launcher](docs/WINDOWS.md) |
 | Host a beta installation       | Your hardware, Python 3.12, model downloads and a dedicated Discord bot | [Installer guide](docs/BETA.md#host-a-fresh-installation) |
 
 Joining someone else's live room? Use their reachable panel address and your own Discord sign-in; you do not install models or share keys. [Guest instructions](docs/BETA.md#join-as-a-guest).
@@ -51,6 +52,8 @@ npm run demo
 Open [127.0.0.1:4348](http://127.0.0.1:4348), enable audio, then start the sample. These are **recorded synthetic samples from the actual local pipeline**, not a live Discord connection or arbitrary-input translator. Switch Turkish/English to inspect personal delivery.
 
 ## Full installation
+
+On Windows x64, the [portable launcher](docs/WINDOWS.md) prepares its own Node/Python environment. The commands below remain available for source installations on supported hosts.
 
 Alpha.3 adds **[guided setup checks and a private support report](docs/SETUP-CHECKS.md)** in the operator's Settings panel. See missing setup steps, then explicitly download a report with no credentials, private IDs or speech. Manual integrity, sign-in and live-voice acceptance remain separate checks.
 

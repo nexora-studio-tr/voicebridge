@@ -44,21 +44,39 @@ def download(root, item, offline):
         raise ValueError('Untrusted model source')
     target.parent.mkdir(parents=True, exist_ok=True)
     partial = safe_path(root, item['path'] + '.partial')
+    offset = partial.stat().st_size if partial.is_file() else 0
+    if offset > item['bytes']:
+        partial.unlink()
+        offset = 0
     print('Downloading ' + item['path'], flush=True)
-    try:
-        with urlopen(Request(item['url'], headers={'User-Agent': 'VoiceBridge/0.1 model installer'}), timeout=120) as response, partial.open('wb') as output:
-            size = 0
-            while chunk := response.read(1024 * 1024):
-                size += len(chunk)
-                if size > item['bytes']:
-                    raise ValueError('Model download exceeded pinned size')
-                output.write(chunk)
-        if partial.stat().st_size != item['bytes'] or digest(partial) != item['sha256']:
-            raise ValueError('Model integrity verification failed')
-        os.replace(partial, target)
-        return target
-    finally:
+    if offset < item['bytes']:
+        headers = {'User-Agent': 'VoiceBridge model installer', 'Accept-Encoding': 'identity'}
+        if offset:
+            headers['Range'] = f'bytes={offset}-'
+        with urlopen(Request(item['url'], headers=headers), timeout=120) as response:
+            status = response.status
+            if status not in (200, 206):
+                raise ValueError('Model download failed')
+            if status == 206:
+                if response.headers.get('Content-Range') != f"bytes {offset}-{item['bytes'] - 1}/{item['bytes']}":
+                    raise ValueError('Invalid model resume range')
+            else:
+                offset = 0
+            size = offset
+            with partial.open('ab' if offset else 'wb') as output:
+                while chunk := response.read(1024 * 1024):
+                    size += len(chunk)
+                    if size > item['bytes']:
+                        raise ValueError('Model download exceeded pinned size')
+                    output.write(chunk)
+                    print(json.dumps({'type': 'download', 'file': item['path'], 'bytes': size, 'total': item['bytes']}), flush=True)
+    if partial.stat().st_size != item['bytes']:
+        raise ValueError('Model download incomplete; resume to continue')
+    if digest(partial) != item['sha256']:
         partial.unlink(missing_ok=True)
+        raise ValueError('Model integrity verification failed')
+    os.replace(partial, target)
+    return target
 
 
 def extract(archive: Path, root: Path, pair: str):

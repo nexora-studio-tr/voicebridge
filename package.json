@@ -1,6 +1,6 @@
 {
   "name": "voicebridge",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "private": true,
   "type": "module",
   "license": "GPL-3.0-or-later",
@@ -30,7 +30,10 @@
     "test:browser": "node scripts/validate-browser.mjs",
     "test:local": "node --env-file-if-exists=.env scripts/validate-local.mjs",
     "test:worker": "node --env-file-if-exists=.env scripts/validate-worker.mjs",
-    "test:package": "node scripts/validate-package.mjs"
+    "test:package": "node scripts/validate-package.mjs",
+    "package:windows": "node scripts/package-windows.mjs",
+    "test:launcher": "node scripts/validate-launcher.mjs",
+    "test:windows": "node scripts/validate-windows.mjs"
   },
   "dependencies": {
     "@discordjs/voice": "0.19.2",
@@ -39,12 +42,9 @@
     "discord.js": "14.27.0",
     "fastify": "5.12.7",
     "get-nonce": "1.0.1",
-    "lucide-react": "1.61.0",
     "opusscript": "0.0.8",
     "prism-media": "1.3.5",
-    "radix-ui": "1.8.1",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
+    "tar": "7.5.22",
     "ws": "8.22.0",
     "zod": "4.6.7"
   },
@@ -54,7 +54,11 @@
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "lucide-react": "1.61.0",
     "prettier": "3.9.10",
+    "radix-ui": "1.8.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "typescript": "7.0.2",
     "vite": "8.3.5",
     "vitest": "5.0.5"

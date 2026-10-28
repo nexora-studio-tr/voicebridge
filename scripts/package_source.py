@@ -6,9 +6,9 @@ import zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-DIRS=('src','tests','worker','scripts','docs','examples','.github')
+DIRS=('src','tests','worker','scripts','docs','examples','.github','launcher')
 ROOT_FILES=('README.md','README.tr.md','LICENSE','NOTICE','SECURITY.md','CONTRIBUTING.md','CODE_OF_CONDUCT.md','ROADMAP.md','CHANGELOG.md','THIRD_PARTY_NOTICES.md','.gitignore','.gitattributes','.prettierrc.json','.env.example','package.json','package-lock.json','tsconfig.json','tsconfig.server.json','vite.config.ts','vitest.config.ts','Start-VoiceBridge.ps1')
-EXTENSIONS={'.ts','.tsx','.js','.mjs','.json','.py','.txt','.lock','.md','.html','.css','.svg','.yml','.yaml','.ps1'}
+EXTENSIONS={'.ts','.tsx','.js','.mjs','.json','.py','.txt','.lock','.md','.html','.css','.svg','.yml','.yaml','.ps1','.cs','.manifest'}
 SECRET_PATTERNS=[re.compile(r'sk-[A-Za-z0-9_-]{25,}'),re.compile(r'(?<![A-Za-z0-9_-])[A-Za-z0-9_-]{23,30}\.[A-Za-z0-9_-]{6}\.[A-Za-z0-9_-]{25,}'),re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')]
 SECRET_PATTERNS.extend([re.compile(r'gh[pousr]_[A-Za-z0-9]{30,}'),re.compile(r'github_pat_[A-Za-z0-9_]{30,}'),re.compile(r'https://(?:canary\.|ptb\.)?discord(?:app)?\.com/api/webhooks/\d+/[A-Za-z0-9_-]{25,}')])
 
