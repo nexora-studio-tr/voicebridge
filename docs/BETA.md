@@ -1,6 +1,6 @@
-# VoiceBridge alpha.5 beta
+# VoiceBridge alpha.6 beta
 
-[Türkçe](BETA.tr.md) · [Download alpha.5](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5) · [Evidence ledger](BETA-STATUS.md) · [Feedback form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[Türkçe](BETA.tr.md) · [Download alpha.6](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6) · [Evidence ledger](BETA-STATUS.md) · [Feedback form](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 The first milestone is **two independent fresh installations with reviewed reports**. You can help before a second person joins. Two-person live voice acceptance is a separate gate; the broader invitation remains open to 5–10 volunteers. No completed cohort is claimed. No video or paid API use is requested.
 
@@ -18,7 +18,7 @@ The first milestone is **two independent fresh installations with reviewed repor
 
 **Source installation (including Linux):** follow steps 1–2, then the same acceptance checks.
 
-1. Download and verify the source ZIP and SHA-256 from the [alpha.5 release](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5). Extract into a new folder. Do not copy an existing `.venv`, `node_modules`, runtime database or credentials. Install Node.js **24.17+ / 24.x** and Python **3.12**; allow approximately **3 GB** disk space.
+1. Download and verify the source ZIP and SHA-256 from the [alpha.6 release](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6). Extract into a new folder. Do not copy an existing `.venv`, `node_modules`, runtime database or credentials. Install Node.js **24.17+ / 24.x** and Python **3.12**; allow approximately **3 GB** disk space.
 2. Follow [setup](SETUP.md): `npm ci --ignore-scripts`, `npm run setup`, `npm start`. Setup downloads separately licensed local models; Discord still needs internet. Open the one-use `.voicebridge/operator-link` on that computer and configure a dedicated Discord bot. Do not put keys in a terminal command or issue.
 3. Run **Settings → Run setup checks**. Note any blocked or unclear step. [The check guide](SETUP-CHECKS.md) separates automatic checks from manual OAuth, model-integrity and live acceptance. A blocked installation report is useful too.
 4. When ready for voice, explicitly connect the bot. Join a normal voice channel, run `/voicebridge start`, then sign into the panel with Discord. The operator session configures the app; use another browser profile or sign out for Discord listening. Select spoken **English**, listening **Türkçe**, local processing and your own local consent. Enable personal audio. Test a short phrase, then reverse the languages.

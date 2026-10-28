@@ -1,4 +1,4 @@
-import type { Caption, Language, Preferences } from '../core/contracts.js';
+import type { Caption, Language, Preferences, RoomSnapshot } from '../core/contracts.js';
 export type { Caption, Language, Preferences };
 export interface Session {
   mode: 'demo' | 'operator';
@@ -7,26 +7,7 @@ export interface Session {
   csrf: string | null;
   discord: { connected: boolean; configured: boolean; error: string | null };
 }
-export interface RoomState {
-  id: string;
-  guildId: string;
-  guildName: string;
-  name: string;
-  active: boolean;
-  cloudAvailable: boolean;
-  generation: number;
-  queue: number;
-  preferences: Preferences;
-  captions: Caption[];
-  participants: {
-    id: string;
-    name: string;
-    local: boolean;
-    cloud: boolean;
-    language: Language;
-    speaking: boolean;
-  }[];
-}
+export type RoomState = RoomSnapshot;
 let csrf: string | null = null;
 export class ApiError extends Error {
   constructor(
@@ -36,10 +17,16 @@ export class ApiError extends Error {
     super(code);
   }
 }
-export async function api<T>(url: string, method = 'GET', body?: unknown): Promise<T> {
+export async function api<T>(
+  url: string,
+  method = 'GET',
+  body?: unknown,
+  signal?: AbortSignal,
+): Promise<T> {
   const response = await fetch(url, {
     method,
     credentials: 'same-origin',
+    ...(signal ? { signal } : {}),
     headers: {
       ...(body !== undefined ? { 'content-type': 'application/json' } : {}),
       ...(csrf ? { 'x-csrf-token': csrf } : {}),
@@ -59,6 +46,14 @@ export function code(error: unknown) {
   return error instanceof ApiError ? error.code : 'CONNECTION_FAILED';
 }
 const messages: Record<string, [string, string]> = {
+  ROOM_NOT_FOUND: [
+    'Bu oda sona erdi. Discord’da yeni bir VoiceBridge odası başlat.',
+    'This room has ended. Start a new VoiceBridge room in Discord.',
+  ],
+  STREAM_INVALID: [
+    'Oda akışı doğrulanamadı. Yeniden bağlantı kuruluyor.',
+    'The room stream could not be verified. Reconnecting.',
+  ],
   DISCORD_GUILD_ACCESS_REQUIRED: [
     'Bot seçili test sunucusuna erişemiyor. Botu bu sunucuya davet et ve sunucu ID’sini kontrol et.',
     'The bot cannot access the selected test server. Invite it there and verify the server ID.',

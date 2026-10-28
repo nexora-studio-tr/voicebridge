@@ -14,6 +14,7 @@ import {
   VERSION,
   check,
   type Inference,
+  type Event as BridgeEvent,
 } from '../core/contracts.js';
 import { Store, hash, same, token } from '../core/store.js';
 import { Rooms } from '../core/rooms.js';
@@ -447,6 +448,8 @@ export async function createServer(options: AppOptions) {
   });
   app.get('/api/rooms/:room/events', async (req, reply) => {
     const { room, user } = await join(req, (req.params as { room: string }).room);
+    const connectionId = token();
+    let sequence = 0;
     const unsubscribe = rooms.subscribe(room, user.id, (event) => send(event));
     reply.hijack();
     streams.add(reply.raw);
@@ -464,14 +467,45 @@ export async function createServer(options: AppOptions) {
       }
       reply.raw.write(frame);
     };
-    const send = (event: unknown) => write('data: ' + JSON.stringify(event) + '\n\n');
+    const frame = (event: BridgeEvent) =>
+      write('data: ' + JSON.stringify({ ...event, connectionId, sequence: ++sequence }) + '\n\n');
+    const terminal = new Set(['membership', 'connection_lost', 'expired', 'stopped']);
+    const send = (event: BridgeEvent) => {
+      if (reply.raw.destroyed || reply.raw.writableEnded) return;
+      if (event.type === 'reset' && terminal.has(String(event.data.reason))) {
+        frame(event);
+        reply.raw.end();
+        return;
+      }
+      if (!rooms.authorized(room, user.id)) {
+        frame({ type: 'reset', data: { reason: 'membership' } });
+        reply.raw.end();
+        return;
+      }
+      frame(event);
+      if (event.type === 'state' || event.type === 'reset')
+        frame({ type: 'snapshot', data: rooms.state(room, user.id) });
+    };
     write(': connected\n\n');
+    frame({ type: 'snapshot', data: rooms.state(room, user.id) });
+    let checking = false;
     const heartbeat = setInterval(async () => {
+      if (checking || reply.raw.destroyed || reply.raw.writableEnded) return;
+      checking = true;
       try {
         await access(req, room.id);
-        write(': heartbeat\n\n');
-      } catch {
+        send({ type: 'heartbeat', data: {} });
+      } catch (error) {
+        frame({
+          type: 'reset',
+          data: {
+            reason:
+              error instanceof Fault && error.code === 'AUTH_REQUIRED' ? 'auth' : 'membership',
+          },
+        });
         reply.raw.end();
+      } finally {
+        checking = false;
       }
     }, 5000);
     heartbeat.unref();

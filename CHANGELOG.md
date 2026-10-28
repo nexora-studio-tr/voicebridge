@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.6 — 2026-10-28
+
+- Recover interrupted room streams from a listener-authorized snapshot; clear transient captions/audio while disconnected and never replay buffered or late-generated speech for restored captions.
+- Add bounded reconnects, browser offline/online handling, heartbeat stall detection, an English/Turkish reconnect state and manual retry. Authentication/membership failure and room closure end retries.
+- Use per-connection frame identity/order and reject stale callbacks, missing frames, malformed snapshots and invalid audio paths. Consent/preferences changes synchronize through the same stream.
+- Clear preference-related local output before the request, so a late HTTP acknowledgement cannot erase newer streamed captions/audio.
+- Preserve shared audio for remaining listeners when one leaves; purge a departing speaker's cached captions/audio. Fix contrast on the active audio button's hover state.
+- Add deterministic recovery/room regressions and nine real HTTP/SSE browser scenarios with two synthetic identities. Additional live Discord tests are deferred at the owner's request; no human, accuracy or capacity result is claimed.
+- Türkçe: Kopan oda bağlantısı güncel izinlerle eşitlenir; eski ses tekrarlanmaz. Çok dinleyicili erişim temizliği ve iki dilli yeniden bağlanma ekranı düzeltildi.
+
 ## 0.1.0-alpha.5 — 2026-10-28
 
 - Add a portable Windows x64 launcher, bundled Node runtime and a private Python 3.12 environment. No system runtime installation or administrator rights are required.

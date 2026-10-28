@@ -9,6 +9,7 @@ import {
   Mode,
   Preferences,
   Speaker,
+  type RoomSnapshot,
   check,
 } from './contracts.js';
 import { FairQueue, inspectWav } from './audio.js';
@@ -181,8 +182,16 @@ export class Rooms {
       room.speakers.delete(id);
     }
     for (const [job, speaker] of room.jobs) if (speaker === id) job.abort();
-    for (const [key, m] of room.media)
-      if (m.speaker === id || m.allowed.has(id)) room.media.delete(key);
+    for (const [key, m] of room.media) {
+      m.allowed.delete(id);
+      if (m.speaker === id || m.allowed.size === 0) room.media.delete(key);
+    }
+    for (const remaining of room.listeners.values()) {
+      const priorCount = remaining.captions.length;
+      remaining.captions = remaining.captions.filter((c) => c.speakerId !== id);
+      if (remaining.captions.length !== priorCount)
+        this.emit(remaining, { type: 'reset', data: { speakerId: id } });
+    }
     this.broadcast(room, { type: 'state', data: { reason: 'membership' } });
   }
   stop(room: Room, reason = 'stopped') {
@@ -200,7 +209,7 @@ export class Rooms {
   stopAll(reason = 'connection_lost') {
     for (const r of this.rooms.values()) this.stop(r, reason);
   }
-  state(room: Room, id: string) {
+  state(room: Room, id: string): RoomSnapshot {
     const l = room.listeners.get(id);
     return {
       id: room.id,

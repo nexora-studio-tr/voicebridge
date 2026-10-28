@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const VERSION = '0.1.0-alpha.5';
+export const VERSION = '0.1.0-alpha.6';
 export const Language = z.enum(['tr', 'en']);
 export type Language = z.infer<typeof Language>;
 export const Mode = z.enum(['local', 'cloud']);
@@ -98,9 +98,31 @@ export interface Caption {
   timing?: CaptionTiming;
   audioUrl?: string;
 }
+export interface RoomSnapshot {
+  id: string;
+  guildId: string;
+  guildName: string;
+  channelId: string;
+  name: string;
+  active: boolean;
+  cloudAvailable: boolean;
+  generation: number;
+  queue: number;
+  preferences: Preferences;
+  captions: Caption[];
+  participants: {
+    id: string;
+    name: string;
+    local: boolean;
+    cloud: boolean;
+    language: Language;
+    speaking: boolean;
+  }[];
+}
 export type Event =
+  | { type: 'snapshot'; data: RoomSnapshot }
   | { type: 'caption'; data: Caption }
-  | { type: 'state' | 'status' | 'reset' | 'error'; data: Record<string, unknown> };
+  | { type: 'state' | 'status' | 'reset' | 'error' | 'heartbeat'; data: Record<string, unknown> };
 export interface Inference {
   recognize(wav: Buffer, language: Language, signal: AbortSignal): Promise<string>;
   translate(text: string, from: Language, to: Language, signal: AbortSignal): Promise<string>;

@@ -9,7 +9,7 @@ body:
     id: version
     attributes:
       label: Version / Sürüm
-      placeholder: 0.1.0-alpha.5
+      placeholder: 0.1.0-alpha.6
     validations:
       required: true
   - type: dropdown

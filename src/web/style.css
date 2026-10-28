@@ -763,6 +763,9 @@ h1 em {
   background: #dcebdc;
   border-color: #b8cfba;
 }
+.audio-button.active:hover:not(:disabled) {
+  background: #c9dec9;
+}
 .volume-label {
   display: flex;
   align-items: center;

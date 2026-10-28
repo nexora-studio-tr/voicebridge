@@ -87,6 +87,34 @@ describe('room pipeline consent and listener isolation', () => {
     await completed();
     expect(local.recognize).not.toHaveBeenCalled();
   });
+  it('keeps another listener’s shared audio when one listener leaves', async () => {
+    rooms.join(room, 'bob', 'Bob');
+    const bobEvents: Event[] = [];
+    rooms.subscribe(room, 'bob', (event) => bobEvents.push(event));
+    for (const id of ['alice', 'bob'])
+      rooms.preferences(room, id, { language: 'tr', mode: 'local', audio: true });
+    rooms.ingest(room, 'speaker', voice());
+    await completed();
+    const media = room.media.keys().next().value!;
+    bobEvents.length = 0;
+    rooms.leave(room, 'alice');
+    expect(() => rooms.audio(room, 'alice', media)).toThrow('AUDIO_EXPIRED');
+    expect(inspectWav(rooms.audio(room, 'bob', media)).seconds).toBe(0.5);
+    expect(room.media.get(media)!.allowed.has('alice')).toBe(false);
+    expect(bobEvents.some((event) => event.type === 'reset')).toBe(false);
+  });
+  it('removes a departed speaker’s cached captions and audio for every remaining listener', async () => {
+    rooms.preferences(room, 'alice', { language: 'tr', mode: 'local', audio: true });
+    rooms.ingest(room, 'speaker', voice());
+    await completed();
+    expect(room.listeners.get('alice')!.captions).toHaveLength(1);
+    rooms.leave(room, 'speaker');
+    expect(rooms.state(room, 'alice').captions).toEqual([]);
+    expect(room.media.size).toBe(0);
+    expect(
+      events.some((event) => event.type === 'reset' && event.data.speakerId === 'speaker'),
+    ).toBe(true);
+  });
   it('keeps translated captions when the speech engine fails', async () => {
     rooms.preferences(room, 'alice', { language: 'tr', mode: 'local', audio: true });
     local.speak.mockRejectedValue(new Error('model failed'));

@@ -1,5 +1,17 @@
 # Validation
 
+## Alpha.6 room recovery — 2026-10-28
+
+Local Windows strict typecheck/build and **108 TypeScript tests** passed. The listening-panel Chromium gate passed **25 checks**, including **9 recovery checks** with two separate browser contexts, distinct synthetic identities, real HTTP/SSE and injected inference. It covers lost frames, cached-caption synchronization without audio replay, delayed synthesis, offline/reconnect, revocation during an outage, cross-listener audio denial, membership loss and speaker departure. The reconnect view passes exercised automatic WCAG A/AA rules; the test also caught and repaired the active audio button's hover contrast.
+
+The initial Windows package run exposed a preference-acknowledgement race: a late HTTP response cleared a newer streamed caption. A deterministic browser regression holds that response behind a delivered caption; clearing happens before dispatch instead.
+
+Pure state-machine tests cover snapshot-before-live, stale transport/probe callbacks, bounded retry and timer disposal, 401/403/404 termination, frame gaps/duplicates, malformed/oversized/wrong-room data, invalid audio paths and heartbeat/offline behavior. Room tests verify that a departing listener cannot invalidate another listener's shared clip, while a departed speaker's retained content is removed.
+
+**Additional live Discord tests are deferred at the owner's request.** No live call is needed to proceed with this release. They remain unperformed, not passed. This update adds no human installation, human voice, speech-quality, billable-provider or multi-user capacity evidence. Historical one-user live observations and the independent-installation ledger are unchanged. Exact-head CI, source-package and native Windows outcomes are recorded in Actions and the release's JSON attachments; adding a workflow is not a pass result.
+
+Türkçe: 108 TypeScript testi ve 25 tarayıcı kontrolü yerelde geçti. İki tarayıcı oturumundaki kimlikler ve çıkarım sentetiktir; gerçek insanlar veya Discord ses bağlantısı değildir. Kullanıcının isteğiyle ek canlı Discord testleri ertelendi; başarılı sayılmadı ve bu sürümü durdurmuyor. [Davranış ve sınırlar](ROOM-RECOVERY.md).
+
 ## Alpha.5 Windows launcher — 2026-10-28
 
 Local Windows typecheck/build passed with **91 TypeScript tests**, **16 Python tests** and **8 Chromium launcher checks**. Runtime/model interruption tests use synthetic byte streams, exact Range responses and SHA-256 failures. Launcher browser checks use an explicitly labelled injected installer, exercise TR/EN consent, pause/resume, actionable failure, launch/stop/close, keyboard focus return, 390px layout, automatic WCAG A/AA rules and no external requests. They do not install models or connect Discord.
