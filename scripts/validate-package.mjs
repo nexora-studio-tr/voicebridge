@@ -53,14 +53,14 @@ const browserOutput = await run(process.execPath, ['scripts/validate-browser.mjs
   VOICEBRIDGE_DATA: path.join(cleanRoot, '.voicebridge-clean'),
 });
 const browser = JSON.parse(browserOutput.trim().split(/\r?\n/).at(-1));
-if (browser.status !== 'passed' || browser.checks < 24)
+if (browser.status !== 'passed' || browser.checks < 25)
   throw Error('Clean browser checks did not pass');
 const recovery = JSON.parse(
   await readFile(path.join(cleanRoot, 'artifacts/browser/room-recovery-report.json'), 'utf8'),
 );
 if (
   recovery.status !== 'passed' ||
-  recovery.checks.length !== 8 ||
+  recovery.checks.length !== 9 ||
   recovery.humanParticipants !== 0 ||
   recovery.liveDiscord ||
   recovery.paidApi

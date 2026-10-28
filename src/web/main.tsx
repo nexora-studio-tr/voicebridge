@@ -197,9 +197,9 @@ function App() {
   async function preferences(p: Partial<RoomState['preferences']>) {
     if (!room) return;
     await act(async () => {
-      await api(`/api/rooms/${room.id}/preferences`, 'PUT', { ...room.preferences, ...p });
       playback.current.reset();
       setCaptions([]);
+      await api(`/api/rooms/${room.id}/preferences`, 'PUT', { ...room.preferences, ...p });
     });
   }
   const self = room?.participants.find((p) => p.id === session?.identity?.id),

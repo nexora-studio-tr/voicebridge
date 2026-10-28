@@ -126,15 +126,39 @@ export async function validateRoomRecovery(browser, out) {
       if (request.url().includes('/audio/')) audioRequests.push(request.url());
     });
     bob.page.on('request', (request) => requests.push(request.url()));
+    let releasePreferenceAck;
+    let preferenceSaved;
+    const saved = new Promise((resolve) => {
+      preferenceSaved = resolve;
+    });
+    await alice.page.route('**/preferences', async (route) => {
+      if (route.request().method() !== 'PUT') return route.continue();
+      const response = await route.fetch();
+      preferenceSaved();
+      await new Promise((resolve) => {
+        releasePreferenceAck = resolve;
+      });
+      await route.fulfill({ response });
+    });
     await alice.page.getByRole('button', { name: 'Enable audio', exact: true }).click();
+    await saved;
     await expect.poll(() => room.listeners.get('alice').preferences.audio).toBe(true);
     service.rooms.ingest(room, 'speaker-one', audio);
     await expect(alice.page.locator('.translation')).toContainText('Synthetic utterance 1');
     await expect(bob.page.locator('.translation')).toContainText('tr: Synthetic utterance 1');
     await expect.poll(() => audioRequests.length).toBe(1);
+    releasePreferenceAck();
+    await expect(
+      alice.page.getByRole('button', { name: 'Stop listening', exact: true }),
+    ).toBeEnabled();
+    await expect(alice.page.locator('.translation')).toContainText('Synthetic utterance 1');
+    await alice.page.unroute('**/preferences');
     const firstAudio = audioRequests[0];
     checks.push(
       'Two authenticated browser contexts receive independent English/Turkish captions and opt-in audio',
+    );
+    checks.push(
+      'A preference acknowledgement delayed behind a live caption cannot erase newer stream content',
     );
 
     function loseNextAliceCaption() {
