@@ -8,6 +8,36 @@ import { atomicJson, inside, sha256 } from './files.js';
 import { download, fingerprint, type DownloadSpec } from './download.js';
 import { createServer as createNetServer } from 'node:net';
 import { z } from 'zod';
+import { get } from 'node:http';
+
+async function panelHealth(port: number, host: string) {
+  // Node fetch replaces Host; the panel correctly requires its configured public Host.
+  // Connect only to loopback while preserving that Host, including behind an HTTPS proxy.
+  return await new Promise<{ ok?: boolean; version?: string }>((resolve, reject) => {
+    const request = get(
+      { hostname: '127.0.0.1', port, path: '/healthz', headers: { host }, agent: false },
+      (response) => {
+        let data = '';
+        response.setEncoding('utf8');
+        response.on('error', reject);
+        response.on('data', (chunk) => {
+          data += chunk;
+          if (data.length > 2048) response.destroy(Error('INVALID_HEALTH'));
+        });
+        response.on('end', () => {
+          try {
+            if (response.statusCode !== 200) throw Error('INVALID_HEALTH');
+            resolve(JSON.parse(data) as { ok?: boolean; version?: string });
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    );
+    request.setTimeout(1000, () => request.destroy(Error('HEALTH_TIMEOUT')));
+    request.once('error', reject);
+  });
+}
 
 export async function freePort() {
   return await new Promise<number>((resolve, reject) => {
@@ -363,8 +393,8 @@ export class WindowsInstaller implements Installer {
       );
     const port = settings.port,
       worker = settings.workerPort;
-    const origin = settings.publicUrl || `http://127.0.0.1:${port}`;
-    const parsed = new URL(origin);
+    const parsed = new URL(settings.publicUrl || `http://127.0.0.1:${port}`);
+    const origin = parsed.origin;
     if (
       port === worker ||
       parsed.username ||
@@ -419,10 +449,7 @@ export class WindowsInstaller implements Installer {
       for (let i = 0; i < 90; i++) {
         if (child.exitCode !== null) throw Error('START_FAILED');
         try {
-          const result = await fetch(`http://127.0.0.1:${port}/healthz`, {
-            signal: AbortSignal.timeout(1000),
-          });
-          const health = (await result.json()) as { ok?: boolean; version?: string };
+          const health = await panelHealth(port, parsed.host);
           if (health.ok && health.version === VERSION) {
             const operatorUrl = (
               await readFile(path.join(dataDir, 'operator-link'), 'utf8')

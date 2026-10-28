@@ -2,13 +2,13 @@
 
 ## Alpha.5 Windows launcher — 2026-10-28
 
-Local Windows typecheck/build passed with **90 TypeScript tests**, **16 Python tests** and **8 Chromium launcher checks**. Runtime/model interruption tests use synthetic byte streams, exact Range responses and SHA-256 failures. Launcher browser checks use an explicitly labelled injected installer, exercise TR/EN consent, pause/resume, actionable failure, launch/stop/close, keyboard focus return, 390px layout, automatic WCAG A/AA rules and no external requests. They do not install models or connect Discord.
+Local Windows typecheck/build passed with **91 TypeScript tests**, **16 Python tests** and **8 Chromium launcher checks**. Runtime/model interruption tests use synthetic byte streams, exact Range responses and SHA-256 failures. Launcher browser checks use an explicitly labelled injected installer, exercise TR/EN consent, pause/resume, actionable failure, launch/stop/close, keyboard focus return, 390px layout, automatic WCAG A/AA rules and no external requests. They do not install models or connect Discord.
 
 `npm run package:windows` builds an unsigned native launcher and inventories immutable package files. `npm run test:windows` extracts that ZIP into a new folder with system Node/Python removed from the child PATH, tests private setup access, explicit consent, owned-process shutdown and tamper rejection. `npm run test:windows -- --full` additionally downloads standalone Python, locked wheels and the pinned models, checks module imports, then starts/stops the application and local worker without Discord credentials. Use the exact-head Actions run and its sanitized reports for the actual outcome of that full check; adding the workflow is not evidence that it passed.
 
 No independent human installation, two-person Discord acceptance, billable-provider call, live latency/capacity claim or Windows code signing is added by this release. Existing alpha.4 evidence and assets remain attached to their original source. **Independent installation ledger: 0 reviewed entries.**
 
-Türkçe: 90 TypeScript, 16 Python ve 8 sentetik kurulum ekranı kontrolü yerelde geçti. Temiz Windows paketinin ve tam model kurulumunun gerçek sonucu ilgili commit'in CI raporundan kontrol edilir; iş akışının eklenmesi başarı kanıtı değildir. Bağımsız insan kurulumu ve iki kişilik Discord testi açık kapılardır.
+Türkçe: 91 TypeScript, 16 Python ve 8 sentetik kurulum ekranı kontrolü yerelde geçti. Temiz Windows paketinin ve tam model kurulumunun gerçek sonucu ilgili commit'in CI raporundan kontrol edilir; iş akışının eklenmesi başarı kanıtı değildir. Bağımsız insan kurulumu ve iki kişilik Discord testi açık kapılardır.
 
 ## Unreleased main maintenance — 2026-10-27
 

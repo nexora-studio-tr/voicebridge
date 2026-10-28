@@ -6,6 +6,7 @@
 - Add a Turkish/English setup page with explicit download consent, per-file progress, pause/resume, verified model reuse and actionable errors. Discord credentials and connection remain explicit operator actions.
 - Verify immutable package files before execution; pin the Python archive by size/SHA-256, constrain redirects and extraction paths, and keep launcher access on authenticated loopback.
 - Preserve partial Python/model downloads across interruptions; reject corrupt results. Stop only owned application/worker processes, preserving other installations.
+- Preserve the configured HTTPS Host during loopback readiness checks, normalize trailing origin slashes, and add a real HTTP/IPC regression.
 - Add native ZIP, browser and synthetic interruption tests. Independent human fresh installations and two-person Discord acceptance remain separate open gates; see validation.
 - Türkçe: Çift tıklanan Windows başlatıcısı, özel çalışma ortamı, kesintiden devam etme ve iki dilli kurulum ekranı eklendi. Otomatik kurulum testi gerçek kullanıcı testi yerine geçmez.
 

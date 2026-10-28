@@ -7,7 +7,8 @@ import { Readable } from 'node:stream';
 import { download } from '../src/launcher/download.js';
 import { inside } from '../src/launcher/files.js';
 import { createLauncherServer } from '../src/launcher/server.js';
-import { WindowsInstaller } from '../src/launcher/installer.js';
+import { freePort, WindowsInstaller } from '../src/launcher/installer.js';
+import { VERSION } from '../src/core/contracts.js';
 import type { Installer, LauncherStatus } from '../src/launcher/contracts.js';
 
 const roots: string[] = [];
@@ -206,6 +207,47 @@ describe('Resumable runtime boundary', () => {
 });
 
 describe('Local launcher access and side-effect guards', () => {
+  it('probes the configured HTTPS Host over loopback and canonicalizes the operator link', async () => {
+    const root = await temporary();
+    const port = await freePort(),
+      workerPort = await freePort();
+    await mkdir(path.join(root, '.installer'));
+    await mkdir(path.join(root, 'app/dist/server'), { recursive: true });
+    await writeFile(
+      path.join(root, '.installer/options.json'),
+      JSON.stringify({ port, workerPort, publicUrl: 'https://voice.example.test/' }),
+    );
+    await writeFile(
+      path.join(root, 'app/dist/server/main.js'),
+      `
+      const { createServer } = require('node:http');
+      const { writeFileSync } = require('node:fs');
+      const path = require('node:path');
+      const origin = process.env.PUBLIC_URL;
+      writeFileSync(path.join(process.env.VOICEBRIDGE_DATA, 'operator-link'), origin + '/#operator=synthetic-local-test');
+      const server = createServer((req, res) => {
+        if (req.headers.host !== new URL(origin).host) { res.writeHead(421).end(); return; }
+        res.setHeader('content-type', 'application/json');
+        res.end(JSON.stringify({ ok: true, version: ${JSON.stringify(VERSION)} }));
+      });
+      server.listen(Number(process.env.PORT), '127.0.0.1');
+      process.on('message', msg => { if (msg.type === 'voicebridge-shutdown') server.close(() => process.exit(0)); });
+      process.on('disconnect', () => process.exit(0));
+    `,
+    );
+    const installer = new WindowsInstaller(root);
+    installer.status.state = 'ready';
+    try {
+      await installer.launch();
+      expect(installer.status).toMatchObject({
+        state: 'running',
+        operatorUrl: 'https://voice.example.test/#operator=synthetic-local-test',
+      });
+      expect((await fetch(`http://127.0.0.1:${port}/healthz`)).status).toBe(421);
+    } finally {
+      await installer.stop();
+    }
+  });
   it('reports invalid advanced settings without remaining stuck in starting', async () => {
     const root = await temporary();
     await mkdir(path.join(root, '.installer'));
