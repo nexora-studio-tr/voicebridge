@@ -6,6 +6,7 @@ import path from 'node:path';
 import { root } from './runtime.mjs';
 import { validateCaptionTiming } from './validate-caption-timing.mjs';
 import { validateRoomRecovery } from './validate-room-recovery.mjs';
+import { validatePerformance } from './validate-performance.mjs';
 const out = path.join(root, 'artifacts/browser');
 mkdirSync(out, { recursive: true });
 const demoOrigin = 'http://127.0.0.1:4388',
@@ -258,6 +259,7 @@ try {
   );
   results.push(...(await validateCaptionTiming(browser, out)));
   results.push(...(await validateRoomRecovery(browser, out)));
+  results.push(...(await validatePerformance(browser, out)));
   writeFileSync(
     path.join(out, 'report.json'),
     JSON.stringify(

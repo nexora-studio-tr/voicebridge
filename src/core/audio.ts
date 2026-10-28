@@ -102,9 +102,12 @@ export class FairQueue {
   private lanes = new Map<string, (() => Promise<void>)[]>();
   private running = false;
   constructor(
-    private maxPerLane = 2,
-    private maxTotal = 8,
+    readonly maxPerLane = 2,
+    readonly maxTotal = 8,
   ) {}
+  get active() {
+    return this.running ? 1 : 0;
+  }
   get length() {
     return [...this.lanes.values()].reduce((a, b) => a + b.length, 0);
   }

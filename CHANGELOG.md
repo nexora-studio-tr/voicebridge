@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.7 — 2026-10-28
+
+- Add an operator-only performance view with global queue load, Node-process memory, separate local/cloud caption/audio P50/P95 and a private JSON download.
+- Keep at most 512 numeric events for five minutes using a monotonic clock. Disclose window truncation and missing samples; never retain speech, identities, paths, credentials or raw errors.
+- Count shared output groups once; distinguish canceled, failed, empty and rejected work without changing consent or paid-mode selection.
+- Add opt-in five-second monitoring that pauses on hidden tabs/closed sections and stops on authorization loss.
+- Add deterministic privacy/scheduling tests and real HTTP/browser scenarios with synthetic inference. Live Discord acceptance remains with the owner; no speech-quality or capacity result is claimed.
+- Türkçe: Kuyruk yükü, yerel/bulut süreleri ve içerik tutmayan özel performans raporu eklendi. Canlı Discord testleri proje sahibine bırakıldı.
+
 ## 0.1.0-alpha.6 — 2026-10-28
 
 - Recover interrupted room streams from a listener-authorized snapshot; clear transient captions/audio while disconnected and never replay buffered or late-generated speech for restored captions.

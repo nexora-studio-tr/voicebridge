@@ -53,7 +53,7 @@ const browserOutput = await run(process.execPath, ['scripts/validate-browser.mjs
   VOICEBRIDGE_DATA: path.join(cleanRoot, '.voicebridge-clean'),
 });
 const browser = JSON.parse(browserOutput.trim().split(/\r?\n/).at(-1));
-if (browser.status !== 'passed' || browser.checks < 25)
+if (browser.status !== 'passed' || browser.checks < 33)
   throw Error('Clean browser checks did not pass');
 const recovery = JSON.parse(
   await readFile(path.join(cleanRoot, 'artifacts/browser/room-recovery-report.json'), 'utf8'),
@@ -66,10 +66,25 @@ if (
   recovery.paidApi
 )
   throw Error('Room recovery evidence did not pass');
+const performance = JSON.parse(
+  await readFile(path.join(cleanRoot, 'artifacts/browser/performance-report.json'), 'utf8'),
+);
+if (
+  performance.status !== 'passed' ||
+  performance.checks.length !== 8 ||
+  performance.humanParticipants !== 0 ||
+  performance.liveDiscord ||
+  performance.paidApi ||
+  performance.capacityClaim
+)
+  throw Error('Performance evidence did not pass');
 for (const file of [
   'room-recovery-report.json',
   'room-reconnecting-en.png',
   'room-recovery-tr.png',
+  'performance-report.json',
+  'performance-en.png',
+  'performance-mobile-en.png',
 ])
   await copyFile(
     path.join(cleanRoot, 'artifacts/browser', file),
@@ -88,8 +103,9 @@ const report = {
   build: 'passed',
   browserChecks: browser.checks,
   recoveryBrowserChecks: recovery.checks.length,
+  performanceBrowserChecks: performance.checks.length,
   profiles:
-    'isolated recorded-demo/operator profiles and synthetic HTTP/SSE timing/recovery profiles with two independent browser contexts',
+    'isolated recorded-demo/operator profiles and synthetic HTTP/SSE timing, recovery and performance profiles with independent browser contexts',
   credentialsCopied: false,
   liveDiscord: false,
   paidApi: false,

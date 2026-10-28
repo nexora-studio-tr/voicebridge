@@ -1,5 +1,15 @@
 # Validation
 
+## Alpha.7 operator performance — 2026-10-28
+
+Local Windows strict typecheck/build/format and **120 TypeScript tests** passed. The panel Chromium gate passed **33 checks**, including **8 performance checks** over real HTTP with synthetic identities, audio and inference. The new tests exercise shared-output counting, separate local/cloud distributions, missing samples, queue backpressure, canceled work, failed TTS with preserved captions, a strict-schema JSON download, privacy exclusion, hidden-tab/collapsed-section polling suspension and authorization loss. The English panel passes exercised automatic WCAG A/AA rules and a 390px overflow check; Turkish actions, guidance and export are exercised in the same fixture.
+
+Deterministic tests cover monotonic five-minute expiry, the 512-event cap/truncation flag, nearest-rank percentiles, detached numeric snapshots, shared listening and audio opt-out during synthesis. The read-only endpoint rejects anonymous, non-operator and recorded-demo sessions before collecting process measurements. No credentials, conversation content or raw errors enter the numeric window. [Measurement semantics](PERFORMANCE.md) distinguish output-group samples, terminal jobs and partial retained windows.
+
+The unchanged worker passed **16 Python tests**, and the launcher passed **8 browser checks** locally. Exact-head Ubuntu/Windows CI, clean-source and Windows native-package outcomes belong to the corresponding Actions run and release JSON attachments. A configured workflow is not evidence of a successful run. **Live Discord acceptance is left to the owner** and is not a release-blocking task for this packet. This update performs no additional human installation, real-provider billing, speech-quality comparison or hardware capacity measurement. Node memory excludes Python and model processes. The independent-installation ledger remains unchanged.
+
+Türkçe: 120 TypeScript testi, tip/derleme/biçim denetimi ve 33 panel kontrolü yerelde geçti. Sekiz yeni senaryo sentetik motor kullanır; gerçek konuşma kalitesi veya kapasite sonucu değildir. Performans raporunda konuşma, özel ID, yol ve anahtar bulunmaz. Canlı Discord kabul testleri kullanıcıya bırakıldı; yapılmış veya geçmiş sayılmadı. Paket ve işletim sistemi sonuçları ilgili commit'in CI raporundan doğrulanır.
+
 ## Alpha.6 room recovery — 2026-10-28
 
 Local Windows strict typecheck/build and **108 TypeScript tests** passed. The listening-panel Chromium gate passed **25 checks**, including **9 recovery checks** with two separate browser contexts, distinct synthetic identities, real HTTP/SSE and injected inference. It covers lost frames, cached-caption synchronization without audio replay, delayed synthesis, offline/reconnect, revocation during an outage, cross-listener audio denial, membership loss and speaker departure. The reconnect view passes exercised automatic WCAG A/AA rules; the test also caught and repaired the active audio button's hover contrast.

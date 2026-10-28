@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const VERSION = '0.1.0-alpha.6';
+export const VERSION = '0.1.0-alpha.7';
 export const Language = z.enum(['tr', 'en']);
 export type Language = z.infer<typeof Language>;
 export const Mode = z.enum(['local', 'cloud']);

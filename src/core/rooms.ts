@@ -13,6 +13,7 @@ import {
   check,
 } from './contracts.js';
 import { FairQueue, inspectWav } from './audio.js';
+import { PerformanceWindow } from './performance.js';
 
 interface Listener {
   id: string;
@@ -56,6 +57,7 @@ export class Rooms {
   onConsentChange: (room: Room, id: string) => void = () => {};
   rooms = new Map<string, Room>();
   queue = new FairQueue();
+  performance: PerformanceWindow;
   constructor(
     public local: Inference,
     public cloud: (context: EngineContext) => Inference,
@@ -63,7 +65,9 @@ export class Rooms {
     public cloudAllowed: (guild: string) => boolean,
     public now = () => Date.now(),
     private measure = () => performance.now(),
-  ) {}
+  ) {
+    this.performance = new PerformanceWindow(measure);
+  }
   create(guildId: string, guildName: string, channelId: string, name: string, creator: string) {
     const existing = [...this.rooms.values()].find((r) => r.active && r.guildId === guildId);
     if (existing) {
@@ -276,6 +280,9 @@ export class Rooms {
       this.queue.push(speakerId, async () => {
         const elapsed = (from: number) => Math.max(0, Math.floor(this.measure() - from));
         const queueMs = elapsed(started);
+        this.performance.record({ kind: 'queue', ms: queueMs });
+        let output = false,
+          failed = false;
         const signal = new AbortController();
         room.jobs.set(signal, speakerId);
         const baseValid = () =>
@@ -355,6 +362,7 @@ export class Rooms {
                 captionOverheadMs: Math.max(0, captionMs - queueMs - recognitionMs - translationMs),
               };
               const deliver = (mediaId?: string, synthesisMs?: number, audioMs?: number) => {
+                let delivered = false;
                 for (const { l, generation } of listeners) {
                   if (
                     !valid() ||
@@ -399,10 +407,15 @@ export class Rooms {
                     caption,
                   ].slice(-30);
                   this.emit(l, { type: 'caption', data: caption });
+                  if (!mediaId || caption.audioUrl) delivered = true;
                 }
+                return delivered;
               };
               // Captions are delivered before synthesis, so a TTS failure never hides a useful translation.
-              deliver();
+              if (deliver()) {
+                output = true;
+                this.performance.record({ kind: 'caption', mode: g.mode, ms: captionMs });
+              }
               let mediaId: string | undefined;
               if (listeners.some(({ l }) => l.preferences.audio)) {
                 const synthesisStarted = this.measure();
@@ -425,9 +438,12 @@ export class Rooms {
                       .map(({ l, generation }) => [l.id, generation]),
                   ),
                 });
-                deliver(mediaId, synthesisMs, elapsed(started));
+                const audioMs = elapsed(started);
+                if (deliver(mediaId, synthesisMs, audioMs))
+                  this.performance.record({ kind: 'audio', mode: g.mode, ms: audioMs });
               }
             } catch (e) {
+              if (valid() && !signal.signal.aborted) failed = true;
               const code =
                 e instanceof Fault
                   ? e.code
@@ -439,13 +455,28 @@ export class Rooms {
                   this.emit(l, { type: 'error', data: { code, speakerId } });
             }
           }
+        } catch (e) {
+          failed = true;
+          throw e;
         } finally {
+          this.performance.record({
+            kind: 'job',
+            outcome: !baseValid()
+              ? 'canceled'
+              : failed
+                ? 'failed'
+                : output
+                  ? 'completed'
+                  : 'noOutput',
+          });
           room.jobs.delete(signal);
           if (room.active)
             this.broadcast(room, { type: 'status', data: { code: 'IDLE', speakerId } });
         }
       });
     } catch (e) {
+      if (e instanceof Fault && e.code === 'QUEUE_FULL')
+        this.performance.record({ kind: 'rejected' });
       this.broadcast(room, {
         type: 'status',
         data: { code: e instanceof Fault ? e.code : 'QUEUE_FULL', speakerId },
