@@ -24,6 +24,7 @@ import { LocalWorker } from './local.js';
 import { RecordedDemo } from './demo.js';
 import { exchangeDiscordCode } from './oauth.js';
 import { setupReport, type LocalSetupProbe } from '../core/setup.js';
+import { PerformanceReport } from '../core/performance.js';
 
 export interface AppOptions {
   root: string;
@@ -307,6 +308,29 @@ export async function createServer(options: AppOptions) {
   app.get('/api/operator/models', async (req) => {
     operator(req);
     return worker ? worker.status() : { ready: !!options.local, device: 'injected' };
+  });
+  app.get('/api/operator/performance', (req) => {
+    operator(req);
+    const memory = process.memoryUsage();
+    return PerformanceReport.parse({
+      schemaVersion: 1,
+      scope: 'process-performance',
+      version: VERSION,
+      collectedAt: new Date().toISOString(),
+      uptimeSeconds: Math.floor(process.uptime()),
+      environment: { platform: process.platform, architecture: process.arch },
+      nodeMemory: {
+        residentMiB: Math.ceil(memory.rss / 1048576),
+        heapUsedMiB: Math.ceil(memory.heapUsed / 1048576),
+      },
+      queue: {
+        active: rooms.queue.active,
+        waiting: rooms.queue.length,
+        limit: rooms.queue.maxTotal,
+        perSpeaker: rooms.queue.maxPerLane,
+      },
+      recent: rooms.performance.snapshot(),
+    });
   });
   let setupProbe: Promise<LocalSetupProbe> | null = null;
   app.get('/api/operator/setup-checks', async (req) => {

@@ -61,6 +61,8 @@ Raw audio and playable segments have bounded memory lifetimes and are excluded f
 
 ## Costs and failures
 
+The operator-only [performance view](PERFORMANCE.md) summarizes a five-minute, 512-event numeric window in process memory. It distinguishes local/cloud caption/audio output groups, shared work, queue waits and terminal job outcomes without retaining identities, text, audio, paths or raw errors. Strict-schema snapshots use no-store responses and an explicit local JSON download. Node-process memory excludes Python/model memory. This is operational visibility, not a capacity or speech-quality result.
+
 The owner configures monthly/daily caps, per-room and per-listener limits, enabled profiles and maximum concurrency. Before an outbound request, the coordinator atomically reserves estimated usage. Returned usage reconciles the reservation; uncertain results retain a conservative charge estimate. Unknown prices disable that profile until configured.
 
 Each shared operation is reserved once against guild/room and the first requesting listener of that group. No blind provider retries are made. The ledger does not claim exactly-once provider billing or absolute invoice caps.

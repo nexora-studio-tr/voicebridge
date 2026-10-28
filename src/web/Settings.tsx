@@ -3,6 +3,7 @@ import { ExternalLink, LoaderCircle, Plug, Unplug, ShieldCheck } from 'lucide-re
 import { api, code, explain, type Language, type Session } from './api.js';
 import { Modal, Toggle } from './primitives.js';
 import { SetupChecks } from './SetupChecks.js';
+import { Performance } from './Performance.js';
 interface OperatorInfo {
   discord: { applicationId: string; guilds: string[]; hasToken: boolean; hasSecret: boolean };
   redirectUri: string;
@@ -182,6 +183,7 @@ export function Settings({
       {session.identity?.operator && (
         <SetupChecks locale={locale} revision={info} disabled={busy || !info} />
       )}
+      {session.identity?.operator && <Performance locale={locale} />}
       {session.identity?.operator && (
         <section className="settings-section">
           <h3>

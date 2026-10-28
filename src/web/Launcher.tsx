@@ -175,7 +175,7 @@ export function Launcher() {
       </header>
       <main className="launcher-grid">
         <section className="launcher-intro">
-          <p className="eyebrow">WINDOWS · {status?.version || 'alpha.6'}</p>
+          <p className="eyebrow">WINDOWS · {status?.version || 'alpha.7'}</p>
           <h1>
             {t('Konuşmadan önce,', 'Before the conversation,')}
             <br />

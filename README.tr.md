@@ -1,6 +1,6 @@
 # VoiceBridge
 
-**Alpha.6**, [güvenli oda bağlantısı kurtarmayı](docs/ROOM-RECOVERY.md) ekler: güncel izinlerle eşitleme, iptal edilen metni temizleme ve eski sesi tekrarlamadan devam etme. [Windows başlatıcısı](docs/WINDOWS.tr.md) kullanılabilir.
+**Alpha.7**, operatöre özel [performans ekranını](docs/PERFORMANCE.md) ekler: kuyruk yükü, ayrı yerel/bulut süreleri ve konuşma içermeyen sayısal rapor. [Güvenli oda bağlantısı](docs/ROOM-RECOVERY.md) ve [Windows başlatıcısı](docs/WINDOWS.tr.md) kullanılabilir.
 
 Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek raporu](docs/SETUP-CHECKS.md)** ekler. Eksik adımları görüp anahtar, özel ID veya konuşma içermeyen raporu kendin indirebilirsin. Bütünlük, giriş ve gerçek ses kabul testleri ayrıca yapılır.
 
@@ -12,7 +12,7 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.6 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.6 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.7)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ## Nereden başlayacaksın?
 
