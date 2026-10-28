@@ -48,6 +48,9 @@ jobs:
           path: |
             artifacts/release/*
             artifacts/clean-install/report.json
+            artifacts/clean-install/room-recovery-report.json
+            artifacts/clean-install/room-reconnecting-en.png
+            artifacts/clean-install/room-recovery-tr.png
             artifacts/launcher/report.json
             artifacts/launcher/accessibility.json
             artifacts/launcher/*.png

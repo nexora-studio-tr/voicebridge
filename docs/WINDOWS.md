@@ -1,8 +1,8 @@
-# Windows launcher — alpha.5
+# Windows launcher — alpha.6
 
 [Türkçe](WINDOWS.tr.md) · [Beta reports](BETA.md) · [Model licenses](../THIRD_PARTY_NOTICES.md)
 
-Download `voicebridge-0.1.0-alpha.5-windows-x64.zip` and `SHA256SUMS.txt` from the matching GitHub release. Compare the SHA-256, then fully extract the ZIP to a **private, writable local folder**. Run `VoiceBridge.exe`. Do not run it from inside the ZIP. The package is unsigned; no publisher identity is established by a Windows signature. Decide whether you trust the source and release before running it.
+Download `voicebridge-0.1.0-alpha.6-windows-x64.zip` and `SHA256SUMS.txt` from the matching GitHub release. Compare the SHA-256, then fully extract the ZIP to a **private, writable local folder**. Run `VoiceBridge.exe`. Do not run it from inside the ZIP. The package is unsigned; no publisher identity is established by a Windows signature. Decide whether you trust the source and release before running it.
 
 The x64 launcher uses Windows' .NET Framework 4.8 and the bundled Node 24 runtime. No Node/Python installation, administrator rights, registry changes, system PATH changes or SDK are required. The actual Windows verification scope is listed in [validation](VALIDATION.md); an automated runner is not an independent human installation.
 

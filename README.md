@@ -1,6 +1,6 @@
 # VoiceBridge
 
-**Alpha.5** adds a [Windows launcher](docs/WINDOWS.md): extract the portable package, double-click, and prepare a private runtime with resumable model downloads. [Caption timing](docs/CAPTION-TIMING.md) and [operator setup checks](docs/SETUP-CHECKS.md) remain available.
+**Alpha.6** adds [safe room recovery](docs/ROOM-RECOVERY.md): reconnect to current authorized captions, keep revoked content removed, and avoid replaying earlier audio. The [Windows launcher](docs/WINDOWS.md) remains available.
 
 **One conversation. Your language.**
 
@@ -12,7 +12,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 
 [Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
 
-**[Download alpha.5](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Download alpha.6](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ## Choose your starting point
 

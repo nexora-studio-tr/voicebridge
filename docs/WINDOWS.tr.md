@@ -1,8 +1,8 @@
-# Windows başlatıcısı — alpha.5
+# Windows başlatıcısı — alpha.6
 
 [English](WINDOWS.md) · [Beta rehberi](BETA.tr.md) · [Model lisansları](../THIRD_PARTY_NOTICES.md)
 
-GitHub sürümünden `voicebridge-0.1.0-alpha.5-windows-x64.zip` ile `SHA256SUMS.txt` dosyasını indir. SHA-256 değerini karşılaştırıp ZIP'i **özel ve yazılabilir bir yerel klasöre tamamen ayıkla**. `VoiceBridge.exe` dosyasını aç. ZIP'in içinden çalıştırma. Paket imzasızdır; Windows yayıncı imzası bulunmaz. Çalıştırmadan önce kaynak ve sürüme güvenip güvenmediğine karar ver.
+GitHub sürümünden `voicebridge-0.1.0-alpha.6-windows-x64.zip` ile `SHA256SUMS.txt` dosyasını indir. SHA-256 değerini karşılaştırıp ZIP'i **özel ve yazılabilir bir yerel klasöre tamamen ayıkla**. `VoiceBridge.exe` dosyasını aç. ZIP'in içinden çalıştırma. Paket imzasızdır; Windows yayıncı imzası bulunmaz. Çalıştırmadan önce kaynak ve sürüme güvenip güvenmediğine karar ver.
 
 x64 başlatıcı, Windows'taki .NET Framework 4.8'i ve paketteki Node 24 çalışma ortamını kullanır. Node/Python kurmak, yönetici izni, kayıt defteri veya sistem PATH değişikliği ve SDK gerekmez. Test edilen ortamlar ve kapsam [doğrulama kaydında](VALIDATION.md) yer alır. Otomatik Windows çalıştırıcısı bağımsız insan kurulumu sayılmaz.
 

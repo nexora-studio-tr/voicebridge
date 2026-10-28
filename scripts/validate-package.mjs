@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { root } from './runtime.mjs';
 const metadata = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
@@ -53,8 +53,28 @@ const browserOutput = await run(process.execPath, ['scripts/validate-browser.mjs
   VOICEBRIDGE_DATA: path.join(cleanRoot, '.voicebridge-clean'),
 });
 const browser = JSON.parse(browserOutput.trim().split(/\r?\n/).at(-1));
-if (browser.status !== 'passed' || browser.checks < 16)
+if (browser.status !== 'passed' || browser.checks < 24)
   throw Error('Clean browser checks did not pass');
+const recovery = JSON.parse(
+  await readFile(path.join(cleanRoot, 'artifacts/browser/room-recovery-report.json'), 'utf8'),
+);
+if (
+  recovery.status !== 'passed' ||
+  recovery.checks.length !== 8 ||
+  recovery.humanParticipants !== 0 ||
+  recovery.liveDiscord ||
+  recovery.paidApi
+)
+  throw Error('Room recovery evidence did not pass');
+for (const file of [
+  'room-recovery-report.json',
+  'room-reconnecting-en.png',
+  'room-recovery-tr.png',
+])
+  await copyFile(
+    path.join(cleanRoot, 'artifacts/browser', file),
+    path.join(root, 'artifacts/clean-install', file),
+  );
 const report = {
   status: 'passed',
   version: metadata.version,
@@ -67,7 +87,9 @@ const report = {
   freshNodeModules: true,
   build: 'passed',
   browserChecks: browser.checks,
-  profiles: 'isolated fresh recorded-demo, operator and synthetic HTTP/SSE timing profiles',
+  recoveryBrowserChecks: recovery.checks.length,
+  profiles:
+    'isolated recorded-demo/operator profiles and synthetic HTTP/SSE timing/recovery profiles with two independent browser contexts',
   credentialsCopied: false,
   liveDiscord: false,
   paidApi: false,

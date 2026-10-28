@@ -1,6 +1,6 @@
-# VoiceBridge alpha.5 beta
+# VoiceBridge alpha.6 beta
 
-[English](BETA.md) · [Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5) · [Doğrulama kaydı](BETA-STATUS.md) · [Geri bildirim formu](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+[English](BETA.md) · [Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6) · [Doğrulama kaydı](BETA-STATUS.md) · [Geri bildirim formu](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 İlk hedef **sonuçları incelenmiş iki bağımsız temiz kurulum**. İkinci kişi katılmadan da yardımcı olabilirsin. İki kişilik gerçek ses kabul testi ayrı bir kapı; daha geniş çağrı 5–10 gönüllüye açık. Tamamlanmış grup testi iddia edilmiyor. Video veya ücretli API kullanımı istenmiyor.
 
@@ -18,7 +18,7 @@
 
 **Kaynak koddan kurulum (Linux dahil):** önce 1–2. adımları, sonra aynı kabul kontrollerini uygula.
 
-1. [Alpha.4 sürümündeki](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5) kaynak ZIP ve SHA-256 dosyasını indirip doğrula. Yeni klasöre çıkar. Eski `.venv`, `node_modules`, çalışma veritabanı veya anahtar dosyalarını kopyalama. Node.js **24.17+ / 24.x**, Python **3.12** ve yaklaşık **3 GB** boş disk hazır olsun.
+1. [Alpha.4 sürümündeki](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6) kaynak ZIP ve SHA-256 dosyasını indirip doğrula. Yeni klasöre çıkar. Eski `.venv`, `node_modules`, çalışma veritabanı veya anahtar dosyalarını kopyalama. Node.js **24.17+ / 24.x**, Python **3.12** ve yaklaşık **3 GB** boş disk hazır olsun.
 2. [Kurulum rehberini](SETUP.tr.md) izle: `npm ci --ignore-scripts`, `npm run setup`, `npm start`. Ayrı lisanslı yerel modeller indirilir; Discord yine internet kullanır. Aynı bilgisayarda tek kullanımlık `.voicebridge/operator-link` adresini açıp ayrı Discord botunu yapılandır. Anahtarları komut satırına veya hata kaydına yazma.
 3. **Ayarlar → Kurulumu denetle** düğmesini kullan. Takıldığın veya belirsiz adımı not et. [Kontrol rehberi](SETUP-CHECKS.md), otomatik kontrolleri elle yapılacak OAuth, model bütünlüğü ve gerçek kullanım testlerinden ayırır. Tamamlanamayan kurulum raporu da faydalıdır.
 4. Ses denemesi hazırsa botu ayrıca bağla. Normal ses odasında `/voicebridge start` kullanıp panelde Discord hesabınla giriş yap. Operatör oturumu yapılandırma içindir; dinlemek için çıkış yap veya ayrı tarayıcı profili kullan. Konuştuğun dili **English**, hedefi **Türkçe**, motoru yerel seç; kendi yerel iznini ve kişisel sesli dinlemeyi aç. Kısa örnekten sonra dil yönünü tersine çevir.

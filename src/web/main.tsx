@@ -34,6 +34,7 @@ import { Choice, Modal, Toggle } from './primitives.js';
 import { usePlayback } from './audio.js';
 import { Settings } from './Settings.js';
 import { CaptionTiming } from './CaptionTiming.js';
+import { connectRoom, type RoomConnectionState } from './room-stream.js';
 import './style.css';
 import { Launcher } from './Launcher.js';
 
@@ -47,17 +48,19 @@ function App() {
     [captions, setCaptions] = useState<Caption[]>([]),
     [error, setError] = useState(''),
     [status, setStatus] = useState(''),
-    [online, setOnline] = useState(false),
+    [connectionState, setConnectionState] = useState<RoomConnectionState | 'idle'>('idle'),
     [busy, setBusy] = useState(false),
     [settings, setSettings] = useState(false),
     [help, setHelp] = useState(false),
     [demoPlaying, setDemoPlaying] = useState(false);
   const roomId = useRef<string | null>(null),
+    connection = useRef<ReturnType<typeof connectRoom> | null>(null),
     end = useRef<HTMLDivElement>(null),
     audio = usePlayback(() => setError('AUDIO_PLAYBACK_FAILED')),
     playback = useRef(audio);
   playback.current = audio;
   const t = (tr: string, en: string) => (locale === 'tr' ? tr : en);
+  const online = connectionState === 'live';
   useEffect(() => {
     document.documentElement.lang = locale;
     localStorage.setItem('vb-language', locale);
@@ -105,21 +108,30 @@ function App() {
   }, []);
   useEffect(() => {
     if (!room?.id) return;
-    let active = true;
-    const id = room.id,
-      events = new EventSource(`/api/rooms/${id}/events`);
-    events.onopen = () => {
-      setOnline(true);
-      setError((current) => (current === 'CONNECTION_FAILED' ? '' : current));
-    };
-    events.onerror = () => {
-      setOnline(false);
-      playback.current.reset();
-    };
-    events.onmessage = (message) => {
-      if (!active) return;
-      try {
-        const event = JSON.parse(message.data);
+    const controller = connectRoom(room.id, {
+      state: setConnectionState,
+      snapshot: (r) => {
+        setRoom(r);
+        setCaptions(r.captions.filter((c) => c.createdAt > Date.now() - 90_000));
+        setError((current) =>
+          ['CONNECTION_FAILED', 'STREAM_INVALID'].includes(current) ? '' : current,
+        );
+      },
+      disconnect: (reason) => {
+        playback.current.reset();
+        setCaptions([]);
+        setStatus('');
+        if (reason) setError(reason);
+      },
+      end: (reason) => {
+        roomId.current = null;
+        setRoom(null);
+        playback.current.disarm();
+        if (reason === 'AUTH_REQUIRED')
+          setSession((current) => (current ? { ...current, identity: null, csrf: null } : null));
+        setError(reason);
+      },
+      event: (event, allowAudio) => {
         if (event.type === 'caption') {
           const c = event.data as Caption;
           setStatus('');
@@ -128,17 +140,13 @@ function App() {
               -30,
             ),
           );
-          if (c.audioUrl) playback.current.enqueue(c.audioUrl);
+          if (allowAudio && c.audioUrl) playback.current.enqueue(c.audioUrl);
         } else if (event.type === 'reset') {
           playback.current.reset();
           setStatus('');
           setCaptions((current) =>
             event.data.speakerId ? current.filter((c) => c.speakerId !== event.data.speakerId) : [],
           );
-          if (['membership', 'connection_lost', 'expired', 'stopped'].includes(event.data.reason)) {
-            setOnline(false);
-            void refresh();
-          }
         } else if (event.type === 'error') {
           if (event.data.code !== 'CANCELED') setError(String(event.data.code));
           setStatus('');
@@ -146,35 +154,25 @@ function App() {
           if (event.data.code === 'PROCESSING') setStatus('PROCESSING');
           else if (event.data.code === 'IDLE') setStatus('');
           else setError(String(event.data.code));
-        } else if (event.type === 'state')
-          void api<RoomState>(`/api/rooms/${id}`)
-            .then((r) => active && setRoom(r))
-            .catch((e) => active && setError(code(e)));
-      } catch {
-        setError('STREAM_INVALID');
-      }
-    };
+        }
+      },
+    });
+    connection.current = controller;
     const poll = setInterval(() => {
-      void api<RoomState>(`/api/rooms/${id}`)
-        .then((r) => {
-          if (active) {
-            setRoom(r);
-            setCaptions((current) => current.filter((c) => c.createdAt > Date.now() - 90_000));
-          }
-        })
-        .catch((e) => {
-          if (active) {
-            setError(code(e));
-            setOnline(false);
-            playback.current.reset();
-          }
-        });
-    }, 15_000);
+      setCaptions((current) => current.filter((c) => c.createdAt > Date.now() - 90_000));
+    }, 1000);
+    const resume = () => controller.setOnline(true);
+    const suspend = () => controller.setOnline(false);
+    window.addEventListener('online', resume);
+    window.addEventListener('offline', suspend);
+    if (!navigator.onLine) suspend();
     return () => {
-      active = false;
-      events.close();
+      controller.close();
+      if (connection.current === controller) connection.current = null;
       clearInterval(poll);
-      setOnline(false);
+      window.removeEventListener('online', resume);
+      window.removeEventListener('offline', suspend);
+      setConnectionState('idle');
       playback.current.disarm();
       setStatus('');
     };
@@ -202,7 +200,6 @@ function App() {
       await api(`/api/rooms/${room.id}/preferences`, 'PUT', { ...room.preferences, ...p });
       playback.current.reset();
       setCaptions([]);
-      setRoom(await api(`/api/rooms/${room.id}`));
     });
   }
   const self = room?.participants.find((p) => p.id === session?.identity?.id),
@@ -216,7 +213,6 @@ function App() {
         language: self.language,
         ...update,
       });
-      setRoom(await api(`/api/rooms/${room.id}`));
     });
   }
   const mode = room?.preferences.mode ?? 'local';
@@ -244,14 +240,29 @@ function App() {
             <ChevronRight size={14} />
             {room?.name ?? t('Discord odanı bekliyor', 'Waiting for your Discord room')}
           </div>
-          <span className={`connection ${online ? 'connected' : ''}`}>
+          <span
+            className={`connection ${online ? 'connected' : ''}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <i />
             {demo
               ? t('Örnek oynatımı', 'Sample playback')
               : online
                 ? t('Odaya bağlı', 'Connected to room')
-                : t('Bağlantı bekleniyor', 'Waiting for connection')}
+                : connectionState === 'reconnecting'
+                  ? t('Yeniden bağlanılıyor', 'Reconnecting')
+                  : t('Bağlantı bekleniyor', 'Waiting for connection')}
           </span>
+          {connectionState === 'reconnecting' && (
+            <button
+              className="rail-link connection-retry"
+              onClick={() => connection.current?.retry()}
+            >
+              <WifiOff size={14} aria-hidden="true" />
+              {t('Şimdi yeniden dene', 'Retry now')}
+            </button>
+          )}
         </div>
         <div className="rail-section">
           <div className="section-heading">
@@ -312,7 +323,7 @@ function App() {
             {t('Nasıl çalışır?', 'How does it work?')}
           </button>
           <div className="rail-meta">
-            <span>v{session?.version ?? '0.1.0-alpha.2'}</span>
+            <span>v{session?.version ?? '0.1.0-alpha.6'}</span>
             <span>SELF-HOSTED</span>
           </div>
         </div>
@@ -493,7 +504,9 @@ function App() {
                   <h3>
                     {demo
                       ? t('İki dil. Bir örnek konuşma.', 'Two languages. One sample conversation.')
-                      : t('Konuşmaya alan aç.', 'Make room for conversation.')}
+                      : connectionState === 'reconnecting'
+                        ? t('Odaya yeniden bağlanıyoruz.', 'Reconnecting to your room.')
+                        : t('Konuşmaya alan aç.', 'Make room for conversation.')}
                   </h3>
                   <p>
                     {demo
@@ -501,10 +514,15 @@ function App() {
                           'Örneği başlat; altyazılar bu alana gelir. Sesli dinlemeyi ayrıca açabilirsin.',
                           'Start the sample to see captions here. You can also enable translated audio.',
                         )
-                      : t(
-                          'İzin veren biri konuştuğunda, cümle parçaları seçtiğin dile çevrilir.',
-                          'When a consenting speaker talks, utterances are translated into your selected language.',
-                        )}
+                      : connectionState === 'reconnecting'
+                        ? t(
+                            'Altyazılar ve ses duraklatıldı. Bağlantı gelince eski sesler tekrarlanmadan devam edilir.',
+                            'Captions and audio are paused. On reconnect, earlier audio stays silent.',
+                          )
+                        : t(
+                            'İzin veren biri konuştuğunda, cümle parçaları seçtiğin dile çevrilir.',
+                            'When a consenting speaker talks, utterances are translated into your selected language.',
+                          )}
                   </p>
                   {demo && (
                     <button

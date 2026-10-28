@@ -1,6 +1,6 @@
 # VoiceBridge
 
-**Alpha.5**, [Windows başlatıcısını](docs/WINDOWS.tr.md) ekler: paketi ayıkla, çift tıkla ve özel çalışma ortamını hazırla. Kesilen model indirmeleri devam eder; [altyazı süreleri](docs/CAPTION-TIMING.md) de kullanılabilir.
+**Alpha.6**, [güvenli oda bağlantısı kurtarmayı](docs/ROOM-RECOVERY.md) ekler: güncel izinlerle eşitleme, iptal edilen metni temizleme ve eski sesi tekrarlamadan devam etme. [Windows başlatıcısı](docs/WINDOWS.tr.md) kullanılabilir.
 
 Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek raporu](docs/SETUP-CHECKS.md)** ekler. Eksik adımları görüp anahtar, özel ID veya konuşma içermeyen raporu kendin indirebilirsin. Bütünlük, giriş ve gerçek ses kabul testleri ayrıca yapılır.
 
@@ -12,7 +12,7 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.5 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.6 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.6)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ## Nereden başlayacaksın?
 
