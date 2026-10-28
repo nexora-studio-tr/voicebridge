@@ -1,6 +1,6 @@
 # VoiceBridge
 
-**Alpha.4**, [altyazı başına işlem sürelerini](docs/CAPTION-TIMING.md) gösterir: kuyruk, ses tanıma, çeviri ve isteğe bağlı ses üretimini ayrı inceleyebilirsin; konuşma kaydı eklenmez.
+**Alpha.5**, [Windows başlatıcısını](docs/WINDOWS.tr.md) ekler: paketi ayıkla, çift tıkla ve özel çalışma ortamını hazırla. Kesilen model indirmeleri devam eder; [altyazı süreleri](docs/CAPTION-TIMING.md) de kullanılabilir.
 
 Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek raporu](docs/SETUP-CHECKS.md)** ekler. Eksik adımları görüp anahtar, özel ID veya konuşma içermeyen raporu kendin indirebilirsin. Bütünlük, giriş ve gerçek ses kabul testleri ayrıca yapılır.
 
@@ -12,13 +12,14 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 
 [English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
 
-**[Alpha.4 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.4)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
+**[Alpha.5 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.5)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
 ## Nereden başlayacaksın?
 
 | Deneme                      | Gerekenler                                                         | Başlangıç                                                   |
 | --------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------- |
 | Kayıtlı demoyu gör ve dinle | Node.js 24.17+ / 24.x; Python, bot veya anahtar gerekmez           | [Demo](#demo)                                               |
+| Windows x64 üzerinde kur | Windows, hazırlık için 6 GB boş alan, internet ve kendi Discord botun | [Çift tıklanan başlatıcı](docs/WINDOWS.tr.md) |
 | Beta kurulumu yap           | Kendi cihazın, Python 3.12, model indirmeleri ve ayrı Discord botu | [Kurulum sahibi rehberi](docs/BETA.tr.md#temiz-kurulum-yap) |
 
 Başkasının gerçek odasına mı katılacaksın? Onun erişilebilir panel adresinde kendi Discord hesabınla giriş yap; model kurmaz, anahtar paylaşmazsın. [Katılımcı adımları](docs/BETA.tr.md#misafir-olarak-katıl).
@@ -51,6 +52,8 @@ npm run demo
 [127.0.0.1:4348](http://127.0.0.1:4348) adresinde **Sesli dinlemeyi aç**, sonra **Örneği başlat** düğmesine bas. Gerçek yerel modellerle üretilmiş dört sentetik konuşmanın kayıtlı çıktısı oynatılır. Canlı Discord veya rastgele girdi işleme demosu değildir.
 
 ## Tam kurulum
+
+Windows x64 için [taşınabilir başlatıcı](docs/WINDOWS.tr.md), Node/Python ortamını kendi hazırlar. Aşağıdaki komutlar kaynak koddan kurulum içindir.
 
 Python **3.12** ve yaklaşık **3 GB** boş disk hazır olsun. GPU zorunlu değildir.
 

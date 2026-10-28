@@ -7,6 +7,7 @@ VoiceBridge ships in usable, bounded increments. These are release gates, not pr
 | 0.1 alpha | Implemented; local evidence recorded | Personal TR/EN captions and speech, recorded demo, dedicated-bot OAuth/voice check, consent cancellation, setup and bilingual docs |
 | Setup and beta support | Implemented in alpha.3; automated evidence recorded | Guided operator checks, actionable TR/EN steps, opt-in allowlisted support JSON, authorization/privacy/browser regression gates; this does not complete live acceptance |
 | Caption timing | Implemented in alpha.4 | Queue-inclusive monotonic phase timings, separate caption/audio totals, TR/EN accessible dialog; excludes capture, transit and playback |
+| Windows installation | Implemented in alpha.5; exact automated scope in validation | Portable native launcher, private runtimes, resumable verified downloads, TR/EN consent screen; independent fresh installations remain open |
 | Multi-user hardening | Open | Two or more humans, role/channel changes, overlapping speakers, consent revocation mid-utterance and disconnect/reconnect; publish sanitized observations |
 | Quality and capacity | Open | Broader synthetic and consented speech corpus; clock times, accents and noise; queue-inclusive latency and memory measurements on named hardware |
 | Cloud acceptance | Open | Separately approved small owner-funded budget; real provider compatibility, timeouts and cap exhaustion; publish cost assumptions without credentials |

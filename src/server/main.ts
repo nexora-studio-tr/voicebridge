@@ -45,6 +45,19 @@ const close = async () => {
 };
 process.on('SIGINT', () => void close());
 process.on('SIGTERM', () => void close());
+// The portable launcher owns this IPC channel; browser requests cannot access it.
+if (process.channel) {
+  process.on('message', (message: unknown) => {
+    if (
+      typeof message === 'object' &&
+      message !== null &&
+      'type' in message &&
+      message.type === 'voicebridge-shutdown'
+    )
+      void close();
+  });
+  process.on('disconnect', () => void close());
+}
 try {
   await service.app.listen({ host: process.env.LISTEN_HOST ?? '127.0.0.1', port });
   console.log(`VoiceBridge ${demo ? 'recorded demo' : 'operator'}: ${origin}`);

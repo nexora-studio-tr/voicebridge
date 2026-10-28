@@ -35,6 +35,7 @@ import { usePlayback } from './audio.js';
 import { Settings } from './Settings.js';
 import { CaptionTiming } from './CaptionTiming.js';
 import './style.css';
+import { Launcher } from './Launcher.js';
 
 setNonce(document.querySelector<HTMLMetaElement>('meta[property="csp-nonce"]')?.content ?? '');
 function App() {
@@ -810,4 +811,6 @@ function App() {
     </div>
   );
 }
-createRoot(document.getElementById('root')!).render(<App />);
+createRoot(document.getElementById('root')!).render(
+  location.pathname === '/install' ? <Launcher /> : <App />,
+);

@@ -1,0 +1,9 @@
+{
+  "python": {
+    "version": "3.12.16",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.12.16%2B20261026-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "bytes": 22014416,
+    "sha256": "1f2ab53880fc67ea323398c6388e05af28addc99a8e389209f08a51fdff4b149",
+    "license": "https://github.com/astral-sh/python-build-standalone/blob/20261026/python-licenses.rst"
+  }
+}
