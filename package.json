@@ -30,6 +30,8 @@
     "test:browser": "node scripts/validate-browser.mjs",
     "test:local": "node --env-file-if-exists=.env scripts/validate-local.mjs",
     "test:worker": "node --env-file-if-exists=.env scripts/validate-worker.mjs",
+    "quality": "node scripts/quality.mjs",
+    "quality:queue": "node scripts/benchmark-quality-queue.mjs",
     "test:package": "node scripts/validate-package.mjs",
     "package:windows": "node scripts/package-windows.mjs",
     "test:launcher": "node scripts/validate-launcher.mjs",

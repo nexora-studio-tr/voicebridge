@@ -2,3 +2,4 @@
 *.wav binary
 *.png binary
 *.onnx binary
+docs/reports/quality-*.json linguist-generated=true

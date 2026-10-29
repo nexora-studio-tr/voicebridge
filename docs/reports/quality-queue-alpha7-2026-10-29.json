@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "status": "completed",
+  "synthetic": true,
+  "liveDiscord": false,
+  "paidApi": false,
+  "network": "authenticated-loopback-only",
+  "fixtureSetSha256": "5cb78c4a46b40621768c8245063369aad13fba34eca307d414b30fdd5be90baf",
+  "engineSha256": "d58cdacfcbd7a3f5869ad6410a7bc7f7e21b1b481115483d7a2b9b9ac0b6fc55",
+  "host": {
+    "os": "win32",
+    "cpu": "Intel(R) Core(TM) i3-9100T CPU @ 3.10GHz",
+    "logicalCpus": 4,
+    "memoryGiB": 7.4
+  },
+  "warmupMs": 9911,
+  "scope": "Three queued synthetic utterances, one listener, target Turkish. Separate queue/recognition/translation/synthesis clocks from actual Rooms events. Not live latency, throughput or p95 capacity evidence. Capture, Discord and browser playback excluded.",
+  "samples": [
+    {
+      "sourceId": "en-01",
+      "audioSha256": "462e5d1830179e2cf0b545b73d3f98d4824a73dffb3b1d526397678c7729cbfd",
+      "timing": {
+        "queueMs": 0,
+        "recognitionMs": 1262,
+        "translationMs": 98,
+        "captionMs": 1361,
+        "captionOverheadMs": 1,
+        "synthesisMs": 377,
+        "audioMs": 1744,
+        "audioOverheadMs": 6
+      },
+      "observedAudioMs": 1754,
+      "speechBytes": 453164
+    },
+    {
+      "sourceId": "tr-21",
+      "audioSha256": "fdd4c2af3c461f0ceea0c6d45a5486486dab877ef2f519ee146566145265e498",
+      "timing": {
+        "queueMs": 1739,
+        "recognitionMs": 1181,
+        "translationMs": 5,
+        "captionMs": 2926,
+        "captionOverheadMs": 1,
+        "synthesisMs": 411,
+        "audioMs": 3339,
+        "audioOverheadMs": 2
+      },
+      "observedAudioMs": 3355,
+      "speechBytes": 495404
+    },
+    {
+      "sourceId": "en-12",
+      "audioSha256": "952f28675d5a5b3e950d28fd9c87414b802b2b4865560d7e61f9bdc3d0ea352b",
+      "timing": {
+        "queueMs": 3338,
+        "recognitionMs": 1164,
+        "translationMs": 96,
+        "captionMs": 4599,
+        "captionOverheadMs": 1,
+        "synthesisMs": 351,
+        "audioMs": 4954,
+        "audioOverheadMs": 4
+      },
+      "observedAudioMs": 4971,
+      "speechBytes": 399404
+    }
+  ],
+  "errors": []
+}

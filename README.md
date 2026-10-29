@@ -10,7 +10,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 [![License: GPL v3+](https://img.shields.io/badge/license-GPL--3.0--or--later-245a4c)](LICENSE)
 [![Status: alpha](https://img.shields.io/badge/status-alpha-d2b679)](https://github.com/nexora-studio-tr/voicebridge/releases)
 
-[Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
+[Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Quality checks](docs/QUALITY.md) · [Security](SECURITY.md)
 
 **[Download alpha.7](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.7)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 
@@ -35,7 +35,7 @@ _Recorded synthetic demo; the screenshot contains no private conversation or liv
 - **Local-first processing:** faster-whisper → Argos → Okur/Piper on CPU, without a translation API fee. A local failure never silently switches to paid processing.
 - **Bounded by design:** fair speaker queues, shared inference, ephemeral captions/audio and conservative budget reservations before cloud dispatch.
 
-**0.1.0-alpha.2** improves English recognition and utterance boundaries without replacing the local models. A user confirmed correct English text and Turkish captions after the repair. The current beta milestone is two reviewed independent fresh installations; two-person live acceptance and a 5–10-person cohort are separate, pending goals. The [beta guide](docs/BETA.md) describes how to help. Billable cloud calls and multi-user capacity remain unverified. Local models can mistranslate clock times. [Validation](docs/VALIDATION.md) records the exact scope.
+**0.1.0-alpha.2** improves English recognition and utterance boundaries without replacing the local models. A user confirmed correct English text and Turkish captions after the repair. The current beta milestone is two reviewed independent fresh installations; two-person live acceptance and a 5–10-person cohort are separate, pending goals. The [beta guide](docs/BETA.md) describes how to help. Billable cloud calls and multi-user capacity remain unverified. The [alpha.7 synthetic baseline](docs/reports/QUALITY-BASELINE-2026-10-29.md) records critical local translation failures in numbers, dates, names and negation, including with correct recognition; general quality acceptance remains open. [Validation](docs/VALIDATION.md) records the exact scope.
 
 ## Recorded demo
 
