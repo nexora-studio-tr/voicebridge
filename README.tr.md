@@ -35,7 +35,7 @@ _Görselde sentetik örnekler kullanılır; gerçek kullanıcı konuşması veya
 - Yerel modeller CPU üzerinde API ücreti olmadan çalışır. Yerel hata nedeniyle kendiliğinden ücretli moda geçilmez.
 - Konuşmacı sırası, paylaşılan çıkarım ve bulut isteği öncesi bütçe ayırma ile kaynak kullanımı sınırlandırılır.
 
-**0.1.0-alpha.2**, mevcut yerel modelleri değiştirmeden İngilizce algılamayı ve konuşma parçalarının sınırlarını iyileştirir. Düzeltme sonrası tek kullanıcılı denemede İngilizce metin ve Türkçe altyazı doğru çıktı. İlk beta hedefi sonuçları incelenmiş iki bağımsız temiz kurulum. İki kişilik gerçek test ve 5–10 kişilik grup ayrı hedefler ve henüz tamamlanmadı; [beta rehberinde](docs/BETA.tr.md) katılım adımları var. Ücretli API ve çok kullanıcılı kapasite doğrulanmadı. Yerel model saat ifadelerinde hata yapabiliyor. [Test kapsamı](docs/VALIDATION.md).
+**0.1.0-alpha.2**, mevcut yerel modelleri değiştirmeden İngilizce algılamayı ve konuşma parçalarının sınırlarını iyileştirir. Düzeltme sonrası tek kullanıcılı denemede İngilizce metin ve Türkçe altyazı doğru çıktı. İlk beta hedefi sonuçları incelenmiş iki bağımsız temiz kurulum. İki kişilik gerçek test ve 5–10 kişilik grup ayrı hedefler ve henüz tamamlanmadı; [beta rehberinde](docs/BETA.tr.md) katılım adımları var. Ücretli API ve çok kullanıcılı kapasite doğrulanmadı. [Alpha.7 sentetik ölçümü](docs/reports/QUALITY-BASELINE-2026-10-29.tr.md), doğru tanıma sonrasında bile sayı, tarih, isim ve olumsuzluk çevirilerinde kritik hatalar kaydeder; genel kalite kabulü açık kalır. [Test kapsamı](docs/VALIDATION.md).
 
 ## Demo
 

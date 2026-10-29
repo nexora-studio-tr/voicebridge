@@ -4,6 +4,8 @@
 
 Ölçüm aracı **konuşma tanıma**, **doğru referans metninin çevirisi**, **tanınan metnin çevirisi** ve **ses üretimini** ayrı değerlendirir. Mevcut yerel modellerle çalışır; Discord bağlantısı, kimlik bilgisi, ücretli API veya model indirmesi kullanmaz. Ölçümün tamamlanması, kalite kabulünün geçtiği anlamına gelmez.
 
+Bilinen anlam hataları ve ayrı sentetik kuyruk denemesiyle [ölçülen alpha.7 başlangıç raporunu](reports/QUALITY-BASELINE-2026-10-29.tr.md) incele.
+
 ## Referanslar ve ses koşulları
 
 [corpus.json](../examples/quality/corpus.json), iki dilde yazılmış 30 özgün ve kurgusal senaryo içerir: 30 Türkçe, 30 İngilizce kaynak metin. Sayılar, saat/tarih, olumsuzluk, isimler, komutlar ve duraksamalar kategorilerinin her birinde dil başına dört geliştirme ve bir ayrılmış değerlendirme senaryosu vardır. Altı senaryoluk `holdout` herkese açıktır ve iki dilde eşlenmiştir; kör test veya genel başarı kanıtı değildir. Sonuçlarına göre ayar yaptıktan sonra görülmemiş veri olarak sunulamaz.

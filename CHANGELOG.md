@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — quality measurement tooling, 2026-10-29
+
+- Add a fixed original 30-TR/30-EN corpus, 180 frozen synthetic conditions and offline, model-verifying benchmark commands.
+- Separate strict WER/CER, reference/pipeline translation review and recognition/translation/synthesis timings; retain failures and validate comparison/review identities.
+- Publish the actual baseline and three-job loopback queue report with an explicitly AI preliminary meaning review and bilingual limitations. Known critical translation failures remain open.
+- Add seven model-free regression tests. No alpha.7 inference settings, model weights or published release assets change.
+- Türkçe: Tekrarlanabilir kalite altyapısı ve gerçek sentetik ölçüm raporu eklendi; sayı/olumsuzluk hataları açıkça kaydedildi. Yeni çalışma sürümü veya kalite artışı iddia edilmez.
+
 ## 0.1.0-alpha.7 — 2026-10-28
 
 - Add an operator-only performance view with global queue load, Node-process memory, separate local/cloud caption/audio P50/P95 and a private JSON download.

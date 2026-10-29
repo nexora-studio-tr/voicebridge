@@ -1,5 +1,13 @@
 # Validation
 
+## Frozen bilingual quality baseline — 2026-10-29
+
+All **180 synthetic clips** completed on the existing alpha.7 local models. The [English report](reports/QUALITY-BASELINE-2026-10-29.md) / [Türkçe rapor](reports/QUALITY-BASELINE-2026-10-29.tr.md) retain language/condition/development/holdout results, hashes, every raw synthetic output and the separate real-worker queue scenario. No user audio or generated benchmark WAV is published. [Commands and rubric](QUALITY.md) distinguish recognition error, reference translation, pipeline translation and synthesis.
+
+**The measurement is complete; quality acceptance is not.** Codex's explicitly labeled AI preliminary critical-fact review found 57 pass, 106 fail and 16 uncertain across 179 unique outputs. These are review counts, not per-clip accuracy. Correct recognition can still produce an incorrect translation, including reversed negation. No model/runtime behavior was changed, no improvement claimed and no independent human review performed.
+
+Local gates: **120 TypeScript tests**, typecheck, production build, formatting and **23 Python tests** passed. Seven new model-free tests cover edit-count/micro-average semantics, preserved numbers/negations/Turkish letters, balanced corpus validation, seeded audio transforms, review identity/evidence protection, comparison input alignment and stage-failure coverage. Exact-head CI/package results belong to the linked PR; a workflow definition is not a pass. Alpha.7 release assets and all earlier evidence below remain unchanged. Live Discord acceptance remains with the owner.
+
 ## Alpha.7 operator performance — 2026-10-28
 
 Local Windows strict typecheck/build/format and **120 TypeScript tests** passed. The panel Chromium gate passed **33 checks**, including **8 performance checks** over real HTTP with synthetic identities, audio and inference. The new tests exercise shared-output counting, separate local/cloud distributions, missing samples, queue backpressure, canceled work, failed TTS with preserved captions, a strict-schema JSON download, privacy exclusion, hidden-tab/collapsed-section polling suspension and authorization loss. The English panel passes exercised automatic WCAG A/AA rules and a 390px overflow check; Turkish actions, guidance and export are exercised in the same fixture.

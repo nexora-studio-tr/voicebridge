@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "createdAt": "2026-10-29T03:34:08+00:00",
+  "corpusSha256": "750d1cec5568b04c3454c259cb396c43172c7245d872a9b6dca1ba1b9a304774",
+  "models": {
+    "lockSha256": "6cfc050392daca3332dcec3ea6c51c26a95034dccc7058559335e59dde3f2a4e",
+    "files": {
+      "tts/en/en_US-ljspeech-medium.onnx": "6f52a751e2349abe7a76735eb09dc1875298c77ea2342ffd2fef79ff81b87f22",
+      "tts/en/en_US-ljspeech-medium.onnx.json": "141d612cc0a95ed7efc1ca936b845c2364967f2e9217c5dbfcf69fc4d6c65860",
+      "tts/en/MODEL_CARD": "fbee1529c89d36b3fe76d7e9f3f832dce17f44900a52d76a9bda735654766b4d",
+      "downloads/en_tr.argosmodel": "2d553a00880a0c21dea5b1c375535659e6bf18c9bf2ce9847c2a2fd2ff50316a",
+      "downloads/tr_en.argosmodel": "15217905586561fac843efb5730aabff9a1534d5a9aa3f6ebcc0f9641394ac2d",
+      "asr/config.json": "56a6d8110d311f19c8f0471e562832c7527f146b567275bfca59fcf7c184da9a",
+      "asr/model.bin": "d01c3014881c9c6f3133c182f3d2887eb6ca1c789a7538c5c007196857a0a6a9",
+      "asr/tokenizer.json": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+      "asr/vocabulary.txt": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+      "tts/tr/okur/NOTICE": "98892e78692055ffff295ffdf7f32079ee25fdac9cce5c87e6f87817901a5531",
+      "tts/tr/okur/README.md": "475e7cd53bcffa70c06863563681e721d9a5dd3c296bf03243ce38fea1e6ee2c",
+      "tts/tr/okur/config.json": "7b62f4383f4d0ed0fd5f0087bdb078e9cfb9516e36a4e3e61530bf037b663860",
+      "tts/tr/okur/decoder.8f42fa31155e.onnx": "8f42fa31155e459e62f3cb2830d53c7c014e5c614b583b17440120d7fa7120c4",
+      "tts/tr/okur/sample.3c2a91ee5faa.onnx": "3c2a91ee5faa5601ae53193c203fa558a28f7e031b82103af28ee3cf366a6c63",
+      "tts/tr/okur/text.6a21984ac693.onnx": "6a21984ac693d07ec0096fcfbc0bffebe23255891523090eaf24f232782a94c2"
+    },
+    "extracted": {
+      "translation/en_tr/sentencepiece.model": "3ea18901007a2d577243780b428ed7b725df4bbaaa42190a7d98025a48e0f6d0",
+      "translation/en_tr/metadata.json": "c30d5575f794a8e92c5927089ca19351351e60c8f1564a1026175c0a6c0b5623",
+      "translation/en_tr/README.md": "cace6cd1682b1fbb8b4f0cb3e55399f57b5cbb79fa5e7e391e3c823fb494fa0b",
+      "translation/en_tr/model/shared_vocabulary.txt": "02db44857265737c3f5d021388e6cee123319f9128f4bded62aea488a5a23448",
+      "translation/en_tr/model/model.bin": "4c99f3b74899bb1cf0a6e50829bb8c8421d49ca0d40bb17e34fdae623179fbd4",
+      "translation/tr_en/sentencepiece.model": "fd4f8c3614ef530eb1b48ea4982183e3accc22da3eb987216ff34e614e9018f8",
+      "translation/tr_en/README.md": "4930e84da75285f3c522b4b8959676aec7750eba79cf4f39970814c391eed007",
+      "translation/tr_en/metadata.json": "49fb8b3c2500c5e2bfd8c82e7589e0dff140b1678177e3447b27477882bc03ed",
+      "translation/tr_en/model/shared_vocabulary.txt": "05e77234034941189b58291e68bad5374d61b13c5afde8bef656e184525c8d4b",
+      "translation/tr_en/model/model.bin": "726db5b058c058142b23695f600be3ccded3a379da764a459edd30848b931b81"
+    }
+  },
+  "source": {
+    "worker/engine.py": "d58cdacfcbd7a3f5869ad6410a7bc7f7e21b1b481115483d7a2b9b9ac0b6fc55",
+    "worker/okur_onnx.py": "20c5732ffdad516c0a2ae32f9da7f1ada15a545b67c91ceabc4f73427b3ca05f",
+    "worker/model-lock.json": "6cfc050392daca3332dcec3ea6c51c26a95034dccc7058559335e59dde3f2a4e",
+    "worker/requirements.txt": "89b6c8300529144331a8fd62e150c7f84ccc979e1571f4c3ff15d37fc249013c",
+    "scripts/benchmark_quality.py": "f125f375205a5fc2e8edb215be1f053763c05d5d4e803378efa9841fc1754e8f",
+    "scripts/quality_metrics.py": "c7be4b7de899a1e7f693d85422d41e0ef0bcfcb3961a4ff4d1d34f31b32c25ee"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.3",
+    "onnxruntime": "1.31.0",
+    "piper-tts": "1.8.0",
+    "sentencepiece": "0.2.2",
+    "normalizer-tr": "0.4.0"
+  },
+  "generation": {
+    "seed": 314159,
+    "device": "cpu",
+    "englishVoice": "Piper en_US-ljspeech-medium",
+    "turkishVoice": "Okur",
+    "settings": "Current Engine.speak defaults; NumPy and ONNX Runtime seeds set before loading.",
+    "limitation": "Seeds do not guarantee bit-identical synthesis across platforms. Freeze and reuse these exact WAV bytes. Intended text is not human-audited spoken ground truth."
+  },
+  "samples": [
+    {
+      "sampleId": "en-01-clean",
+      "sourceId": "en-01",
+      "condition": "clean",
+      "file": "wav/en-01-clean.wav",
+      "audioSha256": "462e5d1830179e2cf0b545b73d3f98d4824a73dffb3b1d526397678c7729cbfd",
+      "bytes": 183852,
+      "seconds": 4.168,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-01-noise-20db",
+      "sourceId": "en-01",
+      "condition": "noise-20db",
+      "file": "wav/en-01-noise-20db.wav",
+      "audioSha256": "765d9ae2a03fb8491d153e4cf69038bf4f87843667a2fa8620ca941080613d4f",
+      "bytes": 183852,
+      "seconds": 4.168,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314159,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-01-pause-stress",
+      "sourceId": "en-01",
+      "condition": "pause-stress",
+      "file": "wav/en-01-pause-stress.wav",
+      "audioSha256": "fe090f9d7a66b65b568c4ba31ddc83f4985d5481adbb186a63ffb0626fabc7d6",
+      "bytes": 203696,
+      "seconds": 4.618,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 38596,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-01-clean",
+      "sourceId": "tr-01",
+      "condition": "clean",
+      "file": "wav/tr-01-clean.wav",
+      "audioSha256": "310d17a475fa0ac994fe7d434c82759a8074470cfde6094f2ea58e744e502822",
+      "bytes": 453164,
+      "seconds": 4.72,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-01-noise-20db",
+      "sourceId": "tr-01",
+      "condition": "noise-20db",
+      "file": "wav/tr-01-noise-20db.wav",
+      "audioSha256": "0871f236028cd5996d66c678353e757e55c355a8e832fbe887b27a715ae7573f",
+      "bytes": 453164,
+      "seconds": 4.72,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314160,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-01-pause-stress",
+      "sourceId": "tr-01",
+      "condition": "pause-stress",
+      "file": "wav/tr-01-pause-stress.wav",
+      "audioSha256": "af2865354774a8e68ee7e56732884a92c0180b7ea6f0178fc0890963412ef879",
+      "bytes": 496364,
+      "seconds": 5.17,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 136128,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-02-clean",
+      "sourceId": "en-02",
+      "condition": "clean",
+      "file": "wav/en-02-clean.wav",
+      "audioSha256": "c7d93157ef639ba66c5efde8cfc946ae447e76485e66f18198dafc38b202e748",
+      "bytes": 134188,
+      "seconds": 3.0418,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-02-noise-20db",
+      "sourceId": "en-02",
+      "condition": "noise-20db",
+      "file": "wav/en-02-noise-20db.wav",
+      "audioSha256": "3ccab734e024989ef5f17f2395ddcf458e8779953fbdce2f89ca4b028135e1a4",
+      "bytes": 134188,
+      "seconds": 3.0418,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314161,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-02-pause-stress",
+      "sourceId": "en-02",
+      "condition": "pause-stress",
+      "file": "wav/en-02-pause-stress.wav",
+      "audioSha256": "b4b7c9f8d7a6617e5977613ee687996f6dd5f6f4c9fb4e201418c182215bdb1d",
+      "bytes": 154032,
+      "seconds": 3.4918,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 40849,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-02-clean",
+      "sourceId": "tr-02",
+      "condition": "clean",
+      "file": "wav/tr-02-clean.wav",
+      "audioSha256": "eecb87b3fbc5dfe34e9ed124b06dedf45c08591a5b5d5890ef7778e5e83bae02",
+      "bytes": 349484,
+      "seconds": 3.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-02-noise-20db",
+      "sourceId": "tr-02",
+      "condition": "noise-20db",
+      "file": "wav/tr-02-noise-20db.wav",
+      "audioSha256": "9c74bebb46f2a2edffba61ff290f528749b502814e03ed1c9e4853c38a05f6a0",
+      "bytes": 349484,
+      "seconds": 3.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314162,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-02-pause-stress",
+      "sourceId": "tr-02",
+      "condition": "pause-stress",
+      "file": "wav/tr-02-pause-stress.wav",
+      "audioSha256": "812cbeadda1325c7b76df6544162e8a584cc505b5fb75df5c1b7e3cd069f9137",
+      "bytes": 392684,
+      "seconds": 4.09,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 105216,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-03-clean",
+      "sourceId": "en-03",
+      "condition": "clean",
+      "file": "wav/en-03-clean.wav",
+      "audioSha256": "6501d12f57addd2040c0f98e7ee414cf0c9f7c54e84a9eda291a5fb27db6a526",
+      "bytes": 201260,
+      "seconds": 4.5627,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-03-noise-20db",
+      "sourceId": "en-03",
+      "condition": "noise-20db",
+      "file": "wav/en-03-noise-20db.wav",
+      "audioSha256": "aa371e6ff6d4d057d48e607c03d4f0576de42f697d7fed2c520572350c766982",
+      "bytes": 201260,
+      "seconds": 4.5627,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314163,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-03-pause-stress",
+      "sourceId": "en-03",
+      "condition": "pause-stress",
+      "file": "wav/en-03-pause-stress.wav",
+      "audioSha256": "bba0c7edb6b069af6c88ca4aa2ea7b16cc3b284ca0a2183ee0d9ce211a446d10",
+      "bytes": 221104,
+      "seconds": 5.0127,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 41207,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-03-clean",
+      "sourceId": "tr-03",
+      "condition": "clean",
+      "file": "wav/tr-03-clean.wav",
+      "audioSha256": "9948f5a14ec88160366ccbab16b257079793ef3722b3b9222dbde0cb152e1298",
+      "bytes": 418604,
+      "seconds": 4.36,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-03-noise-20db",
+      "sourceId": "tr-03",
+      "condition": "noise-20db",
+      "file": "wav/tr-03-noise-20db.wav",
+      "audioSha256": "01ea9bfd1b9fe09830260f37a84439897eb8387595af2cd57f99af1740a24470",
+      "bytes": 418604,
+      "seconds": 4.36,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314164,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-03-pause-stress",
+      "sourceId": "tr-03",
+      "condition": "pause-stress",
+      "file": "wav/tr-03-pause-stress.wav",
+      "audioSha256": "0e085e3e8adea280457767e13b4470bcab45f368c6af89deb207766f078399a1",
+      "bytes": 461804,
+      "seconds": 4.81,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 96384,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-04-clean",
+      "sourceId": "en-04",
+      "condition": "clean",
+      "file": "wav/en-04-clean.wav",
+      "audioSha256": "5b6a5b290b010d6558823af78b306add5aed95ea1bf8d13de22b700495d3b7f5",
+      "bytes": 194604,
+      "seconds": 4.4118,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-04-noise-20db",
+      "sourceId": "en-04",
+      "condition": "noise-20db",
+      "file": "wav/en-04-noise-20db.wav",
+      "audioSha256": "1b4dc4b0691d4a7a59ce2a73f84b84dc155de4fe5e91727f4659ba3f3c8b4ec6",
+      "bytes": 194604,
+      "seconds": 4.4118,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314165,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-04-pause-stress",
+      "sourceId": "en-04",
+      "condition": "pause-stress",
+      "file": "wav/en-04-pause-stress.wav",
+      "audioSha256": "70da436b7a0edfd965fffa628812ee3659afe70a35576fe631fc1cec102d09da",
+      "bytes": 214448,
+      "seconds": 4.8618,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 37563,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-04-clean",
+      "sourceId": "tr-04",
+      "condition": "clean",
+      "file": "wav/tr-04-clean.wav",
+      "audioSha256": "13deeb878e2955f8bcc4762f668c67c9a1710a7f4383c79d68c84135371b45a2",
+      "bytes": 372524,
+      "seconds": 3.88,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-04-noise-20db",
+      "sourceId": "tr-04",
+      "condition": "noise-20db",
+      "file": "wav/tr-04-noise-20db.wav",
+      "audioSha256": "fe41a0cac31ddc2afa96fff296d1c19619e5c8ec49e6a0a2bfe8d9f4a311fe40",
+      "bytes": 372524,
+      "seconds": 3.88,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314166,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-04-pause-stress",
+      "sourceId": "tr-04",
+      "condition": "pause-stress",
+      "file": "wav/tr-04-pause-stress.wav",
+      "audioSha256": "29bc6690ad4032f1d7e1c7b7e014ff6ce79301f4d9fa80289a0f165185eb7e3c",
+      "bytes": 415724,
+      "seconds": 4.33,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 81792,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-05-clean",
+      "sourceId": "en-05",
+      "condition": "clean",
+      "file": "wav/en-05-clean.wav",
+      "audioSha256": "c06b951cc4f3a4c18a0a4b75b7226c425a317dbfbed532b5bc4b8e4c205407c8",
+      "bytes": 198700,
+      "seconds": 4.5047,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-05-noise-20db",
+      "sourceId": "en-05",
+      "condition": "noise-20db",
+      "file": "wav/en-05-noise-20db.wav",
+      "audioSha256": "fe8393e676acc925eeead48eaebb1b76fe4d99d19dbb8bcf88fbf67f27f467de",
+      "bytes": 198700,
+      "seconds": 4.5047,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314167,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-05-pause-stress",
+      "sourceId": "en-05",
+      "condition": "pause-stress",
+      "file": "wav/en-05-pause-stress.wav",
+      "audioSha256": "b8a75f6486ff013e2d592881f5cc5397fc90b0e669fd10d47bb478c5616be7b1",
+      "bytes": 218544,
+      "seconds": 4.9546,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 56699,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-05-clean",
+      "sourceId": "tr-05",
+      "condition": "clean",
+      "file": "wav/tr-05-clean.wav",
+      "audioSha256": "1ef57978af6c2ed023cea0fdf686005c76ca4786afecde8f9110621ce1cfca32",
+      "bytes": 483884,
+      "seconds": 5.04,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-05-noise-20db",
+      "sourceId": "tr-05",
+      "condition": "noise-20db",
+      "file": "wav/tr-05-noise-20db.wav",
+      "audioSha256": "b14c6cf4517d9323d60196bb59327639a9f425058dfd7116c9e8a8c5cb8b7233",
+      "bytes": 483884,
+      "seconds": 5.04,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314168,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-05-pause-stress",
+      "sourceId": "tr-05",
+      "condition": "pause-stress",
+      "file": "wav/tr-05-pause-stress.wav",
+      "audioSha256": "4b6f9e4f3dc169d5b76a4c324a95e7ffcd3f08291aaa35eb85d812241da3082e",
+      "bytes": 527084,
+      "seconds": 5.49,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 125376,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-06-clean",
+      "sourceId": "en-06",
+      "condition": "clean",
+      "file": "wav/en-06-clean.wav",
+      "audioSha256": "8b4e61612fff996ee654a7e362abfc427fa4b96932aab8101afa058427ead7c1",
+      "bytes": 145452,
+      "seconds": 3.2972,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-06-noise-20db",
+      "sourceId": "en-06",
+      "condition": "noise-20db",
+      "file": "wav/en-06-noise-20db.wav",
+      "audioSha256": "cf1686b66ce844b09e7e5c244f0b4be703d2682ed346f0ca75041be873ee9d95",
+      "bytes": 145452,
+      "seconds": 3.2972,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314169,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-06-pause-stress",
+      "sourceId": "en-06",
+      "condition": "pause-stress",
+      "file": "wav/en-06-pause-stress.wav",
+      "audioSha256": "0fb90798efcf192474837cb81be03aed03c4d43f9aeb2c9d7f3d408da53a152b",
+      "bytes": 165296,
+      "seconds": 3.7472,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 46948,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-06-clean",
+      "sourceId": "tr-06",
+      "condition": "clean",
+      "file": "wav/tr-06-clean.wav",
+      "audioSha256": "5abe004c72e4fc2b5c323807ce67940d20063545c0589deae1a23c7f244d3788",
+      "bytes": 322604,
+      "seconds": 3.36,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-06-noise-20db",
+      "sourceId": "tr-06",
+      "condition": "noise-20db",
+      "file": "wav/tr-06-noise-20db.wav",
+      "audioSha256": "ceceb841033786336f214d92c3bdeed4347886b27cebe12a84ea0da0bb699e3d",
+      "bytes": 322604,
+      "seconds": 3.36,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314170,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-06-pause-stress",
+      "sourceId": "tr-06",
+      "condition": "pause-stress",
+      "file": "wav/tr-06-pause-stress.wav",
+      "audioSha256": "977d0a919046d88f05546d5154307399021d1f7f141a7c908d86505e916068c3",
+      "bytes": 365804,
+      "seconds": 3.81,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 105024,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-07-clean",
+      "sourceId": "en-07",
+      "condition": "clean",
+      "file": "wav/en-07-clean.wav",
+      "audioSha256": "4563c298cbf963d1920f10285324b1b5c3efeff7ad1b9f4a438ca75a5a53d0e6",
+      "bytes": 139308,
+      "seconds": 3.1579,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-07-noise-20db",
+      "sourceId": "en-07",
+      "condition": "noise-20db",
+      "file": "wav/en-07-noise-20db.wav",
+      "audioSha256": "e7b89ba5636dde6e2bcf67ece95a1ba6cc8da36fbb1f3e1863d8508e050858c3",
+      "bytes": 139308,
+      "seconds": 3.1579,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314171,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-07-pause-stress",
+      "sourceId": "en-07",
+      "condition": "pause-stress",
+      "file": "wav/en-07-pause-stress.wav",
+      "audioSha256": "98fc946b4ffdf4f7777edd2c944f4082361a96e2eb1597addf5c918d3db68fb5",
+      "bytes": 159152,
+      "seconds": 3.6079,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 38971,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-07-clean",
+      "sourceId": "tr-07",
+      "condition": "clean",
+      "file": "wav/tr-07-clean.wav",
+      "audioSha256": "d00da7882b0d49af4cebd1377dbaf1793ddc1b9fcee9e9ce8b536fa96d7bd2d8",
+      "bytes": 364844,
+      "seconds": 3.8,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-07-noise-20db",
+      "sourceId": "tr-07",
+      "condition": "noise-20db",
+      "file": "wav/tr-07-noise-20db.wav",
+      "audioSha256": "f5d765ab27708081f7c30b6227c06e21e2b401c1ec733696eba4f4865610f835",
+      "bytes": 364844,
+      "seconds": 3.8,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314172,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-07-pause-stress",
+      "sourceId": "tr-07",
+      "condition": "pause-stress",
+      "file": "wav/tr-07-pause-stress.wav",
+      "audioSha256": "cb683948ef5f0dc573f02232c13c72656875af734ae871b88d6fb16121f39fca",
+      "bytes": 408044,
+      "seconds": 4.25,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 107520,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-08-clean",
+      "sourceId": "en-08",
+      "condition": "clean",
+      "file": "wav/en-08-clean.wav",
+      "audioSha256": "028005316d7def2a17447eceb9e5c7a912279392506735ce06acdbe0ae52137b",
+      "bytes": 150060,
+      "seconds": 3.4017,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-08-noise-20db",
+      "sourceId": "en-08",
+      "condition": "noise-20db",
+      "file": "wav/en-08-noise-20db.wav",
+      "audioSha256": "bcef17006cbee57d0c846de9a8bf4eb56c3fc9d3da78211fbf71826db150fa3c",
+      "bytes": 150060,
+      "seconds": 3.4017,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314173,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-08-pause-stress",
+      "sourceId": "en-08",
+      "condition": "pause-stress",
+      "file": "wav/en-08-pause-stress.wav",
+      "audioSha256": "34e5c1f76ac9b4ca771de72dab5e98dbc015c694e87df76e62735673dd8feddd",
+      "bytes": 169904,
+      "seconds": 3.8517,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 44111,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-08-clean",
+      "sourceId": "tr-08",
+      "condition": "clean",
+      "file": "wav/tr-08-clean.wav",
+      "audioSha256": "14929a369055174984d52efe6e0f71aceefb31512b883a32025cbfebdea91211",
+      "bytes": 314924,
+      "seconds": 3.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-08-noise-20db",
+      "sourceId": "tr-08",
+      "condition": "noise-20db",
+      "file": "wav/tr-08-noise-20db.wav",
+      "audioSha256": "4677cc81b9d3c10c2c4d5460eed29a25e703e67214d616d5204da76c5df486a6",
+      "bytes": 314924,
+      "seconds": 3.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314174,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-08-pause-stress",
+      "sourceId": "tr-08",
+      "condition": "pause-stress",
+      "file": "wav/tr-08-pause-stress.wav",
+      "audioSha256": "8236aadc311492c4e17737887c36758a580664a2889c594a6b1824ca443a4f1a",
+      "bytes": 358124,
+      "seconds": 3.73,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 98112,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-09-clean",
+      "sourceId": "en-09",
+      "condition": "clean",
+      "file": "wav/en-09-clean.wav",
+      "audioSha256": "a2ad6a060bdaf5686a0664613480dcf622b0681dd75b411c92be8b258e0b1785",
+      "bytes": 187948,
+      "seconds": 4.2609,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-09-noise-20db",
+      "sourceId": "en-09",
+      "condition": "noise-20db",
+      "file": "wav/en-09-noise-20db.wav",
+      "audioSha256": "890755a0af416ce5f81f6b5407c0660e146a001f6a8b600075b3797f214ca75f",
+      "bytes": 187948,
+      "seconds": 4.2609,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314175,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-09-pause-stress",
+      "sourceId": "en-09",
+      "condition": "pause-stress",
+      "file": "wav/en-09-pause-stress.wav",
+      "audioSha256": "dedd3a542342ea2a14f9f7fe3d3909e08200287b57f6fec83f8d969d6e2109c5",
+      "bytes": 207792,
+      "seconds": 4.7108,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 55969,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-09-clean",
+      "sourceId": "tr-09",
+      "condition": "clean",
+      "file": "wav/tr-09-clean.wav",
+      "audioSha256": "799689b8b689742da9fc87f7f8cd4bf25be88a629af833e90b7d17dd125031d9",
+      "bytes": 453164,
+      "seconds": 4.72,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-09-noise-20db",
+      "sourceId": "tr-09",
+      "condition": "noise-20db",
+      "file": "wav/tr-09-noise-20db.wav",
+      "audioSha256": "1be76f1135ec31c002a744444b758c93b6a786da6e9c5fc864fa930e89c93299",
+      "bytes": 453164,
+      "seconds": 4.72,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314176,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-09-pause-stress",
+      "sourceId": "tr-09",
+      "condition": "pause-stress",
+      "file": "wav/tr-09-pause-stress.wav",
+      "audioSha256": "00dcc2bee84286cd991dff96f25248c409f6692ee41c6f430890907fa3def57e",
+      "bytes": 496364,
+      "seconds": 5.17,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 111168,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-10-clean",
+      "sourceId": "en-10",
+      "condition": "clean",
+      "file": "wav/en-10-clean.wav",
+      "audioSha256": "6807c000d0cb35c7e5ecd54d14338afa52eb95b755a8bbf366c4956dcd072ecc",
+      "bytes": 194092,
+      "seconds": 4.4002,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-10-noise-20db",
+      "sourceId": "en-10",
+      "condition": "noise-20db",
+      "file": "wav/en-10-noise-20db.wav",
+      "audioSha256": "d2274c59a9caf0631ab2d5ba83507ba18068238b194adf7ba1c783e427f5d33b",
+      "bytes": 194092,
+      "seconds": 4.4002,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314177,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-10-pause-stress",
+      "sourceId": "en-10",
+      "condition": "pause-stress",
+      "file": "wav/en-10-pause-stress.wav",
+      "audioSha256": "2142852a907612bdd58f283ee4f9341c94f8873db9fce932ddd5df8edcabc7b7",
+      "bytes": 213936,
+      "seconds": 4.8502,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 41896,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-10-clean",
+      "sourceId": "tr-10",
+      "condition": "clean",
+      "file": "wav/tr-10-clean.wav",
+      "audioSha256": "821cccd967d917993f9a16a2d836defc65c50969184127f3e6a7945fe95450b5",
+      "bytes": 403244,
+      "seconds": 4.2,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-10-noise-20db",
+      "sourceId": "tr-10",
+      "condition": "noise-20db",
+      "file": "wav/tr-10-noise-20db.wav",
+      "audioSha256": "bf8ba0d9c12c71cbd89b154ab11718c58984ef94a466fa6da470cfdeae9ab3cb",
+      "bytes": 403244,
+      "seconds": 4.2,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314178,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-10-pause-stress",
+      "sourceId": "tr-10",
+      "condition": "pause-stress",
+      "file": "wav/tr-10-pause-stress.wav",
+      "audioSha256": "2d50b804f16899f2d87ac58f270d814754700208dae1dd194c7483bffbe570af",
+      "bytes": 446444,
+      "seconds": 4.65,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 107520,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-11-clean",
+      "sourceId": "en-11",
+      "condition": "clean",
+      "file": "wav/en-11-clean.wav",
+      "audioSha256": "3c0cd286335d9f57766a40f45332ad33b3d3d362c9d4a6ed1e87a8f3b2d6f084",
+      "bytes": 145452,
+      "seconds": 3.2972,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-11-noise-20db",
+      "sourceId": "en-11",
+      "condition": "noise-20db",
+      "file": "wav/en-11-noise-20db.wav",
+      "audioSha256": "1c10aaaa60bdf79f1c31fcc12d666f36bd32b805dfe5bc774035518c46277bb6",
+      "bytes": 145452,
+      "seconds": 3.2972,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314179,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-11-pause-stress",
+      "sourceId": "en-11",
+      "condition": "pause-stress",
+      "file": "wav/en-11-pause-stress.wav",
+      "audioSha256": "e5641cbf7287c2a86c389656c637faca813a3a2257ba5c152f3d80b64c604f98",
+      "bytes": 165296,
+      "seconds": 3.7472,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 31072,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-11-clean",
+      "sourceId": "tr-11",
+      "condition": "clean",
+      "file": "wav/tr-11-clean.wav",
+      "audioSha256": "e7321ad8802593fe6f67cba3c9aa08979e7aa1e85749a7e91dd4f8d528d9ff2f",
+      "bytes": 349484,
+      "seconds": 3.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-11-noise-20db",
+      "sourceId": "tr-11",
+      "condition": "noise-20db",
+      "file": "wav/tr-11-noise-20db.wav",
+      "audioSha256": "1b25fbd299b22e4c0966ec35e5e5a6fe411c1fc7eb161f3ff0d7a51f622b2e4f",
+      "bytes": 349484,
+      "seconds": 3.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314180,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-11-pause-stress",
+      "sourceId": "tr-11",
+      "condition": "pause-stress",
+      "file": "wav/tr-11-pause-stress.wav",
+      "audioSha256": "f65b2c9c2b33431238800fbf86015f895fe82b693874e2885f81b69216676fe8",
+      "bytes": 392684,
+      "seconds": 4.09,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 70656,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-12-clean",
+      "sourceId": "en-12",
+      "condition": "clean",
+      "file": "wav/en-12-clean.wav",
+      "audioSha256": "952f28675d5a5b3e950d28fd9c87414b802b2b4865560d7e61f9bdc3d0ea352b",
+      "bytes": 164396,
+      "seconds": 3.7268,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-12-noise-20db",
+      "sourceId": "en-12",
+      "condition": "noise-20db",
+      "file": "wav/en-12-noise-20db.wav",
+      "audioSha256": "80499a4eca7f79536797cd7485995b6668ade8a0ccef7c870c1d323c88872d57",
+      "bytes": 164396,
+      "seconds": 3.7268,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314181,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-12-pause-stress",
+      "sourceId": "en-12",
+      "condition": "pause-stress",
+      "file": "wav/en-12-pause-stress.wav",
+      "audioSha256": "3497b75960f48760693da2afa85e67d026a1d5dac04505682dbe6142278a070a",
+      "bytes": 184240,
+      "seconds": 4.1768,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 46262,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-12-clean",
+      "sourceId": "tr-12",
+      "condition": "clean",
+      "file": "wav/tr-12-clean.wav",
+      "audioSha256": "1e1c9e413e7decfc056d1247602fcbd3e6d346ec6233ba5340cd0189092c7eef",
+      "bytes": 403244,
+      "seconds": 4.2,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-12-noise-20db",
+      "sourceId": "tr-12",
+      "condition": "noise-20db",
+      "file": "wav/tr-12-noise-20db.wav",
+      "audioSha256": "580ace511a9d5c6d98d6e5b9d8d0c06b98fd18a0aadc521c2508ba41fdbe797d",
+      "bytes": 403244,
+      "seconds": 4.2,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314182,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-12-pause-stress",
+      "sourceId": "tr-12",
+      "condition": "pause-stress",
+      "file": "wav/tr-12-pause-stress.wav",
+      "audioSha256": "c00a5e721a43033493bcfde5317b5957950be40f62a434c54e105b661c91ddad",
+      "bytes": 446444,
+      "seconds": 4.65,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 113280,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-13-clean",
+      "sourceId": "en-13",
+      "condition": "clean",
+      "file": "wav/en-13-clean.wav",
+      "audioSha256": "821d20f5824ad319499e5170fab49724cf9436befd3cdde24c26e1ffd74ada77",
+      "bytes": 154156,
+      "seconds": 3.4946,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-13-noise-20db",
+      "sourceId": "en-13",
+      "condition": "noise-20db",
+      "file": "wav/en-13-noise-20db.wav",
+      "audioSha256": "62af06580c0461bcc8470eccd38740161c640aee9e21e378f06c1a29ba2ff3df",
+      "bytes": 154156,
+      "seconds": 3.4946,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314183,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-13-pause-stress",
+      "sourceId": "en-13",
+      "condition": "pause-stress",
+      "file": "wav/en-13-pause-stress.wav",
+      "audioSha256": "a03dafd39131d0383fd83c4d10cd98ffe7a23817b17a0cb891549a88a4e94c71",
+      "bytes": 174000,
+      "seconds": 3.9446,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 35024,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-13-clean",
+      "sourceId": "tr-13",
+      "condition": "clean",
+      "file": "wav/tr-13-clean.wav",
+      "audioSha256": "d3fd33813b9518a352d87bbb21a42fe33a0f46f6e5afb9a56a42ee180f93547a",
+      "bytes": 326444,
+      "seconds": 3.4,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-13-noise-20db",
+      "sourceId": "tr-13",
+      "condition": "noise-20db",
+      "file": "wav/tr-13-noise-20db.wav",
+      "audioSha256": "51b65aa157738e759886cd29167c853739b75c0f31dd175194c4b36e66b5a172",
+      "bytes": 326444,
+      "seconds": 3.4,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314184,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-13-pause-stress",
+      "sourceId": "tr-13",
+      "condition": "pause-stress",
+      "file": "wav/tr-13-pause-stress.wav",
+      "audioSha256": "2c84e4ad09458d9da9a6d1749a8c88a15f6522f43532eefd55ad56d19caf7fa5",
+      "bytes": 369644,
+      "seconds": 3.85,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 71040,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-14-clean",
+      "sourceId": "en-14",
+      "condition": "clean",
+      "file": "wav/en-14-clean.wav",
+      "audioSha256": "fa6a354ac44ccf1d92648cf267a0539705094faca53f2ff159b95139bf392221",
+      "bytes": 129068,
+      "seconds": 2.9257,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-14-noise-20db",
+      "sourceId": "en-14",
+      "condition": "noise-20db",
+      "file": "wav/en-14-noise-20db.wav",
+      "audioSha256": "f507f9db8de36b15f7101200830cfebedf80d5d0cffe1f2d4205b5caf8df830c",
+      "bytes": 129068,
+      "seconds": 2.9257,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314185,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-14-pause-stress",
+      "sourceId": "en-14",
+      "condition": "pause-stress",
+      "file": "wav/en-14-pause-stress.wav",
+      "audioSha256": "e14e2139a1b5e8692add3bf95ca2d3ea7bcb2d97eedd92e20e5d084432919005",
+      "bytes": 148912,
+      "seconds": 3.3757,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 34789,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-14-clean",
+      "sourceId": "tr-14",
+      "condition": "clean",
+      "file": "wav/tr-14-clean.wav",
+      "audioSha256": "b2a4b609be805ff86782a1190cc872ef5442194406a83e5557b01b4dacfba590",
+      "bytes": 318764,
+      "seconds": 3.32,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-14-noise-20db",
+      "sourceId": "tr-14",
+      "condition": "noise-20db",
+      "file": "wav/tr-14-noise-20db.wav",
+      "audioSha256": "2d51c55906434d7315da713d0f8794bec4e13f603ca0491cc9c1002ea4368f73",
+      "bytes": 318764,
+      "seconds": 3.32,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314186,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-14-pause-stress",
+      "sourceId": "tr-14",
+      "condition": "pause-stress",
+      "file": "wav/tr-14-pause-stress.wav",
+      "audioSha256": "9670f7a1fbe470094f66eb5119cea48283d3c8e974bcb7b4a5209ff2eb1132b1",
+      "bytes": 361964,
+      "seconds": 3.77,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 50688,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-15-clean",
+      "sourceId": "en-15",
+      "condition": "clean",
+      "file": "wav/en-15-clean.wav",
+      "audioSha256": "46e542efbde7090130c16886328b95743185d5db4b74a06a3bd3f3354cac67dd",
+      "bytes": 177708,
+      "seconds": 4.0287,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-15-noise-20db",
+      "sourceId": "en-15",
+      "condition": "noise-20db",
+      "file": "wav/en-15-noise-20db.wav",
+      "audioSha256": "449f0dea3bf428c1591da8115b455b5ae60bc8e4d43faf9edb206ab9811320e4",
+      "bytes": 177708,
+      "seconds": 4.0287,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314187,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-15-pause-stress",
+      "sourceId": "en-15",
+      "condition": "pause-stress",
+      "file": "wav/en-15-pause-stress.wav",
+      "audioSha256": "5cce72bccd079386ce9e7a2b4623a02b5e3840385fffeb27426dca5470716f9c",
+      "bytes": 197552,
+      "seconds": 4.4786,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 36793,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-15-clean",
+      "sourceId": "tr-15",
+      "condition": "clean",
+      "file": "wav/tr-15-clean.wav",
+      "audioSha256": "5feca317fbcfe7b69a916b81ba7ef002e1578ac1a26dc3fcc31a4ab894f0cccf",
+      "bytes": 407084,
+      "seconds": 4.24,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-15-noise-20db",
+      "sourceId": "tr-15",
+      "condition": "noise-20db",
+      "file": "wav/tr-15-noise-20db.wav",
+      "audioSha256": "b7377d892cd5653f2083f4abfd7c45a0283f90581d54d91bc1d8a3dc6bca1631",
+      "bytes": 407084,
+      "seconds": 4.24,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314188,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-15-pause-stress",
+      "sourceId": "tr-15",
+      "condition": "pause-stress",
+      "file": "wav/tr-15-pause-stress.wav",
+      "audioSha256": "92a5f5f531f759085e3c63eb61b336f9254b7ec9ad3c50c3bcc257eafe7f2c34",
+      "bytes": 450284,
+      "seconds": 4.69,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 90816,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-16-clean",
+      "sourceId": "en-16",
+      "condition": "clean",
+      "file": "wav/en-16-clean.wav",
+      "audioSha256": "d4e3d0e034cf0be25c4bc8923a500aac0d2831c8b4320819b9077358f9d93808",
+      "bytes": 134700,
+      "seconds": 3.0534,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-16-noise-20db",
+      "sourceId": "en-16",
+      "condition": "noise-20db",
+      "file": "wav/en-16-noise-20db.wav",
+      "audioSha256": "c97a5c29bad0e9264b316022eb0b89e94e743e6c7102aa300fa0bd8200e47365",
+      "bytes": 134700,
+      "seconds": 3.0534,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314189,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-16-pause-stress",
+      "sourceId": "en-16",
+      "condition": "pause-stress",
+      "file": "wav/en-16-pause-stress.wav",
+      "audioSha256": "da6103fabb923b3f1b22b41ae76fe4d597d00d88cfd24fae446ddd3fc81f8327",
+      "bytes": 154544,
+      "seconds": 3.5034,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 42689,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-16-clean",
+      "sourceId": "tr-16",
+      "condition": "clean",
+      "file": "wav/tr-16-clean.wav",
+      "audioSha256": "76d189674cac0f42b9dd760324b9e73f235fc594a90e1f3f1994efb38c7536e6",
+      "bytes": 337964,
+      "seconds": 3.52,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-16-noise-20db",
+      "sourceId": "tr-16",
+      "condition": "noise-20db",
+      "file": "wav/tr-16-noise-20db.wav",
+      "audioSha256": "3b45ece6d57c93e58c2847719b14c44954ec8aa9e309399282f13a4b8dbf8df8",
+      "bytes": 337964,
+      "seconds": 3.52,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314190,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-16-pause-stress",
+      "sourceId": "tr-16",
+      "condition": "pause-stress",
+      "file": "wav/tr-16-pause-stress.wav",
+      "audioSha256": "a33e8f6f41ed63fad2cd7bd869b850a4d0a2146167d6b95d75a8a2ea92baf419",
+      "bytes": 381164,
+      "seconds": 3.97,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 113088,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-17-clean",
+      "sourceId": "en-17",
+      "condition": "clean",
+      "file": "wav/en-17-clean.wav",
+      "audioSha256": "3095442118b0385e40a3cec2a11d8b0eaec4881f8ba1df96d784963bca1f92e1",
+      "bytes": 195628,
+      "seconds": 4.435,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-17-noise-20db",
+      "sourceId": "en-17",
+      "condition": "noise-20db",
+      "file": "wav/en-17-noise-20db.wav",
+      "audioSha256": "6adf2a98e200d2f0265b852b1030f051721b1ee01fe3d59181db7d1a6b5a9b92",
+      "bytes": 195628,
+      "seconds": 4.435,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314191,
+        "generator": "PCG64",
+        "clippedSamples": 3
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-17-pause-stress",
+      "sourceId": "en-17",
+      "condition": "pause-stress",
+      "file": "wav/en-17-pause-stress.wav",
+      "audioSha256": "50c76da7e610be6b1aeb36a2378db21ce1c5f2c3039ce79a09b222b29508190f",
+      "bytes": 215472,
+      "seconds": 4.885,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 47419,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-17-clean",
+      "sourceId": "tr-17",
+      "condition": "clean",
+      "file": "wav/tr-17-clean.wav",
+      "audioSha256": "355df527985ca8801e5a121375d1ea9d82a12f962f4bda1191def5af26d5d28a",
+      "bytes": 445484,
+      "seconds": 4.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-17-noise-20db",
+      "sourceId": "tr-17",
+      "condition": "noise-20db",
+      "file": "wav/tr-17-noise-20db.wav",
+      "audioSha256": "d2416ab3366947225f4151fcb1eb2cfd28d2b28814c671eebd358bea3423e861",
+      "bytes": 445484,
+      "seconds": 4.64,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314192,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-17-pause-stress",
+      "sourceId": "tr-17",
+      "condition": "pause-stress",
+      "file": "wav/tr-17-pause-stress.wav",
+      "audioSha256": "7976376ff7b1b5217c0b74ede9c1bc4121509fefc67f1584d3e734257afe8f9a",
+      "bytes": 488684,
+      "seconds": 5.09,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 146496,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-18-clean",
+      "sourceId": "en-18",
+      "condition": "clean",
+      "file": "wav/en-18-clean.wav",
+      "audioSha256": "d313a8f59506a390328af7deed8d34680983e7d8258363b6cabcc7a639c25e8f",
+      "bytes": 187436,
+      "seconds": 4.2493,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-18-noise-20db",
+      "sourceId": "en-18",
+      "condition": "noise-20db",
+      "file": "wav/en-18-noise-20db.wav",
+      "audioSha256": "443b0bb7531dc7663a9434e2c34d934c906d7b596d85569b76df2f0fd2eb235b",
+      "bytes": 187436,
+      "seconds": 4.2493,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314193,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-18-pause-stress",
+      "sourceId": "en-18",
+      "condition": "pause-stress",
+      "file": "wav/en-18-pause-stress.wav",
+      "audioSha256": "05c46e5e40e9370e9e0b7855852ec2a97de5b9deb9ddc48d26ea0f527d666f71",
+      "bytes": 207280,
+      "seconds": 4.6992,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 53246,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-18-clean",
+      "sourceId": "tr-18",
+      "condition": "clean",
+      "file": "wav/tr-18-clean.wav",
+      "audioSha256": "caffd9c7aa8833f6af44da5e240c9e4f475f5b011f68b57cc407aee04976a5d3",
+      "bytes": 361004,
+      "seconds": 3.76,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-18-noise-20db",
+      "sourceId": "tr-18",
+      "condition": "noise-20db",
+      "file": "wav/tr-18-noise-20db.wav",
+      "audioSha256": "3cc82c2c0b1ac65c60b02d975537d5ea2b98856e095b63aa1fcec80c2f416ce6",
+      "bytes": 361004,
+      "seconds": 3.76,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314194,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-18-pause-stress",
+      "sourceId": "tr-18",
+      "condition": "pause-stress",
+      "file": "wav/tr-18-pause-stress.wav",
+      "audioSha256": "a8e9d4ef7110c8ac3a765eb6ebca561a73d3e96161d407f7d9fab83bd8c9df6a",
+      "bytes": 404204,
+      "seconds": 4.21,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 74304,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-19-clean",
+      "sourceId": "en-19",
+      "condition": "clean",
+      "file": "wav/en-19-clean.wav",
+      "audioSha256": "993100880338f719c4250f205a1690cecd61803b09c8661600d5c74720fd3826",
+      "bytes": 149036,
+      "seconds": 3.3785,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-19-noise-20db",
+      "sourceId": "en-19",
+      "condition": "noise-20db",
+      "file": "wav/en-19-noise-20db.wav",
+      "audioSha256": "fae0ba68e81f06ae172d8efdb7abfa0b6397ea3619ec3a18e596e29cfa050ef2",
+      "bytes": 149036,
+      "seconds": 3.3785,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314195,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-19-pause-stress",
+      "sourceId": "en-19",
+      "condition": "pause-stress",
+      "file": "wav/en-19-pause-stress.wav",
+      "audioSha256": "78dda25c3384576e9fc303c65622d464f488c246f941d10fb411805bb5d68ac3",
+      "bytes": 168880,
+      "seconds": 3.8285,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 37784,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-19-clean",
+      "sourceId": "tr-19",
+      "condition": "clean",
+      "file": "wav/tr-19-clean.wav",
+      "audioSha256": "1f6e804ab8d11f51b387b5095c9ac8e68f46eacb1bf57393940bd52e6f2e30f4",
+      "bytes": 391724,
+      "seconds": 4.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-19-noise-20db",
+      "sourceId": "tr-19",
+      "condition": "noise-20db",
+      "file": "wav/tr-19-noise-20db.wav",
+      "audioSha256": "37086e9791f7d5d66dc61cf4c8be4d0c09508b602b02b82231da4dceb3659dfe",
+      "bytes": 391724,
+      "seconds": 4.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314196,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-19-pause-stress",
+      "sourceId": "tr-19",
+      "condition": "pause-stress",
+      "file": "wav/tr-19-pause-stress.wav",
+      "audioSha256": "b402f1e10edad5e20892b1a3eff5572615bb7f55d67dbf1f1967bc63b80377c0",
+      "bytes": 434924,
+      "seconds": 4.53,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 107712,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-20-clean",
+      "sourceId": "en-20",
+      "condition": "clean",
+      "file": "wav/en-20-clean.wav",
+      "audioSha256": "d8c345c45985e8333adfda7345870408e1117e701cacb0608eac000ff8d8efd8",
+      "bytes": 186412,
+      "seconds": 4.226,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-20-noise-20db",
+      "sourceId": "en-20",
+      "condition": "noise-20db",
+      "file": "wav/en-20-noise-20db.wav",
+      "audioSha256": "4bef2771e9cdfc6eee0157bc2383d0c536b9b7241adc6966ae9be9472bba5468",
+      "bytes": 186412,
+      "seconds": 4.226,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314197,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-20-pause-stress",
+      "sourceId": "en-20",
+      "condition": "pause-stress",
+      "file": "wav/en-20-pause-stress.wav",
+      "audioSha256": "7c2e026983e604873b394225a33ac43381aa25f0d9c072d660acbf9bb98f439d",
+      "bytes": 206256,
+      "seconds": 4.676,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 28396,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-20-clean",
+      "sourceId": "tr-20",
+      "condition": "clean",
+      "file": "wav/tr-20-clean.wav",
+      "audioSha256": "5a4c8223c8626a0e7b8966ec6a2b475cde2f5996a468dfec58381db16c250c7f",
+      "bytes": 364844,
+      "seconds": 3.8,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-20-noise-20db",
+      "sourceId": "tr-20",
+      "condition": "noise-20db",
+      "file": "wav/tr-20-noise-20db.wav",
+      "audioSha256": "844f774ae49e8f8e8e15406f7927a0f395740d39d8499fe7cd6bc92595109d58",
+      "bytes": 364844,
+      "seconds": 3.8,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314198,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-20-pause-stress",
+      "sourceId": "tr-20",
+      "condition": "pause-stress",
+      "file": "wav/tr-20-pause-stress.wav",
+      "audioSha256": "9b46e58aedd1d0d6ed85a9a611df81a73a9954031d25bb4154d3e60ae261951c",
+      "bytes": 408044,
+      "seconds": 4.25,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 92160,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-21-clean",
+      "sourceId": "en-21",
+      "condition": "clean",
+      "file": "wav/en-21-clean.wav",
+      "audioSha256": "f40c6ae87332c8db78c73dc36f32fb33809caec4664796ba2ca78661de9a6c4f",
+      "bytes": 186924,
+      "seconds": 4.2376,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-21-noise-20db",
+      "sourceId": "en-21",
+      "condition": "noise-20db",
+      "file": "wav/en-21-noise-20db.wav",
+      "audioSha256": "e101fd01d2c5a3035c416906320b8e0bcdb1616fc5ea5277f9e78f63e53e9334",
+      "bytes": 186924,
+      "seconds": 4.2376,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314199,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-21-pause-stress",
+      "sourceId": "en-21",
+      "condition": "pause-stress",
+      "file": "wav/en-21-pause-stress.wav",
+      "audioSha256": "0b087538dddf80999be260871735ba4385a4ec49beaf2aa44eef93341a1bfadf",
+      "bytes": 206768,
+      "seconds": 4.6876,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 53169,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-21-clean",
+      "sourceId": "tr-21",
+      "condition": "clean",
+      "file": "wav/tr-21-clean.wav",
+      "audioSha256": "fdd4c2af3c461f0ceea0c6d45a5486486dab877ef2f519ee146566145265e498",
+      "bytes": 491564,
+      "seconds": 5.12,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-21-noise-20db",
+      "sourceId": "tr-21",
+      "condition": "noise-20db",
+      "file": "wav/tr-21-noise-20db.wav",
+      "audioSha256": "f50b35a8e0e5a7994e83029c78956d2731b159bb0ff73054d9829e14a59f4c5a",
+      "bytes": 491564,
+      "seconds": 5.12,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314200,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-21-pause-stress",
+      "sourceId": "tr-21",
+      "condition": "pause-stress",
+      "file": "wav/tr-21-pause-stress.wav",
+      "audioSha256": "4ebb829278b9873f80dea78d7bbc112fb5a16d4dfc54ae258899c0bfc40381ec",
+      "bytes": 534764,
+      "seconds": 5.57,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 163008,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-22-clean",
+      "sourceId": "en-22",
+      "condition": "clean",
+      "file": "wav/en-22-clean.wav",
+      "audioSha256": "206f3dc567f906b4453a94bba57929154988c8b578e34a65a8d89681d40a51fb",
+      "bytes": 192556,
+      "seconds": 4.3654,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-22-noise-20db",
+      "sourceId": "en-22",
+      "condition": "noise-20db",
+      "file": "wav/en-22-noise-20db.wav",
+      "audioSha256": "a84d7602c546ea7de5d1c9905b2aa798eaa3412941a6eb99d4358339fe65d037",
+      "bytes": 192556,
+      "seconds": 4.3654,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314201,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-22-pause-stress",
+      "sourceId": "en-22",
+      "condition": "pause-stress",
+      "file": "wav/en-22-pause-stress.wav",
+      "audioSha256": "217a11eefd389669dddac8591976abc2e89489eb43a5f6aea34c43258f2777cf",
+      "bytes": 212400,
+      "seconds": 4.8153,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 51368,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-22-clean",
+      "sourceId": "tr-22",
+      "condition": "clean",
+      "file": "wav/tr-22-clean.wav",
+      "audioSha256": "e4f69ab619dd1a3f83b06c3f1acea253b37bdd297b9996110dfa71b744c3a668",
+      "bytes": 506924,
+      "seconds": 5.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-22-noise-20db",
+      "sourceId": "tr-22",
+      "condition": "noise-20db",
+      "file": "wav/tr-22-noise-20db.wav",
+      "audioSha256": "828cfee38e56d17eef22c1b38d960d7819c3e8a4d97ec5ce9b2ec3c023b2915f",
+      "bytes": 506924,
+      "seconds": 5.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314202,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-22-pause-stress",
+      "sourceId": "tr-22",
+      "condition": "pause-stress",
+      "file": "wav/tr-22-pause-stress.wav",
+      "audioSha256": "9e222628d7dc61ab778ac3473afa5e4ffc6607920551fd98114ffb2f6475237f",
+      "bytes": 550124,
+      "seconds": 5.73,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 163392,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-23-clean",
+      "sourceId": "en-23",
+      "condition": "clean",
+      "file": "wav/en-23-clean.wav",
+      "audioSha256": "332c0fcc01eae44ec8944a83156af9770e16fb32afb90293af565485a4db4bd6",
+      "bytes": 146476,
+      "seconds": 3.3205,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-23-noise-20db",
+      "sourceId": "en-23",
+      "condition": "noise-20db",
+      "file": "wav/en-23-noise-20db.wav",
+      "audioSha256": "ccaf13b402e3d4f647a5a60c800bf57d8ee92f6cefb7aa864d8865c40e3155f1",
+      "bytes": 146476,
+      "seconds": 3.3205,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314203,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-23-pause-stress",
+      "sourceId": "en-23",
+      "condition": "pause-stress",
+      "file": "wav/en-23-pause-stress.wav",
+      "audioSha256": "3ee2a6730d2650bcd60d2e8f7101537fd8d6d15729eda4abe69e5b81fb820409",
+      "bytes": 166320,
+      "seconds": 3.7704,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 38282,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-23-clean",
+      "sourceId": "tr-23",
+      "condition": "clean",
+      "file": "wav/tr-23-clean.wav",
+      "audioSha256": "cf6c567be2c89547edc547dc572423295a17de17bda3f94fc00d5e8176c3e08a",
+      "bytes": 295724,
+      "seconds": 3.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-23-noise-20db",
+      "sourceId": "tr-23",
+      "condition": "noise-20db",
+      "file": "wav/tr-23-noise-20db.wav",
+      "audioSha256": "1bfd7a2f33e39102034d020272801ae08d4d4aec38c5bd788166a79e4d3079fc",
+      "bytes": 295724,
+      "seconds": 3.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314204,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-23-pause-stress",
+      "sourceId": "tr-23",
+      "condition": "pause-stress",
+      "file": "wav/tr-23-pause-stress.wav",
+      "audioSha256": "14d56c50c4f703d90bdb265e77ad3f4b1cfb9f82e269e789dc5d6a76381a11c0",
+      "bytes": 338924,
+      "seconds": 3.53,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 89472,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-24-clean",
+      "sourceId": "en-24",
+      "condition": "clean",
+      "file": "wav/en-24-clean.wav",
+      "audioSha256": "d54c11e3ada6bd7cc3e2bb1a0a9421cddd5730b4edd05e148ea781490cf892df",
+      "bytes": 200236,
+      "seconds": 4.5395,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-24-noise-20db",
+      "sourceId": "en-24",
+      "condition": "noise-20db",
+      "file": "wav/en-24-noise-20db.wav",
+      "audioSha256": "0bd8b57ee2fd0613d4b970c10344d730ed6439250015c3141e669fd5fbb97576",
+      "bytes": 200236,
+      "seconds": 4.5395,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314205,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-24-pause-stress",
+      "sourceId": "en-24",
+      "condition": "pause-stress",
+      "file": "wav/en-24-pause-stress.wav",
+      "audioSha256": "6ee3a62d4a2a19d4cdd47a954831b75e11f8de317181a85a769d97482a156e48",
+      "bytes": 220080,
+      "seconds": 4.9895,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 50756,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-24-clean",
+      "sourceId": "tr-24",
+      "condition": "clean",
+      "file": "wav/tr-24-clean.wav",
+      "audioSha256": "fb344046404a934018a097801b1fccc2c534f29fb07f845a4267323e4a806d7e",
+      "bytes": 391724,
+      "seconds": 4.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-24-noise-20db",
+      "sourceId": "tr-24",
+      "condition": "noise-20db",
+      "file": "wav/tr-24-noise-20db.wav",
+      "audioSha256": "1fbc29b914fdf03d873dea7c0b046746c799b036a92ea58efa1006eae734e16f",
+      "bytes": 391724,
+      "seconds": 4.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314206,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-24-pause-stress",
+      "sourceId": "tr-24",
+      "condition": "pause-stress",
+      "file": "wav/tr-24-pause-stress.wav",
+      "audioSha256": "3f18a5cd5e08f9305e5bf34c8d1e7dc27f5088de3f76765fe3a22cccf63e8a7e",
+      "bytes": 434924,
+      "seconds": 4.53,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 109632,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-25-clean",
+      "sourceId": "en-25",
+      "condition": "clean",
+      "file": "wav/en-25-clean.wav",
+      "audioSha256": "debeac66d141f3d749e12c262743d58c0177a9044b409c4bd5a270785cbb0029",
+      "bytes": 177708,
+      "seconds": 4.0287,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-25-noise-20db",
+      "sourceId": "en-25",
+      "condition": "noise-20db",
+      "file": "wav/en-25-noise-20db.wav",
+      "audioSha256": "adaeb2f894a84bfa52f63a8def92698596a2f0d4b427787e9b06ff01ce8e4676",
+      "bytes": 177708,
+      "seconds": 4.0287,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314207,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-25-pause-stress",
+      "sourceId": "en-25",
+      "condition": "pause-stress",
+      "file": "wav/en-25-pause-stress.wav",
+      "audioSha256": "33bc104f0fd20a62045011f3f7a5b91756c99151e343493444ce139621a3e3e5",
+      "bytes": 197552,
+      "seconds": 4.4786,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 50905,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-25-clean",
+      "sourceId": "tr-25",
+      "condition": "clean",
+      "file": "wav/tr-25-clean.wav",
+      "audioSha256": "b93e922c99217721cb8408eb51ccac4a6d9e068e4a058b6ad6913e5f3782cf99",
+      "bytes": 506924,
+      "seconds": 5.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-25-noise-20db",
+      "sourceId": "tr-25",
+      "condition": "noise-20db",
+      "file": "wav/tr-25-noise-20db.wav",
+      "audioSha256": "a38e333d58d9037196cab4d00bfddc666ff7932c70378c8edb751722c2437353",
+      "bytes": 506924,
+      "seconds": 5.28,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314208,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-25-pause-stress",
+      "sourceId": "tr-25",
+      "condition": "pause-stress",
+      "file": "wav/tr-25-pause-stress.wav",
+      "audioSha256": "118b4dd30a1c02a82efe0f16a3b7b69dc750eed4bed6601e8f9cfcec6297a18b",
+      "bytes": 550124,
+      "seconds": 5.73,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 159552,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-26-clean",
+      "sourceId": "en-26",
+      "condition": "clean",
+      "file": "wav/en-26-clean.wav",
+      "audioSha256": "dad7988cdbf8c4278522398b4a254ff6ce6891307f0666ea073e580919c59557",
+      "bytes": 124972,
+      "seconds": 2.8328,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-26-noise-20db",
+      "sourceId": "en-26",
+      "condition": "noise-20db",
+      "file": "wav/en-26-noise-20db.wav",
+      "audioSha256": "a41d6adff4512f2d37797c914e818617640ab1080dc3b70d8a90dddbef6453e4",
+      "bytes": 124972,
+      "seconds": 2.8328,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314209,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-26-pause-stress",
+      "sourceId": "en-26",
+      "condition": "pause-stress",
+      "file": "wav/en-26-pause-stress.wav",
+      "audioSha256": "c583b76dcb03e22e8e422a1ffdf0da523b43cda70bc131f204a5ab9fc118f288",
+      "bytes": 144816,
+      "seconds": 3.2828,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 28000,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-26-clean",
+      "sourceId": "tr-26",
+      "condition": "clean",
+      "file": "wav/tr-26-clean.wav",
+      "audioSha256": "77233dce20eb3258541a169586d51a53de06d3faa4293910f2e65f351ed8b9ee",
+      "bytes": 337964,
+      "seconds": 3.52,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-26-noise-20db",
+      "sourceId": "tr-26",
+      "condition": "noise-20db",
+      "file": "wav/tr-26-noise-20db.wav",
+      "audioSha256": "318557528a899a4b91a8cdc14b85f9c44a021299b16c2bdf74317edc2c06f24a",
+      "bytes": 337964,
+      "seconds": 3.52,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314210,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-26-pause-stress",
+      "sourceId": "tr-26",
+      "condition": "pause-stress",
+      "file": "wav/tr-26-pause-stress.wav",
+      "audioSha256": "3fb95b985efbeabc4742967b5635d07c5fc4a5908ad15de01e0e79bc5401979e",
+      "bytes": 381164,
+      "seconds": 3.97,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 63168,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-27-clean",
+      "sourceId": "en-27",
+      "condition": "clean",
+      "file": "wav/en-27-clean.wav",
+      "audioSha256": "6d4a75546972420960a60b3b2188a8ab276b2e0b68564e6a733b5933f093e016",
+      "bytes": 113708,
+      "seconds": 2.5774,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-27-noise-20db",
+      "sourceId": "en-27",
+      "condition": "noise-20db",
+      "file": "wav/en-27-noise-20db.wav",
+      "audioSha256": "02e7287f4d2c5b0b73aa435307e7d693fb65ffdee11840b44722aa604c70d01c",
+      "bytes": 113708,
+      "seconds": 2.5774,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314211,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-27-pause-stress",
+      "sourceId": "en-27",
+      "condition": "pause-stress",
+      "file": "wav/en-27-pause-stress.wav",
+      "audioSha256": "417c579841f0832e0f1b140cf36bd445a7cf41f06cf6e7ec388b8351d5541e4d",
+      "bytes": 133552,
+      "seconds": 3.0274,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 20137,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-27-clean",
+      "sourceId": "tr-27",
+      "condition": "clean",
+      "file": "wav/tr-27-clean.wav",
+      "audioSha256": "e6625a351417eae51fafebd93a561a446145b96d755855d6fa46a688593099d4",
+      "bytes": 295724,
+      "seconds": 3.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-27-noise-20db",
+      "sourceId": "tr-27",
+      "condition": "noise-20db",
+      "file": "wav/tr-27-noise-20db.wav",
+      "audioSha256": "7742764e9624facd2b23f04c42085ea68992991a32bddcd80f6d5684d86736c2",
+      "bytes": 295724,
+      "seconds": 3.08,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314212,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-27-pause-stress",
+      "sourceId": "tr-27",
+      "condition": "pause-stress",
+      "file": "wav/tr-27-pause-stress.wav",
+      "audioSha256": "b0f9c6e5f9a7575b38dd60bfa2efd534d119df27b26ac072e061e5ce38559e91",
+      "bytes": 338924,
+      "seconds": 3.53,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 66432,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-28-clean",
+      "sourceId": "en-28",
+      "condition": "clean",
+      "file": "wav/en-28-clean.wav",
+      "audioSha256": "ece5199f48942274c7e5335f12a9c7e074d675279970911b10b8d78307fa3a0c",
+      "bytes": 131116,
+      "seconds": 2.9722,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-28-noise-20db",
+      "sourceId": "en-28",
+      "condition": "noise-20db",
+      "file": "wav/en-28-noise-20db.wav",
+      "audioSha256": "70f108145a5822e9200e25ad1965f26de3b2ad01bace36a7d442de80234bfd91",
+      "bytes": 131116,
+      "seconds": 2.9722,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314213,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-28-pause-stress",
+      "sourceId": "en-28",
+      "condition": "pause-stress",
+      "file": "wav/en-28-pause-stress.wav",
+      "audioSha256": "1319596bbe9f3d3a805c24ff98593128624a9cd00dc41ac5ed68a72a922e8db2",
+      "bytes": 150960,
+      "seconds": 3.4221,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 22748,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-28-clean",
+      "sourceId": "tr-28",
+      "condition": "clean",
+      "file": "wav/tr-28-clean.wav",
+      "audioSha256": "13987f028fe508ebcf5f97e0bac71b52a7c8d69dcc2772be24955ad233c69120",
+      "bytes": 311084,
+      "seconds": 3.24,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-28-noise-20db",
+      "sourceId": "tr-28",
+      "condition": "noise-20db",
+      "file": "wav/tr-28-noise-20db.wav",
+      "audioSha256": "c7cb324453e017d0615c8b430187ad7af50107aa7bb07317ee5de1e870ce541f",
+      "bytes": 311084,
+      "seconds": 3.24,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314214,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-28-pause-stress",
+      "sourceId": "tr-28",
+      "condition": "pause-stress",
+      "file": "wav/tr-28-pause-stress.wav",
+      "audioSha256": "f5a0c228d8861769f2e15d846ab338bb6dca1b3fd19c0a7913c26df57914e50f",
+      "bytes": 354284,
+      "seconds": 3.69,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 74496,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": false,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-29-clean",
+      "sourceId": "en-29",
+      "condition": "clean",
+      "file": "wav/en-29-clean.wav",
+      "audioSha256": "6dfc5d9e1fdf722acfa16015e3127391f141e1ec6b763d51a41d70fe0d07cb36",
+      "bytes": 167468,
+      "seconds": 3.7965,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-29-noise-20db",
+      "sourceId": "en-29",
+      "condition": "noise-20db",
+      "file": "wav/en-29-noise-20db.wav",
+      "audioSha256": "088cda1f40d76252d4c5107d3b7265d4d8bc1b7954aab07bf3abdf67929240bd",
+      "bytes": 167468,
+      "seconds": 3.7965,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314215,
+        "generator": "PCG64",
+        "clippedSamples": 1
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-29-pause-stress",
+      "sourceId": "en-29",
+      "condition": "pause-stress",
+      "file": "wav/en-29-pause-stress.wav",
+      "audioSha256": "e1f74edf622b57b01dc62831de930022be9f0123d262b91bf7c702592e6e16f1",
+      "bytes": 187312,
+      "seconds": 4.2464,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 57307,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-29-clean",
+      "sourceId": "tr-29",
+      "condition": "clean",
+      "file": "wav/tr-29-clean.wav",
+      "audioSha256": "c90244f6d3fe095e400050efcf0d850276460f9c299eaef59366c74de31c2763",
+      "bytes": 426284,
+      "seconds": 4.44,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-29-noise-20db",
+      "sourceId": "tr-29",
+      "condition": "noise-20db",
+      "file": "wav/tr-29-noise-20db.wav",
+      "audioSha256": "58f514b72760990f77130c62cf1a7e833aac4b7e00ebf7e45d29ec69b0718100",
+      "bytes": 426284,
+      "seconds": 4.44,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314216,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-29-pause-stress",
+      "sourceId": "tr-29",
+      "condition": "pause-stress",
+      "file": "wav/tr-29-pause-stress.wav",
+      "audioSha256": "e11e23b448b53179a80339e3c675dc4dddf2bd132428efe5940bcca470a06cb0",
+      "bytes": 469484,
+      "seconds": 4.89,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 101376,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-30-clean",
+      "sourceId": "en-30",
+      "condition": "clean",
+      "file": "wav/en-30-clean.wav",
+      "audioSha256": "1eb1f0beffb2e95bf1197f300efae34e0855a9af236449fa4b1f23ff6b312d3b",
+      "bytes": 120876,
+      "seconds": 2.74,
+      "rate": 22050,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 22050
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-30-noise-20db",
+      "sourceId": "en-30",
+      "condition": "noise-20db",
+      "file": "wav/en-30-noise-20db.wav",
+      "audioSha256": "92cc29c56de209914eec62afec714d47ef29b7ec7bc80bb71f8351e5e3dd5bad",
+      "bytes": 120876,
+      "seconds": 2.74,
+      "rate": 22050,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314217,
+        "generator": "PCG64",
+        "clippedSamples": 2
+      },
+      "error": null
+    },
+    {
+      "sampleId": "en-30-pause-stress",
+      "sourceId": "en-30",
+      "condition": "pause-stress",
+      "file": "wav/en-30-pause-stress.wav",
+      "audioSha256": "13653168b66aab93a6c602dec837839ac297694e6d5b32db21e67b78e259e1e7",
+      "bytes": 140720,
+      "seconds": 3.1899,
+      "rate": 22050,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 28268,
+        "sourceRate": 22050,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-30-clean",
+      "sourceId": "tr-30",
+      "condition": "clean",
+      "file": "wav/tr-30-clean.wav",
+      "audioSha256": "ce2c22d0827fd41838688a16d371fa0ffbb9937ce80458a92ad24ae8294ad4ae",
+      "bytes": 334124,
+      "seconds": 3.48,
+      "rate": 48000,
+      "recipe": {
+        "transform": "none",
+        "sourceRate": 48000
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-30-noise-20db",
+      "sourceId": "tr-30",
+      "condition": "noise-20db",
+      "file": "wav/tr-30-noise-20db.wav",
+      "audioSha256": "c14a55a4cd3677dc7e16ce5f8352064d3f89958a779da4c71cf7a57d41c5035c",
+      "bytes": 334124,
+      "seconds": 3.48,
+      "rate": 48000,
+      "recipe": {
+        "transform": "additive-gaussian",
+        "snrDb": 20,
+        "seed": 314218,
+        "generator": "PCG64",
+        "clippedSamples": 0
+      },
+      "error": null
+    },
+    {
+      "sampleId": "tr-30-pause-stress",
+      "sourceId": "tr-30",
+      "condition": "pause-stress",
+      "file": "wav/tr-30-pause-stress.wav",
+      "audioSha256": "3d47b56b82a9840a673addd4731bed61129a1176cd71f732deb319107660f7b2",
+      "bytes": 377324,
+      "seconds": 3.93,
+      "rate": 48000,
+      "recipe": {
+        "transform": "insert-silence",
+        "milliseconds": 450,
+        "insertFrame": 68352,
+        "sourceRate": 48000,
+        "boundaryWasQuiet": true,
+        "limitation": "Lowest-RMS middle-window insertion can interrupt speech; not a human pause sample."
+      },
+      "error": null
+    }
+  ],
+  "fixtureSetSha256": "5cb78c4a46b40621768c8245063369aad13fba34eca307d414b30fdd5be90baf"
+}

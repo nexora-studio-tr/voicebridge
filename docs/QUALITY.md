@@ -4,6 +4,8 @@
 
 The quality harness separates **recognition**, **reference-text translation**, **recognition-to-translation**, and **speech generation**. It uses the current installed local models, without Discord, credentials, a billable provider, or model downloads. A completed measurement is not a quality acceptance verdict.
 
+Read the [measured alpha.7 baseline](reports/QUALITY-BASELINE-2026-10-29.md), including known semantic failures and the separate synthetic queue observations.
+
 ## Reference set
 
 [corpus.json](../examples/quality/corpus.json) contains 30 original fictional scenarios in both Turkish and English: 60 source texts. Each of the six categories has four development scenarios and one public holdout scenario per language: numbers, times/dates, negation, names, commands and pauses. The paired holdout is visible and small; it is a reserved regression subset, not a blind or statistically representative evaluation. Do not tune against its results and then call it unseen evidence.
