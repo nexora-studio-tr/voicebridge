@@ -10,7 +10,7 @@ Personal captions and translated speech for Discord voice rooms. Run local model
 [![License: GPL v3+](https://img.shields.io/badge/license-GPL--3.0--or--later-245a4c)](LICENSE)
 [![Status: alpha](https://img.shields.io/badge/status-alpha-d2b679)](https://github.com/nexora-studio-tr/voicebridge/releases)
 
-[Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Security](SECURITY.md)
+[Türkçe](README.tr.md) · [Setup](docs/SETUP.md) · [Architecture](docs/ARCHITECTURE.md) · [Validation](docs/VALIDATION.md) · [Quality checks](docs/QUALITY.md) · [Security](SECURITY.md)
 
 **[Download alpha.7](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.7)** · [Beta evidence](docs/BETA-STATUS.md) · [Send feedback](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 

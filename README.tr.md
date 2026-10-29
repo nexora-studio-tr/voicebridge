@@ -10,7 +10,7 @@ Alpha.3, operatörün Ayarlar paneline **[kurulum kontrolü ve özel destek rapo
 [![Lisans: GPL v3+](https://img.shields.io/badge/lisans-GPL--3.0--or--later-245a4c)](LICENSE)
 [![Durum: alfa](https://img.shields.io/badge/durum-alfa-d2b679)](https://github.com/nexora-studio-tr/voicebridge/releases)
 
-[English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Yol haritası](ROADMAP.md)
+[English](README.md) · [Kurulum](docs/SETUP.tr.md) · [Test durumu](docs/VALIDATION.md) · [Kalite ölçümü](docs/QUALITY.tr.md) · [Yol haritası](ROADMAP.md)
 
 **[Alpha.7 indir](https://github.com/nexora-studio-tr/voicebridge/releases/tag/v0.1.0-alpha.7)** · [Beta doğrulama kaydı](docs/BETA-STATUS.md) · [Geri bildirim gönder](https://github.com/nexora-studio-tr/voicebridge/issues/new?template=beta_feedback.yml)
 

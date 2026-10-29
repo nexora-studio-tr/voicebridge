@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "name": "VoiceBridge bilingual synthetic baseline v1",
+  "license": "GPL-3.0-or-later",
+  "provenance": "Original fictional reference text authored for VoiceBridge; no user conversations or recordings.",
+  "splitPolicy": "24 development and 6 public holdout references per language, frozen before this measurement. The public holdout is not a blind benchmark. Both directions share the same 30 scenarios.",
+  "cases": [
+    {
+      "id": "01",
+      "category": "numbers",
+      "split": "development",
+      "text": {
+        "en": "We need fifteen minutes, not fifty. Please check the microphone.",
+        "tr": "Elli değil, on beş dakikaya ihtiyacımız var. Lütfen mikrofonu kontrol et."
+      },
+      "criticalFacts": [
+        "The required duration is fifteen minutes, not fifty.",
+        "Check the microphone."
+      ]
+    },
+    {
+      "id": "02",
+      "category": "numbers",
+      "split": "development",
+      "text": {
+        "en": "There are twelve files in the folder. Only two are empty.",
+        "tr": "Klasörde on iki dosya var. Yalnızca ikisi boş."
+      },
+      "criticalFacts": ["There are twelve files in total.", "Two files are empty."]
+    },
+    {
+      "id": "03",
+      "category": "numbers",
+      "split": "development",
+      "text": {
+        "en": "Enter code forty-two, then press seven. Do not enter seventy.",
+        "tr": "Önce kırk iki kodunu gir, sonra yediye bas. Yetmiş girme."
+      },
+      "criticalFacts": ["Enter code forty-two, then press seven.", "Do not enter seventy."]
+    },
+    {
+      "id": "04",
+      "category": "numbers",
+      "split": "development",
+      "text": {
+        "en": "The queue has eight jobs. Three are waiting and five are finished.",
+        "tr": "Kuyrukta sekiz iş var. Üçü bekliyor, beşi tamamlandı."
+      },
+      "criticalFacts": ["Eight jobs are mentioned.", "Three are waiting and five are finished."]
+    },
+    {
+      "id": "05",
+      "category": "numbers",
+      "split": "holdout",
+      "text": {
+        "en": "Change the limit from eighteen to eighty. Keep the retry count at four.",
+        "tr": "Sınırı on sekizden seksene değiştir. Yeniden deneme sayısını dört olarak tut."
+      },
+      "criticalFacts": [
+        "The limit changes from eighteen to eighty, in that direction.",
+        "The retry count stays four."
+      ]
+    },
+    {
+      "id": "06",
+      "category": "time_dates",
+      "split": "development",
+      "text": {
+        "en": "The meeting is at three fifteen, not three fifty.",
+        "tr": "Toplantı saat üç on beşte, üç ellide değil."
+      },
+      "criticalFacts": ["The meeting time is three fifteen.", "Three fifty is explicitly rejected."]
+    },
+    {
+      "id": "07",
+      "category": "time_dates",
+      "split": "development",
+      "text": {
+        "en": "Keep the backup until Friday. Review it on Monday.",
+        "tr": "Yedeği cuma gününe kadar sakla. Pazartesi günü incele."
+      },
+      "criticalFacts": ["Keep the backup until Friday.", "Review it on Monday."]
+    },
+    {
+      "id": "08",
+      "category": "time_dates",
+      "split": "development",
+      "text": {
+        "en": "The deadline is the sixth of April, not the fourth of June.",
+        "tr": "Son tarih altı Nisan, dört Haziran değil."
+      },
+      "criticalFacts": [
+        "The deadline is April sixth.",
+        "June fourth is rejected; month and day must not swap."
+      ]
+    },
+    {
+      "id": "09",
+      "category": "time_dates",
+      "split": "development",
+      "text": {
+        "en": "Tomorrow's meeting starts at nine in the morning. Today we finish at six.",
+        "tr": "Yarınki toplantı sabah dokuzda başlıyor. Bugün saat altıda bitiriyoruz."
+      },
+      "criticalFacts": [
+        "Tomorrow's meeting starts at nine in the morning.",
+        "Today finishes at six."
+      ]
+    },
+    {
+      "id": "10",
+      "category": "time_dates",
+      "split": "holdout",
+      "text": {
+        "en": "The maintenance starts at midnight on Sunday and lasts thirty minutes.",
+        "tr": "Bakım pazar günü gece yarısı başlıyor ve otuz dakika sürüyor."
+      },
+      "criticalFacts": [
+        "Maintenance starts at midnight on Sunday.",
+        "Its duration is thirty minutes."
+      ]
+    },
+    {
+      "id": "11",
+      "category": "negation",
+      "split": "development",
+      "text": {
+        "en": "I didn't say delete the backup. Please keep it until Friday.",
+        "tr": "Yedeği sil demedim. Lütfen cuma gününe kadar sakla."
+      },
+      "criticalFacts": [
+        "The speaker did not instruct deletion of the backup.",
+        "Keep the backup until Friday."
+      ]
+    },
+    {
+      "id": "12",
+      "category": "negation",
+      "split": "development",
+      "text": {
+        "en": "We do not need to restart the server. Keep the current settings.",
+        "tr": "Sunucuyu yeniden başlatmamız gerekmiyor. Mevcut ayarları koru."
+      },
+      "criticalFacts": ["A server restart is not needed.", "Keep the current settings."]
+    },
+    {
+      "id": "13",
+      "category": "negation",
+      "split": "development",
+      "text": {
+        "en": "The invitation was sent, but it has not been accepted yet.",
+        "tr": "Davet gönderildi, ancak henüz kabul edilmedi."
+      },
+      "criticalFacts": ["The invitation was sent.", "It has not yet been accepted."]
+    },
+    {
+      "id": "14",
+      "category": "negation",
+      "split": "development",
+      "text": {
+        "en": "This is not a public room. Do not share its link.",
+        "tr": "Bu herkese açık bir oda değil. Bağlantısını paylaşma."
+      },
+      "criticalFacts": ["The room is not public.", "Do not share its link."]
+    },
+    {
+      "id": "15",
+      "category": "negation",
+      "split": "holdout",
+      "text": {
+        "en": "I can read the captions, but I cannot hear the translated audio.",
+        "tr": "Altyazıları okuyabiliyorum, ancak çevrilmiş sesi duyamıyorum."
+      },
+      "criticalFacts": [
+        "The speaker can read the captions.",
+        "The speaker cannot hear the translated audio."
+      ]
+    },
+    {
+      "id": "16",
+      "category": "names",
+      "split": "development",
+      "text": {
+        "en": "Please send the log to Ece, not to Deniz.",
+        "tr": "Lütfen günlüğü Deniz'e değil, Ece'ye gönder."
+      },
+      "criticalFacts": [
+        "Ece is the intended log recipient.",
+        "Deniz is not the intended recipient."
+      ]
+    },
+    {
+      "id": "17",
+      "category": "names",
+      "split": "development",
+      "text": {
+        "en": "Maya owns the Orion project. Alex reviews the changes.",
+        "tr": "Orion projesinin sahibi Maya. Değişiklikleri Alex inceliyor."
+      },
+      "criticalFacts": ["Maya owns the project named Orion.", "Alex reviews the changes."]
+    },
+    {
+      "id": "18",
+      "category": "names",
+      "split": "development",
+      "text": {
+        "en": "Open the Nexora repository and select the VoiceBridge folder.",
+        "tr": "Nexora deposunu aç ve VoiceBridge klasörünü seç."
+      },
+      "criticalFacts": ["Open the Nexora repository.", "Select the folder named VoiceBridge."]
+    },
+    {
+      "id": "19",
+      "category": "names",
+      "split": "development",
+      "text": {
+        "en": "Deniz will test English. Ece will test Turkish.",
+        "tr": "Deniz İngilizceyi deneyecek. Ece Türkçeyi deneyecek."
+      },
+      "criticalFacts": [
+        "Deniz tests English.",
+        "Ece tests Turkish; the assignments must not reverse."
+      ]
+    },
+    {
+      "id": "20",
+      "category": "names",
+      "split": "holdout",
+      "text": {
+        "en": "The Atlas server is online. The Orion server is offline.",
+        "tr": "Atlas sunucusu çevrimiçi. Orion sunucusu çevrimdışı."
+      },
+      "criticalFacts": ["Atlas is online.", "Orion is offline; the names and states must not swap."]
+    },
+    {
+      "id": "21",
+      "category": "commands",
+      "split": "development",
+      "text": {
+        "en": "Save a copy before closing the file. Keep the original unchanged.",
+        "tr": "Dosyayı kapatmadan önce bir kopyasını kaydet. Asıl dosyayı değiştirme."
+      },
+      "criticalFacts": ["Save a copy before closing the file.", "Keep the original unchanged."]
+    },
+    {
+      "id": "22",
+      "category": "commands",
+      "split": "development",
+      "text": {
+        "en": "Run the checks before merging the change. Do not skip failed tests.",
+        "tr": "Değişikliği birleştirmeden önce kontrolleri çalıştır. Başarısız testleri atlama."
+      },
+      "criticalFacts": ["Run checks before merging.", "Do not skip failed tests."]
+    },
+    {
+      "id": "23",
+      "category": "commands",
+      "split": "development",
+      "text": {
+        "en": "Cancel the pending request. Do not approve access.",
+        "tr": "Bekleyen isteği iptal et. Erişimi onaylama."
+      },
+      "criticalFacts": ["Cancel the pending request.", "Do not approve access."]
+    },
+    {
+      "id": "24",
+      "category": "commands",
+      "split": "development",
+      "text": {
+        "en": "Lower the original Discord voices. Keep translated audio enabled.",
+        "tr": "Discord'daki asıl sesleri kıs. Çevrilmiş sesi açık tut."
+      },
+      "criticalFacts": [
+        "Lower the original Discord voices.",
+        "Keep translated audio enabled; do not mute it instead."
+      ]
+    },
+    {
+      "id": "25",
+      "category": "commands",
+      "split": "holdout",
+      "text": {
+        "en": "Restore the previous configuration, then restart only the worker.",
+        "tr": "Önceki yapılandırmayı geri yükle, sonra yalnızca işleyiciyi yeniden başlat."
+      },
+      "criticalFacts": [
+        "Restore the previous configuration first.",
+        "Restart only the worker, not the entire system."
+      ]
+    },
+    {
+      "id": "26",
+      "category": "pauses",
+      "split": "development",
+      "text": {
+        "en": "First, read the error. Then tell me what happened.",
+        "tr": "Önce hatayı oku. Sonra ne olduğunu bana söyle."
+      },
+      "criticalFacts": ["Read the error first.", "Then explain what happened."]
+    },
+    {
+      "id": "27",
+      "category": "pauses",
+      "split": "development",
+      "text": {
+        "en": "Wait a moment. I will share the link shortly.",
+        "tr": "Biraz bekle. Bağlantıyı birazdan paylaşacağım."
+      },
+      "criticalFacts": [
+        "The listener should wait briefly.",
+        "The speaker will share the link shortly."
+      ]
+    },
+    {
+      "id": "28",
+      "category": "pauses",
+      "split": "development",
+      "text": {
+        "en": "I can hear you. Please speak a little more slowly.",
+        "tr": "Seni duyabiliyorum. Lütfen biraz daha yavaş konuş."
+      },
+      "criticalFacts": [
+        "The speaker can hear the other person.",
+        "The other person should speak more slowly."
+      ]
+    },
+    {
+      "id": "29",
+      "category": "pauses",
+      "split": "development",
+      "text": {
+        "en": "If the connection drops, pause. Reconnect before continuing.",
+        "tr": "Bağlantı kesilirse duraklat. Devam etmeden önce yeniden bağlan."
+      },
+      "criticalFacts": ["Pause if the connection drops.", "Reconnect before continuing."]
+    },
+    {
+      "id": "30",
+      "category": "pauses",
+      "split": "holdout",
+      "text": {
+        "en": "The upload finished. The checks are still running.",
+        "tr": "Yükleme tamamlandı. Kontroller hâlâ devam ediyor."
+      },
+      "criticalFacts": ["The upload has finished.", "The checks have not finished yet."]
+    }
+  ]
+}
