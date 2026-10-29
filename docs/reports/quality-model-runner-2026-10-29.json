@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-29T10:40:09+00:00",
+  "scope": "Prepared Windows research runner; resource checks only. No real model conversion or quality evaluation.",
+  "sourceHashNormalization": "lf",
+  "sources": {
+    "scripts/convert_marian.py": "69db41181dbfe7ac640758cd7726de00d3b8f4d1c79b6f3a567f4ab76a3d35bb",
+    "scripts/marian_job.py": "259a3abe910c785f99442420cf91b86ca80d85130762efb2e59d2b305335247c",
+    "docs/experiments/marian-verified-sources.json": "036a96b30afa7c1fe9ae601c8ee903195cd37eff14f264df8d03423574347021"
+  },
+  "conversionAttempted": false,
+  "runtimeActivation": false,
+  "checks": [
+    {
+      "direction": "en-tr",
+      "resources": {
+        "freeDiskBytes": 24380178432,
+        "requiredFreeDiskBytes": 16106127360,
+        "diskSufficient": true,
+        "availableRamBytes": 850694144,
+        "directions": {
+          "en-tr": {
+            "requiredAvailableRamBytes": 2147483648,
+            "memorySufficient": false
+          },
+          "tr-en": {
+            "requiredAvailableRamBytes": 4294967296,
+            "memorySufficient": false
+          }
+        },
+        "dependencies": {
+          "python": {
+            "required": "3.12",
+            "installed": "3.12",
+            "matches": true
+          },
+          "ctranslate2": {
+            "required": "4.8.3",
+            "installed": "4.8.3",
+            "matches": true
+          },
+          "numpy": {
+            "required": "2.5.4",
+            "installed": "2.5.4",
+            "matches": true
+          },
+          "sentencepiece": {
+            "required": "0.2.2",
+            "installed": "0.2.2",
+            "matches": true
+          },
+          "PyYAML": {
+            "required": "6.0.3",
+            "installed": "6.0.3",
+            "matches": true
+          }
+        },
+        "resourcesAndDependenciesReady": false,
+        "downloadAllowed": false,
+        "conversionAllowed": false,
+        "runtimePromotion": false,
+        "selectedDirection": "en-tr",
+        "selectedDirectionReady": false,
+        "privateCommitLimitBytes": 1610612736
+      }
+    },
+    {
+      "direction": "tr-en",
+      "resources": {
+        "freeDiskBytes": 24380178432,
+        "requiredFreeDiskBytes": 16106127360,
+        "diskSufficient": true,
+        "availableRamBytes": 850628608,
+        "directions": {
+          "en-tr": {
+            "requiredAvailableRamBytes": 2147483648,
+            "memorySufficient": false
+          },
+          "tr-en": {
+            "requiredAvailableRamBytes": 4294967296,
+            "memorySufficient": false
+          }
+        },
+        "dependencies": {
+          "python": {
+            "required": "3.12",
+            "installed": "3.12",
+            "matches": true
+          },
+          "ctranslate2": {
+            "required": "4.8.3",
+            "installed": "4.8.3",
+            "matches": true
+          },
+          "numpy": {
+            "required": "2.5.4",
+            "installed": "2.5.4",
+            "matches": true
+          },
+          "sentencepiece": {
+            "required": "0.2.2",
+            "installed": "0.2.2",
+            "matches": true
+          },
+          "PyYAML": {
+            "required": "6.0.3",
+            "installed": "6.0.3",
+            "matches": true
+          }
+        },
+        "resourcesAndDependenciesReady": false,
+        "downloadAllowed": false,
+        "conversionAllowed": false,
+        "runtimePromotion": false,
+        "selectedDirection": "tr-en",
+        "selectedDirectionReady": false,
+        "privateCommitLimitBytes": 3221225472
+      }
+    }
+  ]
+}

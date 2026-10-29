@@ -2,6 +2,8 @@
 
 ## Unreleased — quality measurement tooling, 2026-10-29
 
+- Add an offline Windows Marian conversion runner that defaults to checks, with suspended-start Job Object memory limits, one-run ownership and bounded cleanup. Real-model conversion and quality remain untested while RAM admission fails.
+
 - Verify the approved native Marian archives and extracted files with pinned observed SHA-256 identities and a bounded offline NPZ inspector. Conversion remains blocked by available RAM; no new model is activated or quality improvement claimed.
 
 - Publish two rejected development-only translation experiments with exact control/candidate evidence and a fail-closed paired review tool. Seven new model-free tests cover cohort, input and judgment boundaries; no rejected adapter enters the runtime.

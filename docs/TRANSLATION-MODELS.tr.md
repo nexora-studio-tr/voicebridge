@@ -4,6 +4,8 @@
 
 Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Mevcut modellerle denenen iki adaptör gerileme koşulunu geçemedi. Sonraki araştırma, bilinen bilgileri zorla değiştirmek veya elenen adaya kalite artışı demek yerine model karşılaştırmasına odaklanır. Sonraki kaynak ön kontrolü PyTorch gerektirmeyen özgün Marian yolunu buldu; ayrıntısı aşağıda, model ağırlığı kurulmadı.
 
+[Sınırlı Windows çalıştırıcısı](MARIAN-CONVERSION.tr.md) hazırlandı ve küçük yapay örneklerle test edildi. Varsayılan mod yalnızca kaynakları kontrol eder; gerçek model dönüştürmesi RAM koşulunu bekliyor. Çalışma profili etkinleştirilmez veya daha iyi çeviri iddia edilmez.
+
 ## İlk aday çifti
 
 | Yön                | Resmî model / sabitlenen kaynak                                                                                                               | Karttaki lisans | Seçilen kaynak ağırlık                |
