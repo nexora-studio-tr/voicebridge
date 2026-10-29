@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "proposal-not-installed",
+  "observedAt": "2026-10-29",
+  "downloadEnabled": false,
+  "runtimeActivation": false,
+  "completeDownloadLock": false,
+  "pending": [
+    "tokenizer/config hashes",
+    "conversion dependency pins",
+    "temporary disk budget",
+    "local download/conversion approval",
+    "quality and resource measurements"
+  ],
+  "candidates": [
+    {
+      "direction": "en-tr",
+      "repository": "Helsinki-NLP/opus-tatoeba-en-tr",
+      "revision": "7178cf6532017eae305633c7bd5ff100d2563db7",
+      "cardLicense": "apache-2.0",
+      "weight": "pytorch_model.bin",
+      "sha256": "e51945d1b6e2691bd2f3a4501b4783c0b781ef2966bc99c43024c2f4789b9715",
+      "approximateWeightMB": 150,
+      "format": "legacy-pytorch-weights-only-conversion-required",
+      "source": "https://huggingface.co/Helsinki-NLP/opus-tatoeba-en-tr/blob/main/pytorch_model.bin"
+    },
+    {
+      "direction": "tr-en",
+      "repository": "Helsinki-NLP/opus-mt-tc-big-tr-en",
+      "revision": "2261c8fc7b1af59caee87f8ff0ecf3fbccfe8391",
+      "cardLicense": "cc-by-4.0",
+      "weight": "model.safetensors",
+      "sha256": "fbb0eb4c56cf9a6248adbda79c2bbce72cd8969b4b794fbbc434d4b7d995549d",
+      "bytes": 469717280,
+      "source": "https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-tr-en/commit/2261c8fc7b1af59caee87f8ff0ecf3fbccfe8391"
+    }
+  ],
+  "provenance": "Upstream models and card metadata; no Nexora training or quality claim. Preserve attribution and review redistribution before publishing any converted weights."
+}

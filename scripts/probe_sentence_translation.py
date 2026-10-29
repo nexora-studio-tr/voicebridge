@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'worker'))
 from engine import Engine
-from benchmark_quality import model_identity, write_json, versions
+from benchmark_quality import model_identity, named_directory, write_json, versions
 from quality_metrics import fingerprint, read_json
 
 # Conservative span boundaries, not a learned sentence detector. Keep source punctuation.
@@ -51,7 +51,21 @@ def sentence_spans(text):
 
 def segmented(engine, text, source, target):
     # Do not add target words, force numbers/negation, or carry preceding speaker text.
-    return ' '.join(engine.translate(part, source, target) for part in sentence_spans(text))
+    text = Engine.text(text)
+    Engine.language(source)
+    Engine.language(target)
+    if source == target:
+        return text
+    spans = sentence_spans(text)
+    if len(spans) > 16:
+        raise ValueError('SEGMENT_LIMIT')
+    outputs = [engine.translate(part, source, target) for part in spans]
+    if any(not output.strip() for output in outputs):
+        raise ValueError('EMPTY_SEGMENT')
+    result = ' '.join(outputs)
+    if len(result) > 1200:
+        raise ValueError('OUTPUT_LIMIT')
+    return result
 
 
 def screen(baseline, engine):
@@ -65,6 +79,8 @@ def screen(baseline, engine):
             original = row['directTranslation'] if route == 'direct' else row['translation']
             key = (row['sourceId'], route, text)
             if key in cache:
+                if cache[key]['baseline'] != original:
+                    raise ValueError('BASELINE_INPUT_OUTPUT_CONFLICT')
                 cache[key]['sampleIds'].append(row['sampleId'])
                 continue
             start = time.perf_counter()
@@ -90,7 +106,7 @@ def main():
     args = parser.parse_args()
     if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', args.name):
         raise ValueError('INVALID_NAME')
-    out = ROOT / 'artifacts/translation-screen' / args.name
+    out = named_directory('translation-screen', args.name)
     if out.exists():
         raise ValueError('SCREEN_EXISTS')
     baseline = read_json(ROOT / 'docs/reports/quality-baseline-alpha7-2026-10-29.json')

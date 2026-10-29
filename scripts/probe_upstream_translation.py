@@ -5,6 +5,7 @@ No production imports, ASR/TTS, new model, network, provider or holdout evaluati
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import sys
 import time
@@ -13,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'worker'))
 from engine import Engine
-from benchmark_quality import model_identity, write_json, versions
+from benchmark_quality import model_identity, named_directory, write_json, versions
 from probe_sentence_translation import sentence_spans
 from quality_metrics import fingerprint, read_json
 
@@ -44,7 +45,10 @@ def candidate_translate(engine, text, source, target):
 
 
 def main():
-    out = ROOT / 'artifacts/translation-screen/upstream-c2'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--name', default='upstream-c2')
+    args = parser.parse_args()
+    out = named_directory('translation-screen', args.name)
     if out.exists():
         raise ValueError('SCREEN_EXISTS')
     baseline = read_json(ROOT / 'docs/reports/quality-baseline-alpha7-2026-10-29.json')

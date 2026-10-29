@@ -2,6 +2,8 @@
 
 ## Unreleased — quality measurement tooling, 2026-10-29
 
+- Publish two rejected development-only translation experiments with exact control/candidate evidence and a fail-closed paired review tool. Seven new model-free tests cover cohort, input and judgment boundaries; no rejected adapter enters the runtime.
+- Document the next pinned-revision local-model proposal and observed licenses/weight identities without downloading models or changing alpha.7 behavior.
 - Add a fixed original 30-TR/30-EN corpus, 180 frozen synthetic conditions and offline, model-verifying benchmark commands.
 - Separate strict WER/CER, reference/pipeline translation review and recognition/translation/synthesis timings; retain failures and validate comparison/review identities.
 - Publish the actual baseline and three-job loopback queue report with an explicitly AI preliminary meaning review and bilingual limitations. Known critical translation failures remain open.
