@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-29T10:10:09+00:00",
+  "scope": "Local source verification; no conversion, inference, ASR/TTS or quality evaluation.",
+  "sourceHashNormalization": "lf",
+  "inspectorSha256": "488173ad7cb1b2e0630f7979c3fa96a188a8f67c8fb19f16e245f52328487bb6",
+  "verifiedLockSha256": "036a96b30afa7c1fe9ae601c8ee903195cd37eff14f264df8d03423574347021",
+  "networkRequests": 0,
+  "conversionAttempted": false,
+  "runtimeActivation": false,
+  "sources": [
+    {
+      "direction": "en-tr",
+      "archiveSha256": "f1f074185660501c977b523576775eef7438e35eb938712702ab33cf32061a3a",
+      "modelSha256": "a33e5e51c642b72f116c3804d9f572b87a530692b3d02072a467b5029ecfe953",
+      "verifiedExtractedFiles": 14,
+      "npz": {
+        "arrayCount": 255,
+        "tensorPayloadBytes": 299660758,
+        "largestArrayBytes": 122865664,
+        "configSha256": "21b512898528f71afc162b7603d145c94183b5a916442c568313c3f58c741ab3",
+        "config": {
+          "type": "transformer",
+          "dim-emb": 512,
+          "enc-depth": 6,
+          "dec-depth": 6,
+          "dim-vocabs": [
+            59993,
+            59993
+          ],
+          "transformer-heads": 8,
+          "transformer-ffn-activation": "swish",
+          "transformer-preprocess": "",
+          "transformer-postprocess": "dan",
+          "transformer-postprocess-emb": "d",
+          "transformer-postprocess-top": "",
+          "transformer-decoder-autoreg": "self-attention",
+          "transformer-no-projection": false,
+          "transformer-guided-alignment-layer": "last"
+        },
+        "configurationPrecheckSupported": true,
+        "fullConverterCompatibilityVerified": false,
+        "tensorArraysLoaded": false,
+        "allNestedMemberCrcsVerified": true,
+        "pickleAllowed": false
+      }
+    },
+    {
+      "direction": "tr-en",
+      "archiveSha256": "59a0280099e09d0f32f18688c07ac5a5fc679e3a09bc843facb29f7b63aa9af3",
+      "modelSha256": "6467c786562bb76b032ca5d47c94609d31499cd7d87d91eb2fa32463d0aec220",
+      "verifiedExtractedFiles": 13,
+      "npz": {
+        "arrayCount": 255,
+        "tensorPayloadBytes": 939372606,
+        "largestArrayBytes": 233713664,
+        "configSha256": "96aee5d58469b9ae8822c661941154e7dec7bbbed981eadc38818e77fed1b9fe",
+        "config": {
+          "type": "transformer",
+          "dim-emb": 1024,
+          "enc-depth": 6,
+          "dec-depth": 6,
+          "dim-vocabs": [
+            57059,
+            57059
+          ],
+          "transformer-heads": 16,
+          "transformer-ffn-activation": "relu",
+          "transformer-preprocess": "",
+          "transformer-postprocess": "dan",
+          "transformer-postprocess-emb": "d",
+          "transformer-postprocess-top": "",
+          "transformer-decoder-autoreg": "self-attention",
+          "transformer-no-projection": false,
+          "transformer-guided-alignment-layer": "last"
+        },
+        "configurationPrecheckSupported": true,
+        "fullConverterCompatibilityVerified": false,
+        "tensorArraysLoaded": false,
+        "allNestedMemberCrcsVerified": true,
+        "pickleAllowed": false
+      }
+    }
+  ],
+  "experimentFootprintBytes": 2395402074,
+  "resources": {
+    "freeDiskBytes": 24393175040,
+    "requiredFreeDiskBytes": 16106127360,
+    "diskSufficient": true,
+    "availableRamBytes": 1167753216,
+    "directions": {
+      "en-tr": {
+        "requiredAvailableRamBytes": 2147483648,
+        "memorySufficient": false
+      },
+      "tr-en": {
+        "requiredAvailableRamBytes": 4294967296,
+        "memorySufficient": false
+      }
+    },
+    "dependencies": {
+      "python": {
+        "required": "3.12",
+        "installed": "3.12",
+        "matches": true
+      },
+      "ctranslate2": {
+        "required": "4.8.3",
+        "installed": "4.8.3",
+        "matches": true
+      },
+      "numpy": {
+        "required": "2.5.4",
+        "installed": "2.5.4",
+        "matches": true
+      },
+      "sentencepiece": {
+        "required": "0.2.2",
+        "installed": "0.2.2",
+        "matches": true
+      },
+      "PyYAML": {
+        "required": "6.0.3",
+        "installed": "6.0.3",
+        "matches": true
+      }
+    },
+    "resourcesAndDependenciesReady": false,
+    "downloadAllowed": false,
+    "conversionAllowed": false,
+    "runtimePromotion": false
+  },
+  "status": "sources-verified-conversion-resources-blocked"
+}

@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-29",
+  "status": "local-source-verification-lock-not-runtime-profile",
+  "sourceManifestSha256": "c4dc317ff9680e58ac48a4c774a37c51c95ae26bca80933ec9b9790fc84ca7ee",
+  "downloadEnabled": false,
+  "runtimeActivation": false,
+  "modelFilesPublished": false,
+  "completeForSourceVerification": true,
+  "completeForRuntimeInstallation": false,
+  "trustBasis": "User-approved first fetch over verified system HTTPS with If-Match, exact lengths, matching ETag/observed MD5, pinned metadata SHA-256 and ZIP CRCs. Archive SHA-256 values are local observations, not independently published or signed by the author.",
+  "sources": [
+    {
+      "direction": "en-tr",
+      "url": "https://object.pouta.csc.fi/Tatoeba-MT-models/eng-tur/opus+bt-2021-04-10.zip",
+      "archiveBytes": 278474341,
+      "archiveSha256": "f1f074185660501c977b523576775eef7438e35eb938712702ab33cf32061a3a",
+      "publisherSha256": null,
+      "observedMd5": "c675c60d822484820e328a5c77e07dd7",
+      "responseEtag": "c675c60d822484820e328a5c77e07dd7",
+      "etagMatchesMd5": true,
+      "model": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.npz",
+      "modelSha256": "a33e5e51c642b72f116c3804d9f572b87a530692b3d02072a467b5029ecfe953",
+      "extractedFiles": [
+        {
+          "name": "README.md",
+          "bytes": 1076,
+          "sha256": "fcc7399bf9c2bf027b2bf2e9484def8e929344b7fcfb0a5a36d19637671dbb84"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.npz",
+          "bytes": 299713042,
+          "sha256": "a33e5e51c642b72f116c3804d9f572b87a530692b3d02072a467b5029ecfe953"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.yml",
+          "bytes": 1437,
+          "sha256": "2b91162c86728f89d7e20a277096a70b7049664e7699386d600d49b8a2531a43"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 1026855,
+          "sha256": "cea0b6c2c2670962f5485d8d4d1de436a4bcf53fb228f3840cc37c07cc32d06b"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.valid1.log",
+          "bytes": 2818,
+          "sha256": "095eb6bb0ae90d352483e7289b29049ac393cdef1f273ca7cfb8123ed4265b44"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.train1.log",
+          "bytes": 45723,
+          "sha256": "9fc13b60e98af01c57c986fb3f4f3b484cd786a39e896bca970bc47c2cc19b5d"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 793920,
+          "sha256": "98eb24f0995a9d5f7cb0fb628c474628b1d2284615e881e857d062c0b651ce10"
+        },
+        {
+          "name": "source.tcmodel",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 837876,
+          "sha256": "45cc6000ed513cdca8f80739087fbcbf9933dc50c9ae36c319c9670882f72e1b"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 274,
+          "sha256": "b14a9a0739c85b0c1daa480903d7c0a9daad3fff65c34705f3273df1cd521047"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1361,
+          "sha256": "edd40f1db10d408a12f0ecf29705603a50fc92ceb25506ee3f674b3e3ecddf90"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        },
+        {
+          "name": "config-bt.mk",
+          "bytes": 425,
+          "sha256": "d131f55939b35fee0e59b9d0128fbd5a5bd25bc69817c088228aeee43a450614"
+        }
+      ],
+      "licenseInArchive": "CC-BY-4.0"
+    },
+    {
+      "direction": "tr-en",
+      "url": "https://object.pouta.csc.fi/Tatoeba-MT-models/tur-eng/opusTCv20210807+bt_transformer-big_2022-03-17.zip",
+      "archiveBytes": 872172728,
+      "archiveSha256": "59a0280099e09d0f32f18688c07ac5a5fc679e3a09bc843facb29f7b63aa9af3",
+      "publisherSha256": null,
+      "observedMd5": "91eed7164e4e8d461a5bb59e6e02760e",
+      "responseEtag": "91eed7164e4e8d461a5bb59e6e02760e",
+      "etagMatchesMd5": true,
+      "model": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.npz",
+      "modelSha256": "6467c786562bb76b032ca5d47c94609d31499cd7d87d91eb2fa32463d0aec220",
+      "extractedFiles": [
+        {
+          "name": "README.md",
+          "bytes": 1354,
+          "sha256": "60097f6bcf7064fbdd802984ad2fff563be34e0b34c5d49b394ca626f30d754f"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.npz",
+          "bytes": 939424890,
+          "sha256": "6467c786562bb76b032ca5d47c94609d31499cd7d87d91eb2fa32463d0aec220"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.yml",
+          "bytes": 1563,
+          "sha256": "9bdf82becb5d0c873a9e24634c02457aa454808d0b94f76e15d0ba3123dd21e3"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 985547,
+          "sha256": "4c4b1a20119dc7f08c62469f360cebbc3e08b6def285f9b2a1dbabfe8d9cecdd"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.valid1.log",
+          "bytes": 2343,
+          "sha256": "edae482d63e5625a9cc1f212f7b1134af9669bef791eebcef42b2a8954e7779c"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.train1.log",
+          "bytes": 39190,
+          "sha256": "146bddcfeaa23ee018f7766451dd76170e646fdcbf306d6063f2f715be0af20a"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 833378,
+          "sha256": "a6946a00a5cbd04044bb1c25b48ea798561a2fd12d872e5d1452bdc3dc076e77"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 796940,
+          "sha256": "cfd9506b675c3f26850ae08995f5a7c8baf56db49d9784a80f418fb8a9210d48"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 305,
+          "sha256": "a01479b996ec65f9113730c7e717242c58dd1f31039d323ed7cbd595d54e6052"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1413,
+          "sha256": "b07987a34cc3fc3b2addbd82aa90a5b4fdbee37c80065ddb20fbdd0fb4fa7754"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        },
+        {
+          "name": "opusTCv20210807+bt.transformer-big.mk",
+          "bytes": 565,
+          "sha256": "034cb27196d2675510fca1009022593d3fe504873c22850bcccab8ab4e882103"
+        }
+      ],
+      "licenseInArchive": "CC-BY-4.0"
+    }
+  ]
+}
