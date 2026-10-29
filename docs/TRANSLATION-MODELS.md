@@ -4,6 +4,8 @@
 
 This is a proposal, not an installed or supported translation profile. The two current-model adapters failed the agreed regression gate. A model comparison is now a better next investigation than silently replacing known facts or claiming the rejected changes improve quality. The later source preflight found a native Marian conversion route without PyTorch, documented below; it did not install weights.
 
+The [guarded Windows runner](MARIAN-CONVERSION.md) is now prepared and tested with small fixtures. Its default mode only checks resources; real model conversion remains pending RAM admission. This does not enable a runtime profile or claim better translation.
+
 ## First candidate pair
 
 | Direction         | Official model / pinned revision                                                                                                              | Card license | Selected source weight                 |
