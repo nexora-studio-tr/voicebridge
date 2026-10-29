@@ -1,6 +1,6 @@
 # Sonraki yerel model deneyi
 
-[English](TRANSLATION-MODELS.md) · [Elenen adaptörler](reports/TRANSLATION-SCREEN-2026-10-29.tr.md) · [Öneri metaverisi](experiments/local-translation-candidates.json) · [Tamamlanan kaynak ön kontrolü](reports/MODEL-PREFLIGHT-2026-10-29.tr.md)
+[English](TRANSLATION-MODELS.md) · [Elenen adaptörler](reports/TRANSLATION-SCREEN-2026-10-29.tr.md) · [Öneri metaverisi](experiments/local-translation-candidates.json) · [Kaynak ön kontrolü](reports/MODEL-PREFLIGHT-2026-10-29.tr.md) · [Doğrulanan kaynaklar](reports/MODEL-SOURCES-2026-10-29.tr.md)
 
 Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Mevcut modellerle denenen iki adaptör gerileme koşulunu geçemedi. Sonraki araştırma, bilinen bilgileri zorla değiştirmek veya elenen adaya kalite artışı demek yerine model karşılaştırmasına odaklanır. Sonraki kaynak ön kontrolü PyTorch gerektirmeyen özgün Marian yolunu buldu; ayrıntısı aşağıda, model ağırlığı kurulmadı.
 
@@ -11,7 +11,7 @@ Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Me
 | İngilizce → Türkçe | [Helsinki-NLP/opus-tatoeba-en-tr](https://huggingface.co/Helsinki-NLP/opus-tatoeba-en-tr/commit/7178cf6532017eae305633c7bd5ff100d2563db7)     | Apache-2.0      | `pytorch_model.bin`, yaklaşık 150 MB  |
 | Türkçe → İngilizce | [Helsinki-NLP/opus-mt-tc-big-tr-en](https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-tr-en/commit/2261c8fc7b1af59caee87f8ff0ecf3fbccfe8391) | CC-BY-4.0       | `model.safetensors`, 469.717.280 bayt |
 
-[İngilizce dosyanın](https://huggingface.co/Helsinki-NLP/opus-tatoeba-en-tr/blob/main/pytorch_model.bin) ve [Türkçe dosyanın](https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-tr-en/blob/main/model.safetensors) kaynak sayfalarındaki SHA-256 değerleri öneride korunur. Yaklaşık **620 MB seçilmiş ağırlığa** ek olarak tokenizer/yapılandırma ve dönüştürme bağımlılıkları gerekir. Depoların toplam boyutunda yinelenen çatı biçimleri bulunur; bütün depo topluca indirilmez. Henüz indirme veya dönüştürme yapılmadı; gerçek çıktı boyutu, RAM, süre ve kalite ölçülmedi.
+[İngilizce dosyanın](https://huggingface.co/Helsinki-NLP/opus-tatoeba-en-tr/blob/main/pytorch_model.bin) ve [Türkçe dosyanın](https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-tr-en/blob/main/model.safetensors) kaynak sayfalarındaki SHA-256 değerleri öneride korunur. Yaklaşık **620 MB seçilmiş ağırlığa** ek olarak tokenizer/yapılandırma ve dönüştürme bağımlılıkları gerekir. Depoların toplam boyutunda yinelenen çatı biçimleri bulunur; bütün depo topluca indirilmez. Tablodaki Hugging Face ağırlıkları indirilmedi. Özgün arşivler aşağıdaki ayrı yolda alındı; dönüştürme çıktı boyutu, RAM, süre ve kalite hâlâ ölçülmedi.
 
 Bu öncelik, dar ve iki yöne özel bir deney için mühendislik kararıdır; Argos'tan daha iyi olduğunun kanıtı değildir. Lisans ve dil yönleri model kartlarına dayanır. Modeller upstream çalışmadır, Nexora'nın eğittiği ürün gibi sunulmaz. Dağıtımdan önce lisans/atıf korunmalı; dönüştürme ve nicemleme ayrıca belirtilmeli. Öneri tam bir çalıştırılabilir indirme kilidi değildir: kurulumdan önce tokenizer/yapılandırma özetleri ve bağımlılık sürümleri tamamlanmalı.
 
@@ -19,9 +19,11 @@ Bu öncelik, dar ve iki yöne özel bir deney için mühendislik kararıdır; Ar
 
 ## Ön kontrolden sonra özgün Marian alternatifi
 
-[Kaynak ön kontrol raporu](reports/MODEL-PREFLIGHT-2026-10-29.tr.md) ve [ayrı manifest](experiments/marian-source-preflight.json), toplam 1.150.647.069 bayt özgün Marian NPZ arşivini kaydeder. Kurulu dönüştürücü/bağımlılıklar, PyTorch veya Transformers olmadan sözlük ve ayrı kaynak/hedef SentencePiece modellerini inceleyebiliyor. Yalnızca küçük metaveri aralıkları indirildi; tam arşiv özetleri, gömülü NPZ uyumu, dönüştürme tüketimi ve kalite henüz doğrulanmadı. Tablodaki seçilmiş Hugging Face ağırlıklarına göre daha büyük indirme, daha az ek bağımlılık anlamına gelir.
+[Kaynak ön kontrol raporu](reports/MODEL-PREFLIGHT-2026-10-29.tr.md) ve [ayrı manifest](experiments/marian-source-preflight.json), toplam 1.150.647.069 bayt özgün Marian NPZ arşivini kaydeder. Kurulu dönüştürücü/bağımlılıklar, PyTorch veya Transformers olmadan sözlük ve ayrı kaynak/hedef SentencePiece modellerini inceleyebiliyor. İlk ön kontrolde yalnızca küçük metaveri aralıkları alındı; aşağıdaki sonraki doğrulama arşiv kimliklerini ve NPZ yapısal denetimini tamamladı. Tam dönüştürücü uyumu, dönüştürme tüketimi ve kalite hâlâ doğrulanmadı. Tablodaki seçilmiş Hugging Face ağırlıklarına göre daha büyük indirme, daha az ek bağımlılık anlamına gelir.
 
 İki özgün arşivde de **CC-BY-4.0** LICENSE var; buna yukarıdaki Hugging Face kartında ayrı paketlenmiş ağırlıkları Apache-2.0 etiketlenen EN → TR de dahil. Kaynak kimlikleri ve lisans gözlemleri ayrı tutulur. Metaveride farklı belirteç kimlikleri ve Marian sözlüğünde bulunmayan tokenizer parçaları görüldü; özel belirteç, bilinmeyen parça ve normalleştirme davranışı açıkça test edilmeli. Mevcut boş RAM koruyucu 2 GiB / 4 GiB eşiklerini geçmedi; disk, 5 GiB geçici alan + 10 GiB rezervi karşıladı. Eşikler ölçülmüş dönüştürme tüketimi değildir. Manifest veya çevrimdışı ön kontrol aracı indirme/dönüştürme ya da çalışma sürümüne alma izni vermez.
+
+Somut onay sonrasında iki özgün arşiv indirildi ve [tamamı doğrulandı](reports/MODEL-SOURCES-2026-10-29.tr.md). [Ayrı kaynak doğrulama kilidi](experiments/marian-verified-sources.json), gözlenen arşiv ve çıkarılan dosya SHA-256 kimliklerini sabitler. Çevrimdışı NPZ inceleyicisi tensor dizisi yüklemeden başlıkları, sınırlı güvenli YAML'ı ve iç ZIP CRC'lerinin tamamını doğruladı. İki yapılandırma ilk seçenek kontrolünü geçti; tam dönüştürücü uyumu denenmedi. Boş RAM eşiğin altında kaldığından dönüştürme yapılmadı. Bu, kaynak hazırlığıdır; çeviri kalitesi artışı veya çalışma sürümüne kurulum değildir.
 
 ## Uygulama sınırı
 

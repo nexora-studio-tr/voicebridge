@@ -2,6 +2,8 @@
 
 ## Unreleased — quality measurement tooling, 2026-10-29
 
+- Verify the approved native Marian archives and extracted files with pinned observed SHA-256 identities and a bounded offline NPZ inspector. Conversion remains blocked by available RAM; no new model is activated or quality improvement claimed.
+
 - Publish two rejected development-only translation experiments with exact control/candidate evidence and a fail-closed paired review tool. Seven new model-free tests cover cohort, input and judgment boundaries; no rejected adapter enters the runtime.
 - Document the next pinned-revision local-model proposal and observed licenses/weight identities without downloading models or changing alpha.7 behavior.
 - Add a fixed original 30-TR/30-EN corpus, 180 frozen synthetic conditions and offline, model-verifying benchmark commands.

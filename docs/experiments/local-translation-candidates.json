@@ -7,20 +7,21 @@
   "completeDownloadLock": false,
   "pending": [
     "Hugging Face tokenizer/config hashes if that packaging is selected",
-    "local download/conversion approval",
     "available RAM before conversion",
-    "full archive identity and embedded NPZ validation for the native alternative",
+    "isolated int8 conversion and full converter compatibility for the native alternative",
     "quality and resource measurements"
   ],
   "nativeAlternativePreflight": {
     "manifest": "marian-source-preflight.json",
     "report": "../reports/quality-model-preflight-2026-10-29.json",
-    "status": "metadata-verified-resources-blocked",
+    "status": "sources-verified-conversion-resources-blocked",
+    "verifiedSourceLock": "marian-verified-sources.json",
+    "verificationReport": "../reports/quality-model-sources-2026-10-29.json",
     "archiveBytes": 1150647069,
     "metadataHashesPinned": true,
     "installedConversionDependenciesMatch": true,
     "additionalFrameworksRequired": false,
-    "fullArchivesVerified": false,
+    "fullArchivesVerified": true,
     "runtimeActivation": false,
     "note": "Original Marian source archives, not the Hugging Face weight files below; both observed archive licenses are CC-BY-4.0."
   },
