@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "status": "metadata-only-preflight",
+  "observedAt": "2026-10-29",
+  "downloadEnabled": false,
+  "runtimeActivation": false,
+  "completeDownloadLock": false,
+  "dependencies": {
+    "python": "3.12",
+    "ctranslate2": "4.8.3",
+    "numpy": "2.5.4",
+    "sentencepiece": "0.2.2",
+    "PyYAML": "6.0.3"
+  },
+  "resourcePolicy": {
+    "temporaryBudgetBytes": 5368709120,
+    "reserveFreeDiskBytes": 10737418240,
+    "maxConversionProcesses": 1,
+    "cpuThreads": 2,
+    "note": "Conservative admission guards, not measured conversion peaks; recheck immediately before each process."
+  },
+  "integrity": "Metadata SHA-256 was observed from HTTPS range requests with If-Match and ZIP CRC validation. ETag is an observed server identifier, not a publisher SHA-256 or a signature. Full archives and NPZ contents have not been verified.",
+  "sources": [
+    {
+      "direction": "en-tr",
+      "archive": {
+        "url": "https://object.pouta.csc.fi/Tatoeba-MT-models/eng-tur/opus+bt-2021-04-10.zip",
+        "bytes": 278474341,
+        "observedEtag": "c675c60d822484820e328a5c77e07dd7",
+        "publisherSha256": null,
+        "observedSha256": null,
+        "unpackedBytes": 302443539,
+        "entries": [
+          {
+            "name": "README.md",
+            "bytes": 1076,
+            "compressed": 430,
+            "offset": 0,
+            "crc32": "7e6755d3"
+          },
+          {
+            "name": "LICENSE",
+            "bytes": 18652,
+            "compressed": 5916,
+            "offset": 497,
+            "crc32": "e051a648"
+          },
+          {
+            "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.npz",
+            "bytes": 299713042,
+            "compressed": 277227249,
+            "offset": 6478,
+            "crc32": "a1889320"
+          },
+          {
+            "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.yml",
+            "bytes": 1437,
+            "compressed": 542,
+            "offset": 277233855,
+            "crc32": "0c1a1e96"
+          },
+          {
+            "name": "opus+bt.spm32k-spm32k.vocab.yml",
+            "bytes": 1026855,
+            "compressed": 419034,
+            "offset": 277234525,
+            "crc32": "e11a5c8b"
+          },
+          {
+            "name": "opus+bt.spm32k-spm32k.transformer-align.valid1.log",
+            "bytes": 2818,
+            "compressed": 523,
+            "offset": 277653648,
+            "crc32": "4950b46e"
+          },
+          {
+            "name": "opus+bt.spm32k-spm32k.transformer-align.train1.log",
+            "bytes": 45723,
+            "compressed": 6462,
+            "offset": 277654279,
+            "crc32": "df9347d3"
+          },
+          {
+            "name": "source.spm",
+            "bytes": 793920,
+            "compressed": 398267,
+            "offset": 277660849,
+            "crc32": "975f2401"
+          },
+          {
+            "name": "source.tcmodel",
+            "bytes": 0,
+            "compressed": 0,
+            "offset": 278059184,
+            "crc32": "00000000"
+          },
+          {
+            "name": "target.spm",
+            "bytes": 837876,
+            "compressed": 412273,
+            "offset": 278059256,
+            "crc32": "1c742d72"
+          },
+          {
+            "name": "decoder.yml",
+            "bytes": 274,
+            "compressed": 152,
+            "offset": 278471597,
+            "crc32": "83c1c67a"
+          },
+          {
+            "name": "preprocess.sh",
+            "bytes": 1361,
+            "compressed": 599,
+            "offset": 278471818,
+            "crc32": "87bdddd3"
+          },
+          {
+            "name": "postprocess.sh",
+            "bytes": 80,
+            "compressed": 78,
+            "offset": 278472488,
+            "crc32": "f600030d"
+          },
+          {
+            "name": "config-bt.mk",
+            "bytes": 425,
+            "compressed": 260,
+            "offset": 278472638,
+            "crc32": "3b8e1d76"
+          }
+        ]
+      },
+      "licenseInArchive": "CC-BY-4.0",
+      "attribution": "Helsinki-NLP / Tatoeba-MT / OPUS; preserve upstream README and LICENSE",
+      "sourceFormat": "original-marian-npz-not-huggingface-weights",
+      "model": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.npz",
+      "sourceVocabulary": "opus+bt.spm32k-spm32k.vocab.yml",
+      "targetVocabulary": "opus+bt.spm32k-spm32k.vocab.yml",
+      "sourceTokenizer": "source.spm",
+      "targetTokenizer": "target.spm",
+      "metadata": [
+        {
+          "name": "README.md",
+          "bytes": 1076,
+          "sha256": "fcc7399bf9c2bf027b2bf2e9484def8e929344b7fcfb0a5a36d19637671dbb84"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.yml",
+          "bytes": 1437,
+          "sha256": "2b91162c86728f89d7e20a277096a70b7049664e7699386d600d49b8a2531a43"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 1026855,
+          "sha256": "cea0b6c2c2670962f5485d8d4d1de436a4bcf53fb228f3840cc37c07cc32d06b"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 793920,
+          "sha256": "98eb24f0995a9d5f7cb0fb628c474628b1d2284615e881e857d062c0b651ce10"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 837876,
+          "sha256": "45cc6000ed513cdca8f80739087fbcbf9933dc50c9ae36c319c9670882f72e1b"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 274,
+          "sha256": "b14a9a0739c85b0c1daa480903d7c0a9daad3fff65c34705f3273df1cd521047"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1361,
+          "sha256": "edd40f1db10d408a12f0ecf29705603a50fc92ceb25506ee3f674b3e3ecddf90"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        }
+      ],
+      "minimumAvailableRamBytes": 2147483648
+    },
+    {
+      "direction": "tr-en",
+      "archive": {
+        "url": "https://object.pouta.csc.fi/Tatoeba-MT-models/tur-eng/opusTCv20210807+bt_transformer-big_2022-03-17.zip",
+        "bytes": 872172728,
+        "observedEtag": "91eed7164e4e8d461a5bb59e6e02760e",
+        "publisherSha256": null,
+        "observedSha256": null,
+        "unpackedBytes": 942106220,
+        "entries": [
+          {
+            "name": "README.md",
+            "bytes": 1354,
+            "compressed": 470,
+            "offset": 0,
+            "crc32": "aa62fe98"
+          },
+          {
+            "name": "LICENSE",
+            "bytes": 18652,
+            "compressed": 5916,
+            "offset": 537,
+            "crc32": "e051a648"
+          },
+          {
+            "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.npz",
+            "bytes": 939424890,
+            "compressed": 871012705,
+            "offset": 6518,
+            "crc32": "ca3d9b08"
+          },
+          {
+            "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.yml",
+            "bytes": 1563,
+            "compressed": 576,
+            "offset": 871019360,
+            "crc32": "6572a2bc"
+          },
+          {
+            "name": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+            "bytes": 985547,
+            "compressed": 324933,
+            "offset": 871020073,
+            "crc32": "f342f493"
+          },
+          {
+            "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.valid1.log",
+            "bytes": 2343,
+            "compressed": 455,
+            "offset": 871345106,
+            "crc32": "34ebfaf4"
+          },
+          {
+            "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.train1.log",
+            "bytes": 39190,
+            "compressed": 5108,
+            "offset": 871345678,
+            "crc32": "0a9f630b"
+          },
+          {
+            "name": "source.spm",
+            "bytes": 833378,
+            "compressed": 416043,
+            "offset": 871350903,
+            "crc32": "5c7edce9"
+          },
+          {
+            "name": "target.spm",
+            "bytes": 796940,
+            "compressed": 402799,
+            "offset": 871767014,
+            "crc32": "b713a52e"
+          },
+          {
+            "name": "decoder.yml",
+            "bytes": 305,
+            "compressed": 160,
+            "offset": 872169881,
+            "crc32": "450b13af"
+          },
+          {
+            "name": "preprocess.sh",
+            "bytes": 1413,
+            "compressed": 633,
+            "offset": 872170110,
+            "crc32": "fdf567f3"
+          },
+          {
+            "name": "postprocess.sh",
+            "bytes": 80,
+            "compressed": 78,
+            "offset": 872170814,
+            "crc32": "f600030d"
+          },
+          {
+            "name": "opusTCv20210807+bt.transformer-big.mk",
+            "bytes": 565,
+            "compressed": 308,
+            "offset": 872170964,
+            "crc32": "5dbed94c"
+          }
+        ]
+      },
+      "licenseInArchive": "CC-BY-4.0",
+      "attribution": "Helsinki-NLP / Tatoeba-MT / OPUS; preserve upstream README and LICENSE",
+      "sourceFormat": "original-marian-npz-not-huggingface-weights",
+      "model": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.npz",
+      "sourceVocabulary": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+      "targetVocabulary": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+      "sourceTokenizer": "source.spm",
+      "targetTokenizer": "target.spm",
+      "metadata": [
+        {
+          "name": "README.md",
+          "bytes": 1354,
+          "sha256": "60097f6bcf7064fbdd802984ad2fff563be34e0b34c5d49b394ca626f30d754f"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.yml",
+          "bytes": 1563,
+          "sha256": "9bdf82becb5d0c873a9e24634c02457aa454808d0b94f76e15d0ba3123dd21e3"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 985547,
+          "sha256": "4c4b1a20119dc7f08c62469f360cebbc3e08b6def285f9b2a1dbabfe8d9cecdd"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 833378,
+          "sha256": "a6946a00a5cbd04044bb1c25b48ea798561a2fd12d872e5d1452bdc3dc076e77"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 796940,
+          "sha256": "cfd9506b675c3f26850ae08995f5a7c8baf56db49d9784a80f418fb8a9210d48"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 305,
+          "sha256": "a01479b996ec65f9113730c7e717242c58dd1f31039d323ed7cbd595d54e6052"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1413,
+          "sha256": "b07987a34cc3fc3b2addbd82aa90a5b4fdbee37c80065ddb20fbdd0fb4fa7754"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        }
+      ],
+      "minimumAvailableRamBytes": 4294967296
+    }
+  ],
+  "pending": [
+    "scoped download/conversion approval",
+    "sufficient free RAM at conversion time",
+    "full archive SHA-256 bootstrap and bounded extraction",
+    "embedded NPZ config/array validation",
+    "isolated int8 conversion and measured peak resources",
+    "source/target token and normalization adapter",
+    "development quality screen before any full audio or reserved cases"
+  ]
+}

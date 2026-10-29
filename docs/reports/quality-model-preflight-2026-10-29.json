@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "status": "metadata-verified-resources-blocked",
+  "scope": "Offline metadata, dependency and resource admission; no conversion or quality evaluation.",
+  "tokenizerInspectionRequested": true,
+  "sourceMetadataObservedAt": "2026-10-29",
+  "checkedAt": "2026-10-29T09:38:10+00:00",
+  "sourceHashNormalization": "lf",
+  "preflightScriptSha256": "b6d0c86509f6017f1e447cffa221dee6af8f776566c3b4479004c4b8c1a14c79",
+  "manifestSha256": "c4dc317ff9680e58ac48a4c774a37c51c95ae26bca80933ec9b9790fc84ca7ee",
+  "networkRequests": 0,
+  "weightsDownloaded": false,
+  "weightsLoaded": false,
+  "dependenciesInstalled": false,
+  "resources": {
+    "freeDiskBytes": 26791792640,
+    "requiredFreeDiskBytes": 16106127360,
+    "diskSufficient": true,
+    "availableRamBytes": 1409482752,
+    "directions": {
+      "en-tr": {
+        "requiredAvailableRamBytes": 2147483648,
+        "memorySufficient": false
+      },
+      "tr-en": {
+        "requiredAvailableRamBytes": 4294967296,
+        "memorySufficient": false
+      }
+    },
+    "dependencies": {
+      "python": {
+        "required": "3.12",
+        "installed": "3.12",
+        "matches": true
+      },
+      "ctranslate2": {
+        "required": "4.8.3",
+        "installed": "4.8.3",
+        "matches": true
+      },
+      "numpy": {
+        "required": "2.5.4",
+        "installed": "2.5.4",
+        "matches": true
+      },
+      "sentencepiece": {
+        "required": "0.2.2",
+        "installed": "0.2.2",
+        "matches": true
+      },
+      "PyYAML": {
+        "required": "6.0.3",
+        "installed": "6.0.3",
+        "matches": true
+      }
+    },
+    "resourcesAndDependenciesReady": false,
+    "downloadAllowed": false,
+    "conversionAllowed": false,
+    "runtimePromotion": false
+  },
+  "sources": [
+    {
+      "direction": "en-tr",
+      "metadata": [
+        {
+          "name": "README.md",
+          "bytes": 1076,
+          "sha256": "fcc7399bf9c2bf027b2bf2e9484def8e929344b7fcfb0a5a36d19637671dbb84"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.transformer-align.model1.npz.best-perplexity.yml",
+          "bytes": 1437,
+          "sha256": "2b91162c86728f89d7e20a277096a70b7049664e7699386d600d49b8a2531a43"
+        },
+        {
+          "name": "opus+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 1026855,
+          "sha256": "cea0b6c2c2670962f5485d8d4d1de436a4bcf53fb228f3840cc37c07cc32d06b"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 793920,
+          "sha256": "98eb24f0995a9d5f7cb0fb628c474628b1d2284615e881e857d062c0b651ce10"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 837876,
+          "sha256": "45cc6000ed513cdca8f80739087fbcbf9933dc50c9ae36c319c9670882f72e1b"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 274,
+          "sha256": "b14a9a0739c85b0c1daa480903d7c0a9daad3fff65c34705f3273df1cd521047"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1361,
+          "sha256": "edd40f1db10d408a12f0ecf29705603a50fc92ceb25506ee3f674b3e3ecddf90"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        }
+      ],
+      "archiveVerified": false,
+      "embeddedModelConfigVerified": false,
+      "licenseInArchive": "CC-BY-4.0",
+      "tokenizers": {
+        "source": {
+          "pieces": 32000,
+          "vocabularyTokens": 59993,
+          "allPiecesInVocabulary": false,
+          "missingControlPieces": [
+            "<s>"
+          ],
+          "missingOrdinaryPieceCount": 67,
+          "unknownFallbackMustBeValidated": true,
+          "sentencepieceBosId": 1,
+          "sentencepieceEosId": 2,
+          "marianEosVocabularyId": 0,
+          "marianUnknownVocabularyId": 1,
+          "smokeRoundtrip": true
+        },
+        "target": {
+          "pieces": 32000,
+          "vocabularyTokens": 59993,
+          "allPiecesInVocabulary": false,
+          "missingControlPieces": [
+            "<s>"
+          ],
+          "missingOrdinaryPieceCount": 3,
+          "unknownFallbackMustBeValidated": true,
+          "sentencepieceBosId": 1,
+          "sentencepieceEosId": 2,
+          "marianEosVocabularyId": 0,
+          "marianUnknownVocabularyId": 1,
+          "smokeRoundtrip": true
+        }
+      }
+    },
+    {
+      "direction": "tr-en",
+      "metadata": [
+        {
+          "name": "README.md",
+          "bytes": 1354,
+          "sha256": "60097f6bcf7064fbdd802984ad2fff563be34e0b34c5d49b394ca626f30d754f"
+        },
+        {
+          "name": "LICENSE",
+          "bytes": 18652,
+          "sha256": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.transformer-big.model1.npz.best-perplexity.yml",
+          "bytes": 1563,
+          "sha256": "9bdf82becb5d0c873a9e24634c02457aa454808d0b94f76e15d0ba3123dd21e3"
+        },
+        {
+          "name": "opusTCv20210807+bt.spm32k-spm32k.vocab.yml",
+          "bytes": 985547,
+          "sha256": "4c4b1a20119dc7f08c62469f360cebbc3e08b6def285f9b2a1dbabfe8d9cecdd"
+        },
+        {
+          "name": "source.spm",
+          "bytes": 833378,
+          "sha256": "a6946a00a5cbd04044bb1c25b48ea798561a2fd12d872e5d1452bdc3dc076e77"
+        },
+        {
+          "name": "target.spm",
+          "bytes": 796940,
+          "sha256": "cfd9506b675c3f26850ae08995f5a7c8baf56db49d9784a80f418fb8a9210d48"
+        },
+        {
+          "name": "decoder.yml",
+          "bytes": 305,
+          "sha256": "a01479b996ec65f9113730c7e717242c58dd1f31039d323ed7cbd595d54e6052"
+        },
+        {
+          "name": "preprocess.sh",
+          "bytes": 1413,
+          "sha256": "b07987a34cc3fc3b2addbd82aa90a5b4fdbee37c80065ddb20fbdd0fb4fa7754"
+        },
+        {
+          "name": "postprocess.sh",
+          "bytes": 80,
+          "sha256": "039cec87f6d037fa216e918f3b0a7d4fd46517e54f4d422e73e0b4d6fc27ac0d"
+        }
+      ],
+      "archiveVerified": false,
+      "embeddedModelConfigVerified": false,
+      "licenseInArchive": "CC-BY-4.0",
+      "tokenizers": {
+        "source": {
+          "pieces": 32000,
+          "vocabularyTokens": 57059,
+          "allPiecesInVocabulary": false,
+          "missingControlPieces": [],
+          "missingOrdinaryPieceCount": 6,
+          "unknownFallbackMustBeValidated": true,
+          "sentencepieceBosId": 1,
+          "sentencepieceEosId": 2,
+          "marianEosVocabularyId": 43741,
+          "marianUnknownVocabularyId": 52508,
+          "smokeRoundtrip": true
+        },
+        "target": {
+          "pieces": 32000,
+          "vocabularyTokens": 57059,
+          "allPiecesInVocabulary": false,
+          "missingControlPieces": [],
+          "missingOrdinaryPieceCount": 10,
+          "unknownFallbackMustBeValidated": true,
+          "sentencepieceBosId": 1,
+          "sentencepieceEosId": 2,
+          "marianEosVocabularyId": 43741,
+          "marianUnknownVocabularyId": 52508,
+          "smokeRoundtrip": true
+        }
+      }
+    }
+  ]
+}
