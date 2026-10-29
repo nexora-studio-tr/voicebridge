@@ -5,10 +5,11 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from benchmark_quality import measure_sample
+from benchmark_quality import measure_sample, prepare
 from quality_metrics import (CONDITIONS, NORMALIZATION, RUBRIC, aggregate, apply_reviews,
                              compare, decode_wav, encode_wav, load_corpus, review_items,
                              score, tokens, variants)
@@ -93,6 +94,20 @@ class QualityEvidenceTests(unittest.TestCase):
                        'identity': dict.fromkeys(('corpusSha256', 'fixtureSetSha256', 'scorerSha256'), 'f' * 64),
                        'host': {'processor': 'fixture-cpu'}}
         self.report['identity']['normalization'] = NORMALIZATION
+
+    def test_cached_fixtures_do_not_bypass_current_model_integrity(self):
+        scratch = ROOT / 'artifacts/quality-tests'
+        scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=scratch) as directory:
+            cached = Path(directory)
+            (cached / 'manifest.json').write_text('{}', 'utf8')
+            with patch('benchmark_quality.model_identity', side_effect=ValueError('MODIFIED_MODELS')) as verify, \
+                 patch('benchmark_quality.fixtures') as reuse, patch('benchmark_quality.create_engine') as inference:
+                with self.assertRaisesRegex(ValueError, 'MODIFIED_MODELS'):
+                    prepare(cached, Path('unused-test-models'))
+                verify.assert_called_once_with(Path('unused-test-models'))
+                reuse.assert_not_called()
+                inference.assert_not_called()
 
     def test_reviews_deduplicate_conditions_but_bind_exact_experiment_and_outputs(self):
         items = review_items(self.report)

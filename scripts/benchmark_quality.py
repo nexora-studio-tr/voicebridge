@@ -123,6 +123,8 @@ def fixtures(directory, references):
 
 def prepare(directory, models):
     _, references = load_corpus(CORPUS)
+    # A cached fixture manifest does not prove the current inference models are intact.
+    model = model_identity(models)
     if (directory / 'manifest.json').exists():
         manifest = fixtures(directory, references)
         print(json.dumps({'status': 'reused-frozen-fixtures', 'samples': len(manifest['samples']),
@@ -130,7 +132,6 @@ def prepare(directory, models):
         return manifest
     if directory.exists() and any(directory.iterdir()):
         raise ValueError('PARTIAL_FIXTURE_DIRECTORY_USE_NEW_NAME')
-    model = model_identity(models)
     engine = create_engine(models)
     (directory / 'wav').mkdir(parents=True, exist_ok=True)
     manifest = {'schemaVersion': 1, 'synthetic': True, 'createdAt': now(),
