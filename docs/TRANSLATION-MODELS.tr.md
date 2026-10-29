@@ -1,8 +1,8 @@
 # Sonraki yerel model deneyi
 
-[English](TRANSLATION-MODELS.md) · [Elenen adaptörler](reports/TRANSLATION-SCREEN-2026-10-29.tr.md) · [Öneri metaverisi](experiments/local-translation-candidates.json)
+[English](TRANSLATION-MODELS.md) · [Elenen adaptörler](reports/TRANSLATION-SCREEN-2026-10-29.tr.md) · [Öneri metaverisi](experiments/local-translation-candidates.json) · [Tamamlanan kaynak ön kontrolü](reports/MODEL-PREFLIGHT-2026-10-29.tr.md)
 
-Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Mevcut modellerle denenen iki adaptör gerileme koşulunu geçemedi. Sonraki araştırma, bilinen bilgileri zorla değiştirmek veya elenen adaya kalite artışı demek yerine model karşılaştırmasına odaklanır.
+Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Mevcut modellerle denenen iki adaptör gerileme koşulunu geçemedi. Sonraki araştırma, bilinen bilgileri zorla değiştirmek veya elenen adaya kalite artışı demek yerine model karşılaştırmasına odaklanır. Sonraki kaynak ön kontrolü PyTorch gerektirmeyen özgün Marian yolunu buldu; ayrıntısı aşağıda, model ağırlığı kurulmadı.
 
 ## İlk aday çifti
 
@@ -16,6 +16,12 @@ Bu bir öneridir; kurulu veya desteklendiği doğrulanmış profil değildir. Me
 Bu öncelik, dar ve iki yöne özel bir deney için mühendislik kararıdır; Argos'tan daha iyi olduğunun kanıtı değildir. Lisans ve dil yönleri model kartlarına dayanır. Modeller upstream çalışmadır, Nexora'nın eğittiği ürün gibi sunulmaz. Dağıtımdan önce lisans/atıf korunmalı; dönüştürme ve nicemleme ayrıca belirtilmeli. Öneri tam bir çalıştırılabilir indirme kilidi değildir: kurulumdan önce tokenizer/yapılandırma özetleri ve bağımlılık sürümleri tamamlanmalı.
 
 [M2M100 418M](https://huggingface.co/facebook/m2m100_418M), MIT etiketli ve iki yönü kapsayan yedektir; fakat [seçilecek PyTorch ağırlığı](https://huggingface.co/facebook/m2m100_418M/tree/main) yaklaşık 1,94 GB olduğundan ilk deneyde öncelikli değildir. [NLLB 600M](https://huggingface.co/facebook/nllb-200-distilled-600M) kartında CC-BY-NC-4.0 vardır; ticari olmayan kullanım sınırı nedeniyle geniş kullanıma açık ürünün varsayılan adayı olarak seçilmedi. Bu kararlar kalite garantisi veya bütün upstream veri haklarının çözüldüğü iddiası değildir.
+
+## Ön kontrolden sonra özgün Marian alternatifi
+
+[Kaynak ön kontrol raporu](reports/MODEL-PREFLIGHT-2026-10-29.tr.md) ve [ayrı manifest](experiments/marian-source-preflight.json), toplam 1.150.647.069 bayt özgün Marian NPZ arşivini kaydeder. Kurulu dönüştürücü/bağımlılıklar, PyTorch veya Transformers olmadan sözlük ve ayrı kaynak/hedef SentencePiece modellerini inceleyebiliyor. Yalnızca küçük metaveri aralıkları indirildi; tam arşiv özetleri, gömülü NPZ uyumu, dönüştürme tüketimi ve kalite henüz doğrulanmadı. Tablodaki seçilmiş Hugging Face ağırlıklarına göre daha büyük indirme, daha az ek bağımlılık anlamına gelir.
+
+İki özgün arşivde de **CC-BY-4.0** LICENSE var; buna yukarıdaki Hugging Face kartında ayrı paketlenmiş ağırlıkları Apache-2.0 etiketlenen EN → TR de dahil. Kaynak kimlikleri ve lisans gözlemleri ayrı tutulur. Metaveride farklı belirteç kimlikleri ve Marian sözlüğünde bulunmayan tokenizer parçaları görüldü; özel belirteç, bilinmeyen parça ve normalleştirme davranışı açıkça test edilmeli. Mevcut boş RAM koruyucu 2 GiB / 4 GiB eşiklerini geçmedi; disk, 5 GiB geçici alan + 10 GiB rezervi karşıladı. Eşikler ölçülmüş dönüştürme tüketimi değildir. Manifest veya çevrimdışı ön kontrol aracı indirme/dönüştürme ya da çalışma sürümüne alma izni vermez.
 
 ## Uygulama sınırı
 

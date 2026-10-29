@@ -1,8 +1,8 @@
 # Next local-model experiment
 
-[Türkçe](TRANSLATION-MODELS.tr.md) · [Rejected adapter study](reports/TRANSLATION-SCREEN-2026-10-29.md) · [Proposal metadata](experiments/local-translation-candidates.json)
+[Türkçe](TRANSLATION-MODELS.tr.md) · [Rejected adapter study](reports/TRANSLATION-SCREEN-2026-10-29.md) · [Proposal metadata](experiments/local-translation-candidates.json) · [Completed source preflight](reports/MODEL-PREFLIGHT-2026-10-29.md)
 
-This is a proposal, not an installed or supported translation profile. The two current-model adapters failed the agreed regression gate. A model comparison is now a better next investigation than silently replacing known facts or claiming the rejected changes improve quality.
+This is a proposal, not an installed or supported translation profile. The two current-model adapters failed the agreed regression gate. A model comparison is now a better next investigation than silently replacing known facts or claiming the rejected changes improve quality. The later source preflight found a native Marian conversion route without PyTorch, documented below; it did not install weights.
 
 ## First candidate pair
 
@@ -16,6 +16,12 @@ The [English weight metadata](https://huggingface.co/Helsinki-NLP/opus-tatoeba-e
 This pair is prioritized as an engineering judgment about a bounded, language-specific experiment, not evidence that it beats Argos. The model cards identify the directions and licenses; models remain upstream work and are not presented as Nexora training. Preserve license/attribution and record conversion/quantization separately before any redistribution. The proposal is not a complete executable download lock: tokenizer/config hashes and exact dependency pins still need completion before installation.
 
 [M2M100 418M](https://huggingface.co/facebook/m2m100_418M) is an MIT-labeled reserve supporting both directions, but its [selected PyTorch weight](https://huggingface.co/facebook/m2m100_418M/tree/main) is about 1.94 GB. It is deferred to limit the first experiment's footprint. [NLLB 600M](https://huggingface.co/facebook/nllb-200-distilled-600M) is labeled CC-BY-NC-4.0; the noncommercial restriction is why it is not selected as the default candidate for this broadly reusable product. These choices do not certify model quality or resolve every upstream-data licensing question.
+
+## Native Marian alternative after preflight
+
+The [source preflight report](reports/MODEL-PREFLIGHT-2026-10-29.md) and [separate manifest](experiments/marian-source-preflight.json) record original Marian NPZ releases totaling 1,150,647,069 archive bytes. The installed converter/dependencies can inspect their vocabulary and distinct source/target SentencePiece models without PyTorch or Transformers. Only small metadata ranges were downloaded; full archive hashes, embedded NPZ compatibility, conversion resources and quality remain unverified. This is a larger download than the selected Hugging Face weights in the table, with fewer additional dependencies.
+
+Both native archives carry **CC-BY-4.0** LICENSE files, including EN → TR, whose Hugging Face card above labels its separately packaged weights Apache-2.0. Keep these source identities and licensing observations separate. Metadata shows differing token ID spaces and some tokenizer pieces missing from the Marian vocabulary; special tokens, unknown handling and normalization require explicit tests. Current available RAM failed conservative 2 GiB / 4 GiB guards; disk passed a 5 GiB temporary budget plus 10 GiB reserve. These guards are not measured conversion peaks. No download/conversion or runtime activation is enabled by the manifest or offline preflight tool.
 
 ## Integration boundary
 
