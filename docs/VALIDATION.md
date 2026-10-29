@@ -1,5 +1,13 @@
 # Validation
 
+## Development-only translation screen — 2026-10-29
+
+[English study](reports/TRANSLATION-SCREEN-2026-10-29.md) / [Türkçe çalışma](reports/TRANSLATION-SCREEN-2026-10-29.tr.md): C1 sentence-level calls and C2 upstream-style decoding each processed 145 distinct development text inputs representing 288 clip/route pairs. All 145 control outputs per candidate matched the baseline. AI preliminary early-stop review found two regression units for C1 and five for C2, affecting six and thirteen clip/route pairs respectively. Both candidates were rejected. Forty and fifty-two changed outputs remain unreviewed; these are not passes.
+
+Production inference, models, corpus/scorer and alpha.7 release assets are unchanged. No new ASR/TTS, audio, holdout, full-pipeline latency, live Discord or independent human acceptance was performed. Rejected research adapters are never imported by the app. Current research tools add naming and input/output guards after the archived measured source checkpoint; reports keep original source identities.
+
+Local **31 Python tests** passed, including seven new model-free checks for development partitioning, input bounds, evidence identity, holdout exclusion, coverage/control mismatches, inherited-review provenance and fail-closed decisions. Cross-platform/runtime/package results belong to the exact PR head's CI. Alternative model/license/footprint findings are a proposal, not a downloaded, activated or quality-validated model profile.
+
 ## Frozen bilingual quality baseline — 2026-10-29
 
 All **180 synthetic clips** completed on the existing alpha.7 local models. The [English report](reports/QUALITY-BASELINE-2026-10-29.md) / [Türkçe rapor](reports/QUALITY-BASELINE-2026-10-29.tr.md) retain language/condition/development/holdout results, hashes, every raw synthetic output and the separate real-worker queue scenario. No user audio or generated benchmark WAV is published. [Commands and rubric](QUALITY.md) distinguish recognition error, reference translation, pipeline translation and synthesis.

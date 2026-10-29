@@ -6,6 +6,8 @@
 
 Bilinen anlam hataları ve ayrı sentetik kuyruk denemesiyle [ölçülen alpha.7 başlangıç raporunu](reports/QUALITY-BASELINE-2026-10-29.tr.md) incele.
 
+Sonraki [geliştirme elemesi](reports/TRANSLATION-SCREEN-2026-10-29.tr.md), yeni kritik gerilemeler nedeniyle iki adaptörü reddetti. Çalışma motoru değişmedi; [alternatif model değerlendirmesi](TRANSLATION-MODELS.tr.md) ayrı ve henüz kurulmamış bir öneri.
+
 ## Referanslar ve ses koşulları
 
 [corpus.json](../examples/quality/corpus.json), iki dilde yazılmış 30 özgün ve kurgusal senaryo içerir: 30 Türkçe, 30 İngilizce kaynak metin. Sayılar, saat/tarih, olumsuzluk, isimler, komutlar ve duraksamalar kategorilerinin her birinde dil başına dört geliştirme ve bir ayrılmış değerlendirme senaryosu vardır. Altı senaryoluk `holdout` herkese açıktır ve iki dilde eşlenmiştir; kör test veya genel başarı kanıtı değildir. Sonuçlarına göre ayar yaptıktan sonra görülmemiş veri olarak sunulamaz.
